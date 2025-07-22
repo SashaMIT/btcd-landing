@@ -1,0 +1,1191 @@
+"use client"
+
+import { ArrowRight, Bitcoin } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { useState, useEffect } from "react"
+import { BitcoinTestimonialsSection } from "@/components/bitcoin-testimonials"
+import { BitcoinFAQSection } from "@/components/professional-faq"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useLanguage } from '@/contexts/LanguageContext'
+import { LanguageToggle } from '@/components/LanguageToggle'
+
+
+
+export default function BTCDLanding() {
+  const { t } = useLanguage()
+  const [selectedLiquidatorImage, setSelectedLiquidatorImage] = useState("/2.jpg")
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+  
+  const liquidatorImages = {
+    purchase: "/2.jpg",
+    profit: "/2.jpg", 
+    peg: "/2.jpg",
+    sustainability: "/2.jpg"
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      
+      if (currentScrollY < 10) {
+        // Always show header at top of page
+        setIsHeaderVisible(true)
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past 100px
+        setIsHeaderVisible(false)
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setIsHeaderVisible(true)
+      }
+      
+      setLastScrollY(currentScrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScrollY])
+
+  return (
+    <div className="min-h-screen bg-elastos-darker text-white">
+      {/* Navigation */}
+      <nav className={`fixed top-0 w-full z-50 bg-elastos-darker/80 backdrop-blur-md transition-transform duration-300 ease-in-out ${
+        isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-3 items-center h-16">
+            {/* Left Section - Logo */}
+            <div className="flex items-center justify-start">
+              <img 
+                src="/BTCD Logo/BTCD Logo 1.svg" 
+                alt="BTCD Logo" 
+                className="h-14 w-auto"
+              />
+            </div>
+            
+            {/* Center Section - Navigation */}
+            <div className="hidden md:flex items-center justify-center space-x-8 text-sm font-pp-telegraf">
+              <a 
+                href="#how-it-works" 
+                className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
+                {t.nav.howItWorks}
+              </a>
+              <a 
+                href="#protocol" 
+                className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('protocol')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
+                {t.nav.protocol}
+              </a>
+              <a 
+                href="#liquidations" 
+                className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('liquidations')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
+                {t.nav.liquidations}
+              </a>
+              <a 
+                href="#faq" 
+                className="text-gray-300 hover:text-white transition-colors flex items-center cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
+                {t.nav.faq}
+                <svg className="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+            
+            {/* Right Section - Actions */}
+            <div className="flex items-center justify-end space-x-4">
+              <LanguageToggle />
+              <Button className="px-6 py-2 font-pp-telegraf">
+                {t.nav.launchApp}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="min-h-screen pt-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Optimized Particle Effects - Fixed positioning to prevent scroll glitches */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: -1 }}>
+          {/* Mobile particles (fewer) */}
+          <div className="block md:hidden">
+            {[...Array(15)].map((_, i) => (
+              <div
+                key={`mobile-${i}`}
+                className="absolute w-0.5 h-0.5 bg-white/8 rounded-full opacity-60"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  transform: `translate3d(0, 0, 0)`,
+                  willChange: 'opacity',
+                  animation: `twinkle ${2 + Math.random() * 3}s ${Math.random() * 5}s infinite ease-in-out alternate`,
+                }}
+              ></div>
+            ))}
+          </div>
+          
+          {/* Desktop particles (more) */}
+          <div className="hidden md:block">
+            {[...Array(30)].map((_, i) => (
+              <div
+                key={`desktop-${i}`}
+                className="absolute w-1 h-1 bg-white/12 rounded-full opacity-70"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  transform: `translate3d(0, 0, 0)`,
+                  willChange: 'opacity',
+                  animation: `twinkle ${2 + Math.random() * 4}s ${Math.random() * 6}s infinite ease-in-out alternate`,
+                }}
+              ></div>
+            ))}
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative">
+          {/* Hero Container with Rounded Edges */}
+          <div className="card-elastos mx-1 sm:mx-2 my-6 sm:my-8">
+          <div className="text-center pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 lg:pb-12 px-4 sm:px-6 lg:px-8">
+            {/* Watch Intro Video */}
+            <div className="mb-6 sm:mb-8">
+              <button className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors mx-auto font-pp-telegraf text-sm">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-600 rounded-full flex items-center justify-center">
+                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 ml-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <span className="text-xs sm:text-sm">{t.hero.watchIntro}</span>
+              </button>
+            </div>
+
+            {/* Main Headline */}
+            <div className="relative mb-4 sm:mb-6">
+              {/* Gradient effects behind headline - responsive sizing */}
+              <div className="absolute inset-0 bg-gradient-to-br from-elastos-blue/20 via-transparent to-elastos-orange/20 rounded-xl sm:rounded-2xl blur-lg sm:blur-xl"></div>
+              <div className="absolute -top-8 sm:-top-12 lg:-top-20 -left-8 sm:-left-12 lg:-left-20 w-32 h-32 sm:w-60 sm:h-60 lg:w-96 lg:h-96 bg-glow-orange"></div>
+              <div className="absolute -bottom-8 sm:-bottom-12 lg:-bottom-20 -right-8 sm:-right-12 lg:-right-20 w-32 h-32 sm:w-60 sm:h-60 lg:w-96 lg:h-96 bg-glow-blue"></div>
+              
+              <h1 className="relative text-3xl sm:text-4xl lg:text-5xl xl:text-6xl heading-elastos text-white leading-tight max-w-4xl mx-auto px-2">
+                {t.hero.headline} <span className="text-elastos-orange emphasis-elastos">{t.hero.bitcoin}</span> {t.hero.headlineEnd}
+              </h1>
+            </div>
+
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-10 lg:mb-12 font-pp-telegraf max-w-3xl mx-auto px-2 leading-relaxed">
+              {t.hero.subtitle}
+            </p>
+
+            {/* CTA Button */}
+            <Button className="px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-pp-telegraf mb-12 sm:mb-14 lg:mb-16">
+              {t.hero.mintToday}
+            </Button>
+          </div>
+
+          {/* Dashboard Preview */}
+          <div className="max-w-6xl mx-auto px-2 sm:px-4">
+            <div className="card-elastos overflow-hidden">
+              <img 
+                src="/2.jpg" 
+                alt="BTCD Dashboard Preview" 
+                className="w-full h-auto rounded-[0.65rem]"
+              />
+                    </div>
+                </div>
+
+          {/* Partner Logos */}
+          <div className="mt-12 sm:mt-16 lg:mt-20 pb-12 sm:pb-16 lg:pb-20 px-2 sm:px-4">
+            <div className="relative">
+              {/* Gradient effects behind partner logos section - responsive sizing */}
+              <div className="absolute inset-0 bg-gradient-to-br from-elastos-orange/15 via-transparent to-elastos-blue/15 rounded-xl sm:rounded-2xl blur-lg sm:blur-xl"></div>
+              <div className="absolute -top-8 sm:-top-12 lg:-top-16 -left-8 sm:-left-12 lg:-left-16 w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-glow-blue"></div>
+              <div className="absolute -bottom-8 sm:-bottom-12 lg:-bottom-16 -right-8 sm:-right-12 lg:-right-16 w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-glow-orange"></div>
+              
+              <div className="relative text-center mb-6 sm:mb-8">
+                <p className="text-gray-500 text-xs sm:text-sm font-pp-telegraf">{t.hero.securedBy}</p>
+              </div>
+              <div className="relative flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 opacity-60">
+              <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
+                <img src="/Bit-w.png" alt="Bitcoin Infrastructure Provider" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                    </div>
+              <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
+                <img src="/f2.png" alt="F2Pool" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                  </div>
+              <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
+                <img src="/Via.png" alt="ViaPool" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                        </div>
+              <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
+                <img src="/Ok-w.png" alt="OKX Pool" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                      </div>
+              <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
+                <img src="/Elastos Logo Dark - 4.png" alt="Elastos" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                      </div>
+              <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
+                <img src="/NBW.png" alt="NBW Infrastructure" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How BTCD Works */}
+      <section id="how-it-works" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-elastos-orange rounded-full flex items-center justify-center">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-elastos-orange rounded-full"></div>
+              </div>
+              <span className="text-elastos-orange text-xs sm:text-sm font-pp-telegraf-regular tracking-wider">{t.howWorks.badge}</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl heading-elastos text-white mb-4 px-2">{t.howWorks.title}</h2>
+            <p className="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto font-pp-telegraf px-2 leading-relaxed">
+              {t.howWorks.subtitle}
+            </p>
+          </div>
+
+          <div className="space-y-16 sm:space-y-20 lg:space-y-32">
+            {/* Step 1: Lock Your Bitcoin */}
+            <motion.div 
+              className="card-elastos p-6 sm:p-8 lg:p-12 sticky top-20"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              style={{ zIndex: 10 }}
+            >
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-2xl sm:text-3xl heading-elastos text-white">{t.howWorks.step1.title}</h3>
+                <p className="text-gray-400 text-base sm:text-lg leading-relaxed font-pp-telegraf">
+                  {t.howWorks.step1.description}
+                </p>
+                <div className="space-y-3 sm:space-y-4">
+                  {t.howWorks.step1.points.map((point, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-elastos-orange rounded-full"></div>
+                      <span className="text-white font-pp-telegraf">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative mt-8 lg:mt-0">
+                <div className="flex justify-center">
+                  <img 
+                    src="/Bitcoin secure lock.png" 
+                    alt="Bitcoin Secure Lock" 
+                    className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+            </motion.div>
+
+            {/* Step 2: Zero-Knowledge Verification */}
+            <motion.div 
+              className="card-elastos p-6 sm:p-8 lg:p-12 sticky top-24"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              style={{ zIndex: 20 }}
+            >
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-2xl sm:text-3xl heading-elastos text-white">{t.howWorks.step2.title}</h3>
+                <p className="text-gray-400 text-base sm:text-lg leading-relaxed font-pp-telegraf">
+                  {t.howWorks.step2.description}
+                </p>
+                <div className="space-y-3 sm:space-y-4">
+                  {t.howWorks.step2.points.map((point, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-elastos-orange rounded-full"></div>
+                      <span className="text-white font-pp-telegraf">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative mt-8 lg:mt-0">
+                <div className="flex justify-center">
+                  <img 
+                    src="/Cryptographic Credential.png" 
+                    alt="Cryptographic Credential" 
+                    className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+            </motion.div>
+
+            {/* Step 3: Mint BTCD Stablecoin */}
+            <motion.div 
+              className="card-elastos p-6 sm:p-8 lg:p-12 sticky top-28"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              style={{ zIndex: 30 }}
+            >
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-2xl sm:text-3xl heading-elastos text-white">{t.howWorks.step3.title}</h3>
+                <p className="text-gray-400 text-base sm:text-lg leading-relaxed font-pp-telegraf">
+                  {t.howWorks.step3.description}
+                </p>
+                <div className="space-y-3 sm:space-y-4">
+                  {t.howWorks.step3.points.map((point, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-elastos-orange rounded-full"></div>
+                      <span className="text-white font-pp-telegraf">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative mt-8 lg:mt-0">
+                <div className="bg-gradient-to-br from-elastos-orange/20 via-elastos-blue/10 to-elastos-blue/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 backdrop-blur-sm border border-gray-800">
+                  <div className="flex items-center justify-center space-x-4 sm:space-x-6 lg:space-x-8">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-800 rounded-lg sm:rounded-xl flex items-center justify-center border-2 border-elastos-orange relative">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-700 rounded-md sm:rounded-lg flex items-center justify-center">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-1 sm:space-x-2">
+                      <div className="w-1.5 h-0.5 sm:w-2 sm:h-0.5 bg-elastos-orange"></div>
+                      <div className="w-1.5 h-0.5 sm:w-2 sm:h-0.5 bg-elastos-orange"></div>
+                      <div className="w-1.5 h-0.5 sm:w-2 sm:h-0.5 bg-elastos-orange"></div>
+                    </div>
+                    <div className="w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center">
+                      <img 
+                        src="/BTCD Logo/BTCD 3D 3.png" 
+                        alt="BTCD Logo" 
+                        className="w-32 h-32 sm:w-40 sm:h-40 object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </motion.div>
+
+            {/* Step 4: Smart Risk Management */}
+            <motion.div 
+              className="card-elastos p-6 sm:p-8 lg:p-12 sticky top-32"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+              style={{ zIndex: 40 }}
+            >
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-2xl sm:text-3xl heading-elastos text-white">{t.howWorks.step4.title}</h3>
+                <p className="text-gray-400 text-base sm:text-lg leading-relaxed font-pp-telegraf">
+                  {t.howWorks.step4.description}
+                </p>
+                <div className="space-y-3 sm:space-y-4">
+                  {t.howWorks.step4.points.map((point, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-elastos-orange rounded-full"></div>
+                      <span className="text-white font-pp-telegraf">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative mt-8 lg:mt-0">
+                <div className="flex justify-center">
+                  <img 
+                    src="/Meter.png" 
+                    alt="Smart Risk Management Meter" 
+                    className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Exploring the Protocol */}
+      <section id="protocol" className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="w-6 h-6 border-2 border-elastos-blue rounded-full flex items-center justify-center">
+                <div className="w-2 h-2 bg-elastos-blue rounded-full"></div>
+              </div>
+              <span className="text-elastos-blue text-sm font-pp-telegraf-regular tracking-wider">{t.protocol.badge}</span>
+            </div>
+            <h2 className="text-5xl heading-elastos text-white mb-4">{t.protocol.title}</h2>
+            <p className="text-gray-400 text-lg max-w-3xl mx-auto font-pp-telegraf">
+              {t.protocol.subtitle}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {/* Bitcoin-Native Architecture */}
+            <div className="card-elastos p-8">
+              <h3 className="text-xl emphasis-elastos text-white mb-4">{t.protocol.bitcoinNative.title}</h3>
+              <p className="text-gray-400 text-sm mb-8 leading-relaxed font-pp-telegraf">
+                {t.protocol.bitcoinNative.description}
+              </p>
+
+              <div className="relative mb-8">
+                <div className="w-48 h-48 mx-auto flex items-center justify-center">
+                  <img 
+                    src="/BTCD Logo/BTC lock.png" 
+                    alt="BTC Lock" 
+                    className="w-48 h-48 object-contain"
+                  />
+                </div>
+              </div>
+
+              <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700">
+                <h4 className="text-white font-pp-telegraf-regular mb-3">{t.protocol.bitcoinNative.smartContractsTitle}</h4>
+                <div className="bg-black/50 rounded-lg p-4 font-mono text-xs">
+                  <div className="text-gray-500 mb-2">{t.protocol.bitcoinNative.codeComment}</div>
+                  <div className="text-blue-400 mb-1">
+                    let <span className="text-white">btcd_vault</span>: <span className="text-green-400">P2WSH</span> ={" "}
+                    <span className="text-green-400">P2WSH</span> &#123;
+                  </div>
+                  <div className="text-blue-400 ml-4">
+                    collateral: <span className="text-yellow-400">bitcoin_address</span>,
+                  </div>
+                  <div className="text-blue-400 ml-4">
+                    owner: <span className="text-white">user_pubkey</span>,
+                  </div>
+                  <div className="text-blue-400 ml-4">
+                    threshold: <span className="text-yellow-400">135_percent</span>,
+                  </div>
+                  <div className="text-gray-500">&#125;;</div>
+                </div>
+                <p className="text-gray-400 text-xs mt-3 leading-relaxed font-pp-telegraf">
+                  {t.protocol.bitcoinNative.codeDescription}
+                </p>
+              </div>
+            </div>
+
+            {/* BTCD Token */}
+            <div className="card-elastos p-8 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-elastos-blue/20 to-transparent"></div>
+              <div className="relative z-10">
+                <div className="text-center mb-8">
+                  <div className="w-48 h-48 mx-auto flex items-center justify-center mb-6">
+                    <img 
+                      src="/BTCD Logo/BTCD 3D 3.png" 
+                      alt="BTCD Logo" 
+                      className="w-48 h-48 object-contain"
+                    />
+                  </div>
+                  <h3 className="text-2xl emphasis-elastos text-white">{t.protocol.btcdToken.title}</h3>
+                </div>
+
+                <p className="text-gray-300 text-sm text-center leading-relaxed mb-6 font-pp-telegraf">
+                  {t.protocol.btcdToken.description}
+                </p>
+
+                <div className="space-y-3 text-sm font-pp-telegraf mb-6">
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">{t.protocol.btcdToken.backingAsset}</span>
+                    <span className="text-white">{t.protocol.btcdToken.bitcoin100}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">{t.protocol.btcdToken.collateralRatio}</span>
+                    <span className="text-green-500">{t.protocol.btcdToken.ratioRequired}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">{t.protocol.btcdToken.liquidation}</span>
+                    <span className="text-elastos-blue">{t.protocol.btcdToken.gracePeriod}</span>
+                  </div>
+                </div>
+
+                {/* Comparison Table */}
+                <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+                  <h4 className="text-white text-xs font-medium mb-3 text-center">{t.protocol.btcdToken.comparison.title}</h4>
+                  <div className="space-y-2 text-xs">
+                    {/* Header Row */}
+                    <div className="flex justify-between items-center border-b border-gray-600 pb-2">
+                      <span className="text-gray-400 w-20"></span>
+                      <span className="text-elastos-orange font-medium text-center flex-1">{t.protocol.btcdToken.comparison.btcd}</span>
+                      <span className="text-gray-400 text-center flex-1">{t.protocol.btcdToken.comparison.others}</span>
+                    </div>
+                    
+                    {/* Custody Row */}
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-400 w-20">{t.protocol.btcdToken.comparison.custody}</span>
+                      <span className="text-green-400 text-center flex-1">✓ {t.protocol.btcdToken.comparison.btcdCustody}</span>
+                      <span className="text-red-400 text-center flex-1">✗ {t.protocol.btcdToken.comparison.othersCustody}</span>
+                    </div>
+                    
+                    {/* Backing Row */}
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-400 w-20">{t.protocol.btcdToken.comparison.backing}</span>
+                      <span className="text-green-400 text-center flex-1">✓ {t.protocol.btcdToken.comparison.btcdBacking}</span>
+                      <span className="text-red-400 text-center flex-1">✗ {t.protocol.btcdToken.comparison.othersBacking}</span>
+                    </div>
+                    
+                    {/* Grace Period Row */}
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-400 w-20">{t.protocol.btcdToken.comparison.grace}</span>
+                      <span className="text-green-400 text-center flex-1">✓ {t.protocol.btcdToken.comparison.btcdGrace}</span>
+                      <span className="text-red-400 text-center flex-1">✗ {t.protocol.btcdToken.comparison.othersGrace}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Elastos Infrastructure */}
+            <div className="card-elastos p-8">
+              <h3 className="text-xl emphasis-elastos text-white mb-4">{t.protocol.elastos.title}</h3>
+              <p className="text-gray-400 text-sm mb-8 leading-relaxed font-pp-telegraf">
+                {t.protocol.elastos.description}
+              </p>
+
+              {/* Elastos Video */}
+              <div className="mb-8">
+                <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-700">
+                  <iframe 
+                    className="absolute inset-0 w-full h-full"
+                    src="https://www.youtube-nocookie.com/embed/vaJ5Pguxd4M?si=M-Aq9xDcLpSH7LUJ" 
+                    title="YouTube video player" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+
+              <div className="bg-gray-800/50 rounded-xl border border-gray-700 overflow-hidden mb-6">
+                <div className="flex items-center justify-between p-4 border-b border-gray-700">
+                  <div className="flex items-center">
+                    <img 
+                      src="/Elastos Logo Dark - 4.png" 
+                      alt="Elastos" 
+                      className="h-5 w-auto object-contain"
+                    />
+                  </div>
+                  <div className="text-right">
+                    <div className="text-elastos-orange text-sm">366 EH/s</div>
+                    <div className="text-gray-400 text-xs font-pp-telegraf">{t.protocol.elastos.hashpowerLabel}</div>
+                  </div>
+                </div>
+
+                <div className="p-4 space-y-3">
+                  <div className="flex items-center space-x-3 text-gray-400 text-sm font-pp-telegraf">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      />
+                    </svg>
+                    <span>{t.protocol.elastos.securityLabel}</span>
+                  </div>
+                  <div className="flex items-center space-x-3 text-gray-400 text-sm font-pp-telegraf">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                    <span>{t.protocol.elastos.mergedLabel}</span>
+                  </div>
+                  <div className="flex items-center space-x-3 text-gray-400 text-sm font-pp-telegraf">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                    <span>{t.protocol.elastos.poolsLabel}</span>
+                  </div>
+                </div>
+
+                <div className="p-4 border-t border-gray-700">
+                  <div className="flex items-center gap-4">
+                    <div className="flex-shrink-0">
+                      <img 
+                        src="/Merge mining.png" 
+                        alt="Merge Mining" 
+                        className="w-12 h-12 object-contain"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-white emphasis-elastos mb-1">$7.74B</div>
+                      <div className="text-gray-400 text-xs font-pp-telegraf">{t.protocol.elastos.annualSecurity}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="card-elastos p-6 text-center">
+              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+              </div>
+                              <h4 className="text-white emphasis-elastos mb-2">{t.protocol.elastos.features[0].title}</h4>
+              <p className="text-gray-400 text-sm font-pp-telegraf">
+                {t.protocol.elastos.features[0].description}
+              </p>
+            </div>
+
+            <div className="card-elastos p-6 text-center">
+              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+              </div>
+              <h4 className="text-white emphasis-elastos mb-2">{t.protocol.elastos.features[1].title}</h4>
+              <p className="text-gray-400 text-sm font-pp-telegraf">
+                {t.protocol.elastos.features[1].description}
+              </p>
+            </div>
+
+            <div className="card-elastos p-6 text-center">
+              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  />
+                </svg>
+              </div>
+              <h4 className="text-white emphasis-elastos mb-2">{t.protocol.elastos.features[2].title}</h4>
+              <p className="text-gray-400 text-sm font-pp-telegraf">
+                {t.protocol.elastos.features[2].description}
+              </p>
+            </div>
+
+            <div className="card-elastos p-6 text-center">
+              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                </svg>
+              </div>
+              <h4 className="text-white emphasis-elastos mb-2">{t.protocol.elastos.features[3].title}</h4>
+              <p className="text-gray-400 text-sm font-pp-telegraf">
+                {t.protocol.elastos.features[3].description}
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Banner */}
+          <div className="relative rounded-2xl p-8 sm:p-12 py-12 sm:py-20 lg:py-24 text-center border border-gray-800 overflow-hidden min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
+            <div className="absolute inset-0">
+              <img 
+                src="/BTCD stars.jpg" 
+                alt="BTCD Stars Background" 
+                className="w-full h-full object-cover rounded-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent rounded-2xl"></div>
+            </div>
+            <div className="absolute bottom-8 sm:bottom-12 lg:bottom-16 left-0 right-0 z-10 px-8 sm:px-12">
+              <h3 className="text-2xl heading-elastos text-white mb-4">{t.protocol.bottomBanner.title}</h3>
+              <p className="text-gray-300 max-w-2xl mx-auto font-pp-telegraf">
+                {t.protocol.bottomBanner.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Earning Yield */}
+      <section id="liquidations" className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="w-6 h-6 border-2 border-elastos-blue rounded-full flex items-center justify-center">
+                <div className="w-2 h-2 bg-elastos-blue rounded-full"></div>
+              </div>
+              <span className="text-elastos-blue text-sm font-pp-telegraf-regular tracking-wider">{t.liquidations.badge}</span>
+            </div>
+            <h2 className="text-5xl heading-elastos text-white mb-4">{t.liquidations.title}</h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-pp-telegraf">
+              {t.liquidations.subtitle}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl emphasis-elastos text-white mb-6">{t.liquidations.howItWorks}</h3>
+                <div className="space-y-6">
+                              <button 
+              onClick={() => setSelectedLiquidatorImage(liquidatorImages.purchase)}
+              className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
+                selectedLiquidatorImage === liquidatorImages.purchase 
+                  ? 'border-elastos-orange bg-gray-800/20' 
+                  : 'border-gray-600'
+              }`}
+            >
+              <p className={`leading-relaxed group-hover:text-white font-pp-telegraf ${
+                selectedLiquidatorImage === liquidatorImages.purchase ? 'text-white' : 'text-gray-400'
+              }`}>
+                {t.liquidations.purchaseDesc}
+              </p>
+            </button>
+                              <button 
+              onClick={() => setSelectedLiquidatorImage(liquidatorImages.profit)}
+              className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
+                selectedLiquidatorImage === liquidatorImages.profit 
+                  ? 'border-elastos-orange bg-gray-800/20' 
+                  : 'border-gray-600'
+              }`}
+            >
+              <p className={`leading-relaxed group-hover:text-white font-pp-telegraf ${
+                selectedLiquidatorImage === liquidatorImages.profit ? 'text-white' : 'text-gray-400'
+              }`}>
+                {t.liquidations.earnDesc}
+              </p>
+            </button>
+                              <button 
+              onClick={() => setSelectedLiquidatorImage(liquidatorImages.peg)}
+              className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
+                selectedLiquidatorImage === liquidatorImages.peg 
+                  ? 'border-elastos-orange bg-gray-800/20' 
+                  : 'border-gray-600'
+              }`}
+            >
+              <p className={`leading-relaxed group-hover:text-white font-pp-telegraf ${
+                selectedLiquidatorImage === liquidatorImages.peg ? 'text-white' : 'text-gray-400'
+              }`}>
+                {t.liquidations.pegDesc}
+              </p>
+            </button>
+                              <button 
+              onClick={() => setSelectedLiquidatorImage(liquidatorImages.sustainability)}
+              className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
+                selectedLiquidatorImage === liquidatorImages.sustainability 
+                  ? 'border-elastos-orange bg-gray-800/20' 
+                  : 'border-gray-600'
+              }`}
+            >
+              <p className={`leading-relaxed group-hover:text-white font-pp-telegraf ${
+                selectedLiquidatorImage === liquidatorImages.sustainability ? 'text-white' : 'text-gray-400'
+              }`}>
+                {t.liquidations.sustainDesc}
+              </p>
+            </button>
+                  </div>
+              </div>
+            </div>
+
+            {/* Right Dashboard Preview */}
+            <div className="relative">
+              <div className="card-elastos overflow-hidden">
+                <img 
+                  src={selectedLiquidatorImage} 
+                  alt="BTCD Liquidation Dashboard Preview" 
+                  className="w-full h-auto object-cover rounded-[0.65rem] transition-all duration-500"
+                  key={selectedLiquidatorImage}
+                />
+                  </div>
+                </div>
+              </div>
+                    </div>
+      </section>
+
+      {/* Enhanced Testimonials */}
+      <BitcoinTestimonialsSection
+        title={t.testimonials.title}
+        description={t.testimonials.subtitle}
+        badge={t.testimonials.badge}
+        testimonials={[
+          {
+            author: {
+              name: "Gompos Protocol",
+              handle: "@GomposProtocol",
+              avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+              verified: true
+            },
+            text: "we LOVE new protocols on Bitcoin 🧡"
+          },
+          {
+            author: {
+              name: "Bitcoin Frontier Fund",
+              handle: "@BitcoinFrontierFund",
+              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+              verified: true
+            },
+            text: "Congrats team! 🔥!!! Excited to see what's to come"
+          },
+          {
+            author: {
+              name: "UniquelyJusta",
+              handle: "@UniquelyNFT",
+              avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+              verified: true
+            },
+            text: "Too bullish. Anyone who understands Bitcoin knows exactly what this breakthrough means"
+          },
+          {
+            author: {
+              name: "Birth Spaces 🏗️",
+              handle: "@BirthSpaces",
+              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+              verified: false
+            },
+            text: "The Next Alpha. Expecting a Super launch"
+          },
+          {
+            author: {
+              name: "IrrevocBTC",
+              handle: "@ITO",
+              avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+              verified: true
+            },
+            text: "Congrats! Super bullish on you guys."
+          },
+          {
+            author: {
+              name: "Zest Protocol 🍋",
+              handle: "@ZestProtocol",
+              avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+              verified: true
+            },
+            text: "this is amazing, when launch 👀"
+          },
+          {
+            author: {
+              name: "Nessie | BIP-420",
+              handle: "@TheOrgyNessie",
+              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+              verified: false
+            },
+            text: "Ahh this is exciting"
+          },
+          {
+            author: {
+              name: "Leather — Bitcoin wallet",
+              handle: "@LeatherBTC",
+              avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+              verified: true
+            },
+            text: "Bitcoin-native means perfect Leather compatibility 🧡 Can't wait to integrate!"
+          },
+          {
+            author: {
+              name: "Bitflow",
+              handle: "@Bitflow_Finance",
+              avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+              verified: true
+            },
+            text: "Incredible work! Bitcoin-native stablecoins are the missing piece for Bitcoin DeFi 🧡"
+          },
+          {
+            author: {
+              name: "B X 🟧🟧",
+              handle: "@bx0000",
+              avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+              verified: false
+            },
+            text: "Finally! A stablecoin that doesn't compromise Bitcoin's principles 🚀"
+          },
+          {
+            author: {
+              name: "MAX CHADWICK",
+              handle: "@maxchadwick",
+              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+              verified: true
+            },
+            text: "This changes everything. Bitcoin holders finally have a way to unlock liquidity without trust."
+          }
+        ]}
+      />
+
+      {/* Enhanced Professional FAQ */}
+      <div id="faq">
+        <BitcoinFAQSection 
+          title={t.faq.title}
+          subtitle={t.faq.subtitle}
+          badge={t.faq.badge}
+          items={t.faq.items}
+          contactInfo={{
+            title: t.faq.contact.title,
+            description: t.faq.contact.description,
+            buttonText: t.faq.contact.button,
+            onContact: () => window.open('https://t.me/btcd', '_blank')
+          }}
+        />
+          </div>
+
+      {/* Final CTA */}
+      <section className="py-20 px-6 bg-elastos-darker">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl heading-elastos text-white mb-4">
+              {t.finalCta.title} <span className="text-elastos-orange emphasis-elastos">{t.finalCta.titleSpan || t.finalCta.title.split(' ').slice(-1)[0]}</span>
+            </h2>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-gradient-to-br from-elastos-orange/20 to-elastos-blue/20 backdrop-blur-sm rounded-3xl border border-gray-800 overflow-hidden">
+              <div className="p-8">
+                {/* Dashboard Preview - Centered and Larger */}
+                <div className="flex justify-center mb-12">
+                  <div className="w-full max-w-4xl">
+                    <img 
+                      src="/4.jpg" 
+                      alt="BTCD Vault Dashboard" 
+                      className="w-full h-auto object-contain rounded-2xl"
+                    />
+                      </div>
+                    </div>
+
+                {/* CTA Section - Centered below image */}
+                <div className="text-center space-y-6">
+                  <div>
+                    <h3 className="text-3xl emphasis-elastos text-white mb-4">{t.finalCta.subtitle}</h3>
+                    <p className="text-gray-400 text-lg mb-8 font-pp-telegraf">
+                      {t.finalCta.description}
+                    </p>
+                  </div>
+                  <div className="flex justify-center">
+                    <Button className="px-12 py-4 text-lg flex items-center justify-center space-x-2">
+                      <span>{t.finalCta.launchApp}</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </Button>
+                  </div>
+                  <p className="text-xs text-gray-500 font-pp-telegraf">{t.finalCta.disclaimer}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-16 px-6 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 mb-12">
+            {/* Left Side - Brand */}
+            <div className="space-y-6">
+              <div className="flex items-center space-x-2">
+                <img 
+                  src="/BTCD Logo/BTCD Logo 1.svg" 
+                  alt="BTCD Logo" 
+                  className="h-20 w-auto"
+                />
+              </div>
+              <p className="text-gray-400 text-lg leading-relaxed max-w-md font-pp-telegraf">
+                {t.footer.description}
+              </p>
+              <div className="flex space-x-6">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Right Side - Footer Links */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {/* Product */}
+              <div>
+                <h4 className="text-white emphasis-elastos mb-4">{t.footer.product.title}</h4>
+                <ul className="space-y-2">
+                  <li>
+                    <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.product.howItWorks}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#protocol" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.product.security}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#liquidations" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.product.liquidations}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.product.documentation}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Company */}
+              <div>
+                <h4 className="text-white emphasis-elastos mb-4">{t.footer.company.title}</h4>
+                <ul className="space-y-2">
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.company.about}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.company.careers}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.company.press}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.company.contact}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Developers */}
+              <div>
+                <h4 className="text-white emphasis-elastos mb-4">{t.footer.developers.title}</h4>
+                <ul className="space-y-2">
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.developers.github}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.developers.docs}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.developers.sdk}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.developers.whitepaper}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Community */}
+              <div>
+                <h4 className="text-white emphasis-elastos mb-4">{t.footer.community.title}</h4>
+                <ul className="space-y-2">
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.community.discord}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://t.me/btcd" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.community.telegram}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.community.twitter}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                      {t.footer.community.blog}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="pt-8 border-t border-gray-800">
+            <div className="flex md:flex-row flex-col md:items-center justify-between space-y-4 md:space-y-0">
+              <p className="text-gray-500 text-sm font-pp-telegraf">
+                {t.footer.copyright}
+              </p>
+              <div className="flex space-x-6">
+                <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm font-pp-telegraf">{t.footer.legal.privacy}</a>
+                <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm font-pp-telegraf">{t.footer.legal.terms}</a>
+                <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm font-pp-telegraf">{t.footer.legal.disclaimer}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
