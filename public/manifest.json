@@ -1,0 +1,58 @@
+{
+  "name": "BTCD - Bitcoin-Native Stablecoin",
+  "short_name": "BTCD",
+  "description": "The world's first fully Bitcoin-backed stablecoin. Put your Bitcoin to work without selling it.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#141414",
+  "theme_color": "#F6921A",
+  "orientation": "portrait-primary",
+  "categories": ["finance", "business", "productivity"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/BTCD Logo/BTCD Logo 1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/BTCD Logo/BTCD Logo 1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/BTCD Logo/BTCD #3.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/BTCD stars.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "BTCD Protocol Landing Page"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Launch BTCD App",
+      "short_name": "Launch App",
+      "description": "Access the BTCD Protocol application",
+      "url": "/#launch-app",
+      "icons": [
+        {
+          "src": "/BTCD Logo/BTCD Logo 1.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+} 

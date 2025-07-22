@@ -1,22 +1,28 @@
 "use client"
 
-import { ArrowRight, Bitcoin } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { BitcoinTestimonialsSection } from "@/components/bitcoin-testimonials"
 import { BitcoinFAQSection } from "@/components/professional-faq"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import { useLanguage } from '@/contexts/LanguageContext'
 import { LanguageToggle } from '@/components/LanguageToggle'
+import { useIsMobile } from '@/hooks/use-mobile'
+import { startPerformanceMonitoring } from '@/lib/performance'
+import { LoadingOverlay } from '@/components/ui/loading-states'
+import Image from 'next/image'
 
 
 
 export default function BTCDLanding() {
   const { t } = useLanguage()
+  const isMobile = useIsMobile()
   const [selectedLiquidatorImage, setSelectedLiquidatorImage] = useState("/2.jpg")
   const [isHeaderVisible, setIsHeaderVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [isImageLoading, setIsImageLoading] = useState(false)
+  const [isPageLoading, setIsPageLoading] = useState(true)
   
   const liquidatorImages = {
     purchase: "/2.jpg",
@@ -24,6 +30,92 @@ export default function BTCDLanding() {
     peg: "/2.jpg",
     sustainability: "/2.jpg"
   }
+
+  const handleLiquidationClick = async (key: keyof typeof liquidatorImages) => {
+    if (selectedLiquidatorImage === liquidatorImages[key]) return
+    
+    setIsImageLoading(true)
+    
+    // Simulate image loading delay for better UX
+    await new Promise(resolve => setTimeout(resolve, 200))
+    
+    setSelectedLiquidatorImage(liquidatorImages[key])
+    setIsImageLoading(false)
+  }
+
+  // Memoized particles to prevent regeneration on scroll (mobile-optimized)
+  const particles = useMemo(() => 
+    [...Array(isMobile ? 25 : 65)].map((_, i) => ({
+      id: i,
+      size: Math.random() > 0.85 ? 'w-1 h-1' : Math.random() > 0.6 ? 'w-0.5 h-0.5' : 'w-px h-px',
+      opacity: Math.random() > 0.5 ? 'bg-white/50' : 'bg-orange-300/40',
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      floatDirection: Math.random() > 0.5 ? 1 : -1,
+      floatDistance: 15 + Math.random() * 20,
+      rotateAmount: Math.random() * 360,
+      duration: 8 + Math.random() * 12,
+      delay: Math.random() * 20
+    })), [isMobile]
+  )
+
+  const starParticles = useMemo(() => 
+    [...Array(isMobile ? 4 : 10)].map((_, i) => ({
+      id: i,
+      left: 15 + Math.random() * 70,
+      top: 15 + Math.random() * 70,
+      floatDirection: Math.random() > 0.5 ? 1 : -1,
+      floatDistance: 10 + Math.random() * 15,
+      rotateAmount: Math.random() * 180,
+      duration: 12 + Math.random() * 8,
+      delay: Math.random() * 15
+    })), [isMobile]
+  )
+
+  // Hero section particles with continuous drift motion (mobile-optimized)
+  const heroParticles = useMemo(() => 
+    [...Array(isMobile ? 50 : 150)].map((_, i) => {
+      const direction = Math.random() * 360; // Random direction in degrees
+      const distance = 150 + Math.random() * 300; // How far they travel (in pixels)
+      const startX = Math.random() * 120 - 10; // Start slightly off-screen
+      const startY = Math.random() * 120 - 10;
+      const maxOpacity = Math.random() > 0.4 ? 0.5 : 0.4;
+      
+      return {
+        id: i,
+        size: Math.random() > 0.8 ? 'w-1.5 h-1.5' : Math.random() > 0.5 ? 'w-1 h-1' : Math.random() > 0.3 ? 'w-0.5 h-0.5' : 'w-px h-px',
+        opacity: Math.random() > 0.4 ? 'bg-white/50' : 'bg-orange-300/40',
+        left: startX,
+        top: startY,
+        driftX: Math.cos(direction * Math.PI / 180) * distance,
+        driftY: Math.sin(direction * Math.PI / 180) * distance,
+        maxOpacity,
+        duration: 8 + Math.random() * 12,
+        delay: Math.random() * 30
+      };
+    }), [isMobile]
+  )
+
+  // Additional hero star particles for more dynamic movement (mobile-optimized)
+  const heroStarParticles = useMemo(() => 
+    [...Array(isMobile ? 8 : 25)].map((_, i) => {
+      const direction = Math.random() * 360;
+      const distance = 120 + Math.random() * 200;
+      const startX = Math.random() * 120 - 10;
+      const startY = Math.random() * 120 - 10;
+      
+      return {
+        id: i,
+        left: startX,
+        top: startY,
+        driftX: Math.cos(direction * Math.PI / 180) * distance,
+        driftY: Math.sin(direction * Math.PI / 180) * distance,
+        maxOpacity: 0.6,
+        duration: 10 + Math.random() * 15,
+        delay: Math.random() * 35
+      };
+    }), [isMobile]
+  )
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,25 +139,70 @@ export default function BTCDLanding() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY])
 
+  // Initialize performance monitoring and page loading
+  useEffect(() => {
+    startPerformanceMonitoring()
+    
+    // Simulate initial page load completion
+    const timer = setTimeout(() => {
+      setIsPageLoading(false)
+    }, 1500)
+    
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
-    <div className="min-h-screen bg-elastos-darker text-white">
+    <LoadingOverlay 
+      isLoading={isPageLoading}
+      className="min-h-screen bg-elastos-darker text-white"
+      spinnerSize="lg"
+      spinnerColor="orange"
+      blur={false}
+    >
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 bg-elastos-darker/80 backdrop-blur-md transition-transform duration-300 ease-in-out ${
         isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-3 items-center h-16">
-            {/* Left Section - Logo */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          {/* Mobile/Tablet Layout */}
+          <div className="flex items-center justify-between h-16 lg:hidden">
+            {/* Logo */}
             <div className="flex items-center justify-start">
-              <img 
+              <Image 
                 src="/BTCD Logo/BTCD Logo 1.svg" 
                 alt="BTCD Logo" 
+                width={120}
+                height={56}
+                className="h-12 sm:h-14 w-auto"
+                priority
+              />
+            </div>
+            
+            {/* Right Section - Actions */}
+            <div className="flex items-center justify-end space-x-2 sm:space-x-4">
+              <LanguageToggle />
+              <Button className="px-4 sm:px-6 py-2 text-sm sm:text-base font-pp-telegraf">
+                {t.nav.launchApp}
+              </Button>
+            </div>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden lg:grid lg:grid-cols-3 items-center h-16">
+            {/* Left Section - Logo */}
+            <div className="flex items-center justify-start">
+              <Image 
+                src="/BTCD Logo/BTCD Logo 1.svg" 
+                alt="BTCD Logo" 
+                width={120}
+                height={56}
                 className="h-14 w-auto"
+                priority
               />
             </div>
             
             {/* Center Section - Navigation */}
-            <div className="hidden md:flex items-center justify-center space-x-8 text-sm font-pp-telegraf">
+            <div className="flex items-center justify-center space-x-8 text-sm font-pp-telegraf">
               <a 
                 href="#how-it-works" 
                 className="text-gray-300 hover:text-white transition-colors cursor-pointer"
@@ -165,10 +302,56 @@ export default function BTCDLanding() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative">
+        {/* Hero Particles Background - Outside the card container */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-10 particles-container">
+          {/* Main animated particles in dark background areas */}
+          {heroParticles.map((particle) => (
+            <div
+              key={`hero-${particle.id}`}
+              className="absolute"
+              style={{
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                animation: `drift-particles ${particle.duration}s linear infinite`,
+                animationDelay: `${particle.delay}s`,
+                '--drift-x': `${particle.driftX}px`,
+                '--drift-y': `${particle.driftY}px`,
+                '--max-opacity': particle.maxOpacity
+              } as React.CSSProperties}
+            >
+              <div className={`${particle.size} ${particle.opacity} rounded-full`}></div>
+            </div>
+          ))}
+          
+          {/* Hero star particles with cross effects */}
+          {heroStarParticles.map((star) => (
+            <div
+              key={`hero-star-${star.id}`}
+              className="absolute"
+              style={{
+                left: `${star.left}%`,
+                top: `${star.top}%`,
+                animation: `drift-particles ${star.duration}s linear infinite`,
+                animationDelay: `${star.delay}s`,
+                '--drift-x': `${star.driftX}px`,
+                '--drift-y': `${star.driftY}px`,
+                '--max-opacity': star.maxOpacity
+              } as React.CSSProperties}
+            >
+              <div className="w-0.5 h-0.5 bg-orange-200/60 rounded-full relative">
+                {/* Star effect */}
+                <div className="absolute inset-0 bg-orange-200/40 rounded-full animate-ping"></div>
+                <div className="absolute -top-px -bottom-px left-1/2 w-px bg-orange-200/50 transform -translate-x-1/2"></div>
+                <div className="absolute -left-px -right-px top-1/2 h-px bg-orange-200/50 transform -translate-y-1/2"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-20">
           {/* Hero Container with Rounded Edges */}
           <div className="card-elastos mx-1 sm:mx-2 my-6 sm:my-8">
-          <div className="text-center pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 lg:pb-12 px-4 sm:px-6 lg:px-8">
+                      <div className="relative z-20 text-center pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 lg:pb-12 px-4 sm:px-6 lg:px-8">
             {/* Watch Intro Video */}
             <div className="mb-6 sm:mb-8">
               <button className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors mx-auto font-pp-telegraf text-sm">
@@ -209,12 +392,16 @@ export default function BTCDLanding() {
           </div>
 
           {/* Dashboard Preview */}
-          <div className="max-w-6xl mx-auto px-2 sm:px-4">
+          <div className="relative z-20 max-w-6xl mx-auto px-2 sm:px-4">
             <div className="card-elastos overflow-hidden">
-              <img 
+              <Image 
                 src="/2.jpg" 
                 alt="BTCD Dashboard Preview" 
+                width={1200}
+                height={675}
                 className="w-full h-auto rounded-[0.65rem]"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
               />
                     </div>
                 </div>
@@ -300,10 +487,13 @@ export default function BTCDLanding() {
 
               <div className="relative mt-8 lg:mt-0">
                 <div className="flex justify-center">
-                  <img 
+                  <Image 
                     src="/Bitcoin secure lock.png" 
                     alt="Bitcoin Secure Lock" 
+                    width={384}
+                    height={384}
                     className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
+                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
                   />
                 </div>
               </div>
@@ -337,10 +527,13 @@ export default function BTCDLanding() {
 
               <div className="relative mt-8 lg:mt-0">
                 <div className="flex justify-center">
-                  <img 
+                  <Image 
                     src="/Cryptographic Credential.png" 
                     alt="Cryptographic Credential" 
+                    width={384}
+                    height={384}
                     className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
+                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
                   />
                 </div>
               </div>
@@ -432,10 +625,13 @@ export default function BTCDLanding() {
 
               <div className="relative mt-8 lg:mt-0">
                 <div className="flex justify-center">
-                  <img 
+                  <Image 
                     src="/Meter.png" 
                     alt="Smart Risk Management Meter" 
+                    width={384}
+                    height={384}
                     className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
+                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
                   />
                 </div>
               </div>
@@ -471,9 +667,11 @@ export default function BTCDLanding() {
 
               <div className="relative mb-8">
                 <div className="w-48 h-48 mx-auto flex items-center justify-center">
-                  <img 
+                  <Image 
                     src="/BTCD Logo/BTC lock.png" 
                     alt="BTC Lock" 
+                    width={192}
+                    height={192}
                     className="w-48 h-48 object-contain"
                   />
                 </div>
@@ -505,15 +703,76 @@ export default function BTCDLanding() {
             </div>
 
             {/* BTCD Token */}
-            <div className="card-elastos p-8 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-elastos-blue/20 to-transparent"></div>
-              <div className="relative z-10">
+            <div className="relative overflow-hidden rounded-2xl border border-gray-700/80 bg-gradient-to-br from-slate-900/95 via-gray-900/90 to-slate-800/95 backdrop-blur-sm p-8">
+                        {/* Particles Background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-20 particles-container">
+                {/* Animated particles */}
+                {particles.map((particle) => (
+                  <div
+                    key={particle.id}
+                    className="absolute"
+                    style={{
+                      left: `${particle.left}%`,
+                      top: `${particle.top}%`,
+                      animation: `float-particles ${particle.duration}s ease-in-out infinite`,
+                      animationDelay: `${particle.delay}s`,
+                      '--float-x': `${particle.floatDistance * particle.floatDirection}px`,
+                      '--float-y': `${particle.floatDistance * particle.floatDirection * 0.7}px`,
+                      '--rotate': `${particle.rotateAmount}deg`
+                    } as React.CSSProperties}
+                  >
+                    <div className={`${particle.size} ${particle.opacity} rounded-full animate-pulse`}></div>
+                  </div>
+                ))}
+                
+                {/* Larger star particles */}
+                {starParticles.map((star) => (
+                  <div
+                    key={`star-${star.id}`}
+                    className="absolute"
+                    style={{
+                      left: `${star.left}%`,
+                      top: `${star.top}%`,
+                      animation: `float-particles ${star.duration}s ease-in-out infinite`,
+                      animationDelay: `${star.delay}s`,
+                      '--float-x': `${star.floatDistance * star.floatDirection}px`,
+                      '--float-y': `${star.floatDistance * star.floatDirection * 0.5}px`,
+                      '--rotate': `${star.rotateAmount}deg`
+                    } as React.CSSProperties}
+                  >
+                    <div className="w-0.5 h-0.5 bg-orange-300/50 rounded-full relative">
+                      {/* Star effect */}
+                      <div className="absolute inset-0 bg-orange-300/30 rounded-full animate-ping"></div>
+                      <div className="absolute -top-px -bottom-px left-1/2 w-px bg-orange-300/40 transform -translate-x-1/2"></div>
+                      <div className="absolute -left-px -right-px top-1/2 h-px bg-orange-300/40 transform -translate-y-1/2"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Orange glow background */}
+              <div className="absolute inset-0 bg-gradient-radial from-orange-500/8 via-orange-600/4 to-transparent z-10"></div>
+              
+              {/* Subtle brand warmth overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-900/5 via-transparent to-amber-900/3 z-10"></div>
+              
+              <div className="relative z-30">
                 <div className="text-center mb-8">
-                  <div className="w-48 h-48 mx-auto flex items-center justify-center mb-6">
-                    <img 
+                  <div className="w-48 h-48 mx-auto flex items-center justify-center mb-6 relative">
+                    {/* Orange glow effect behind logo */}
+                    <div className="absolute inset-0 bg-gradient-radial from-orange-500/20 via-orange-600/10 to-transparent rounded-full blur-xl scale-150"></div>
+                    <div className="absolute inset-0 bg-gradient-radial from-yellow-400/15 via-orange-500/8 to-transparent rounded-full blur-lg scale-125"></div>
+                    
+                    {/* BTCD Logo */}
+                    <Image 
                       src="/BTCD Logo/BTCD 3D 3.png" 
                       alt="BTCD Logo" 
-                      className="w-48 h-48 object-contain"
+                      width={192}
+                      height={192}
+                      className="w-48 h-48 object-contain relative z-10 drop-shadow-2xl"
+                      style={{
+                        filter: 'drop-shadow(0 0 20px rgba(251, 146, 60, 0.3))'
+                      }}
                     />
                   </div>
                   <h3 className="text-2xl emphasis-elastos text-white">{t.protocol.btcdToken.title}</h3>
@@ -530,16 +789,16 @@ export default function BTCDLanding() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">{t.protocol.btcdToken.collateralRatio}</span>
-                    <span className="text-green-500">{t.protocol.btcdToken.ratioRequired}</span>
+                    <span className="text-white">{t.protocol.btcdToken.ratioRequired}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">{t.protocol.btcdToken.liquidation}</span>
-                    <span className="text-elastos-blue">{t.protocol.btcdToken.gracePeriod}</span>
+                    <span className="text-white">{t.protocol.btcdToken.gracePeriod}</span>
                   </div>
                 </div>
 
                 {/* Comparison Table */}
-                <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+                <div className="bg-gradient-to-br from-slate-800/60 via-gray-900/50 to-slate-800/40 backdrop-blur-sm rounded-lg p-4 border border-orange-500/20">
                   <h4 className="text-white text-xs font-medium mb-3 text-center">{t.protocol.btcdToken.comparison.title}</h4>
                   <div className="space-y-2 text-xs">
                     {/* Header Row */}
@@ -650,9 +909,11 @@ export default function BTCDLanding() {
                 <div className="p-4 border-t border-gray-700">
                   <div className="flex items-center gap-4">
                     <div className="flex-shrink-0">
-                      <img 
+                      <Image 
                         src="/Merge mining.png" 
                         alt="Merge Mining" 
+                        width={48}
+                        height={48}
                         className="w-12 h-12 object-contain"
                       />
                     </div>
@@ -739,18 +1000,11 @@ export default function BTCDLanding() {
           </div>
 
           {/* Bottom Banner */}
-          <div className="relative rounded-2xl p-8 sm:p-12 py-12 sm:py-20 lg:py-24 text-center border border-gray-800 overflow-hidden min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
-            <div className="absolute inset-0">
-              <img 
-                src="/BTCD stars.jpg" 
-                alt="BTCD Stars Background" 
-                className="w-full h-full object-cover rounded-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent rounded-2xl"></div>
-            </div>
-            <div className="absolute bottom-8 sm:bottom-12 lg:bottom-16 left-0 right-0 z-10 px-8 sm:px-12">
-              <h3 className="text-2xl heading-elastos text-white mb-4">{t.protocol.bottomBanner.title}</h3>
-              <p className="text-gray-300 max-w-2xl mx-auto font-pp-telegraf">
+          <div className="relative mt-16">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F6921A]/8 to-[#5C8EFF]/8 rounded-3xl blur-xl" />
+            <div className="relative bg-gray-800/30 backdrop-blur-lg border border-gray-700/50 rounded-3xl p-8 text-center">
+              <h3 className="text-2xl font-semibold text-white mb-2">{t.protocol.bottomBanner.title}</h3>
+              <p className="text-gray-400 mb-0 max-w-2xl mx-auto font-pp-telegraf">
                 {t.protocol.bottomBanner.description}
               </p>
             </div>
@@ -781,7 +1035,7 @@ export default function BTCDLanding() {
                 <h3 className="text-2xl emphasis-elastos text-white mb-6">{t.liquidations.howItWorks}</h3>
                 <div className="space-y-6">
                               <button 
-              onClick={() => setSelectedLiquidatorImage(liquidatorImages.purchase)}
+                                    onClick={() => handleLiquidationClick('purchase')}
               className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
                 selectedLiquidatorImage === liquidatorImages.purchase 
                   ? 'border-elastos-orange bg-gray-800/20' 
@@ -795,7 +1049,7 @@ export default function BTCDLanding() {
               </p>
             </button>
                               <button 
-              onClick={() => setSelectedLiquidatorImage(liquidatorImages.profit)}
+                                    onClick={() => handleLiquidationClick('profit')}
               className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
                 selectedLiquidatorImage === liquidatorImages.profit 
                   ? 'border-elastos-orange bg-gray-800/20' 
@@ -809,7 +1063,7 @@ export default function BTCDLanding() {
               </p>
             </button>
                               <button 
-              onClick={() => setSelectedLiquidatorImage(liquidatorImages.peg)}
+                                    onClick={() => handleLiquidationClick('peg')}
               className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
                 selectedLiquidatorImage === liquidatorImages.peg 
                   ? 'border-elastos-orange bg-gray-800/20' 
@@ -823,7 +1077,7 @@ export default function BTCDLanding() {
               </p>
             </button>
                               <button 
-              onClick={() => setSelectedLiquidatorImage(liquidatorImages.sustainability)}
+                                    onClick={() => handleLiquidationClick('sustainability')}
               className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
                 selectedLiquidatorImage === liquidatorImages.sustainability 
                   ? 'border-elastos-orange bg-gray-800/20' 
@@ -842,15 +1096,23 @@ export default function BTCDLanding() {
 
             {/* Right Dashboard Preview */}
             <div className="relative">
-              <div className="card-elastos overflow-hidden">
-                <img 
+              <LoadingOverlay 
+                isLoading={isImageLoading}
+                className="card-elastos overflow-hidden"
+                spinnerColor="orange"
+                blur={true}
+              >
+                <Image 
                   src={selectedLiquidatorImage} 
                   alt="BTCD Liquidation Dashboard Preview" 
+                  width={800}
+                  height={450}
                   className="w-full h-auto object-cover rounded-[0.65rem] transition-all duration-500"
                   key={selectedLiquidatorImage}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                 />
-                  </div>
-                </div>
+              </LoadingOverlay>
+            </div>
               </div>
                     </div>
       </section>
@@ -1186,6 +1448,6 @@ export default function BTCDLanding() {
           </div>
         </div>
       </footer>
-    </div>
+    </LoadingOverlay>
   )
 }

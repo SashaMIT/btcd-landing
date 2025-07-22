@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Twitter } from 'lucide-react';
+import Image from 'next/image';
 
 // Utils function
 function cn(...classes: (string | undefined | null | false)[]): string {
@@ -27,10 +28,18 @@ AvatarRoot.displayName = "Avatar";
 
 const AvatarImage = React.forwardRef<
   HTMLImageElement,
-  React.ImgHTMLAttributes<HTMLImageElement>
->(({ className, ...props }, ref) => (
-  <img
-    ref={ref}
+  React.ImgHTMLAttributes<HTMLImageElement> & {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+  }
+>(({ className, src, alt, width = 40, height = 40, ...props }, ref) => (
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
     className={cn("aspect-square h-full w-full object-cover", className)}
     {...props}
   />
@@ -237,6 +246,11 @@ export const BitcoinTestimonialsSection = ({
 }: TestimonialsSectionProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Create 2 rows for horizontal scrolling
   const createRows = (items: any[], rowCount: number) => {
@@ -249,8 +263,14 @@ export const BitcoinTestimonialsSection = ({
 
   const rows = createRows(testimonials, 2);
   
-  // Duplicate testimonials for seamless loop
-  const duplicatedRows = rows.map(row => [...row, ...row, ...row]);
+  // Duplicate testimonials for seamless loop with unique keys
+  const duplicatedRows = rows.map(row => {
+    return [
+      ...row.map((item, i) => ({ ...item, _key: `original-${i}` })),
+      ...row.map((item, i) => ({ ...item, _key: `duplicate1-${i}` })),
+      ...row.map((item, i) => ({ ...item, _key: `duplicate2-${i}` }))
+    ];
+  });
 
   return (
         <section className={cn(
@@ -308,19 +328,19 @@ export const BitcoinTestimonialsSection = ({
               <motion.div
                 key={rowIndex}
                 className="flex gap-4 min-w-max"
-                animate={{
+                animate={isMounted ? {
                   x: rowIndex % 2 === 0 ? [-1920, -3840] : [-3840, -1920],
-                }}
-                transition={{
+                } : {}}
+                transition={isMounted ? {
                   duration: 60,
                   ease: "linear",
                   repeat: Infinity,
                   repeatType: "loop",
                   ...(isHovered && { duration: 120 })
-                }}
+                } : {}}
               >
                 {row.map((testimonial, index) => (
-                  <div key={index} className="flex-shrink-0 w-80">
+                  <div key={testimonial._key || `${rowIndex}-${index}`} className="flex-shrink-0 w-80">
                     <BitcoinTestimonialCard {...testimonial} className="h-full" />
                   </div>
                 ))}

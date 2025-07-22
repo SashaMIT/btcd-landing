@@ -1,0 +1,29 @@
+# robots.txt for BTCD Protocol
+# https://btcd.finance/robots.txt
+
+User-agent: *
+Allow: /
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://btcd.finance/sitemap.xml
+
+# Block common bot paths that aren't needed
+Disallow: /_next/
+Disallow: /api/
+Disallow: *.json$
+
+# Allow important static assets
+Allow: /BTCD Logo/
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.svg$
+
+# Block specific bots if needed (uncomment if required)
+# User-agent: AhrefsBot
+# Disallow: /
+
+# User-agent: MJ12bot
+# Disallow: / 

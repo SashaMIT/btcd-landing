@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    // Performance and optimization rules (warnings for now)
+    "@next/next/no-img-element": "warn",
+    "@next/next/no-html-link-for-pages": "error",
+    "@next/next/no-page-custom-font": "warn",
+    "@next/next/no-sync-scripts": "error",
+    "@next/next/no-css-tags": "error",
+    
+    // Code quality rules (warnings for now)
+    "prefer-const": "warn",
+    "no-unused-vars": "off", // Handled by TypeScript
+    "@typescript-eslint/no-unused-vars": ["warn", { 
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_"
+    }],
+    "@typescript-eslint/no-explicit-any": "warn",
+    
+    // React specific rules
+    "react-hooks/exhaustive-deps": "warn",
+    "react/no-unescaped-entities": "off",
+    "react/display-name": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "settings": {
+    "next": {
+      "rootDir": "."
+    }
+  }
+} 

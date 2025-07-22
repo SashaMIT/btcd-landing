@@ -2,7 +2,15 @@
   "name": "btcd-landing",
   "version": "1.0.0",
   "description": "A modern, responsive landing page for BTCD - the world's first fully Bitcoin-backed stablecoin",
-  "keywords": ["btcd", "bitcoin", "stablecoin", "defi", "landing-page", "nextjs", "typescript"],
+  "keywords": [
+    "btcd",
+    "bitcoin",
+    "stablecoin",
+    "defi",
+    "landing-page",
+    "nextjs",
+    "typescript"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/SashaMIT/btcd-landing.git"
@@ -15,11 +23,23 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
-    "build:analyze": "ANALYZE=true next build",
+    "build:analyze": "node scripts/analyze-bundle.js",
+    "bundle:analyze": "node scripts/bundle-analyzer.js",
+    "bundle:visual": "OPEN_ANALYZER=true ANALYZE=true npm run build",
+    "build:production": "npm run type-check && npm run lint && npm run build",
+    "perf:images": "node scripts/analyze-bundle.js",
+    "perf:bundle": "node scripts/bundle-analyzer.js",
+    "perf:mobile": "npm run dev & sleep 3 && echo '📱 Testing mobile performance...' && echo 'Open DevTools -> Mobile device simulation' && echo 'Check console for performance metrics'",
     "preview": "next build && next start",
-    "clean": "rm -rf .next out",
+    "clean": "rm -rf .next out dist .eslintcache",
+    "clean:full": "npm run clean && rm -rf node_modules && pnpm install",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\""
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json --chrome-flags='--headless'",
+    "perf:audit": "npm run build && npm start & sleep 5 && npm run lighthouse && kill %1",
+    "validate": "npm run type-check && npm run lint && npm run format:check",
+    "precommit": "npm run validate && npm run build",
+    "test:build": "npm run build && echo 'Build test passed ✅'"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -74,11 +94,18 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.4.2",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "eslint": "^9.31.0",
+    "eslint-config-next": "^15.4.2",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5"
+    "typescript": "^5",
+    "web-vitals": "^5.0.3",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }

@@ -2,10 +2,11 @@
 
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Bitcoin } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+
 
 interface FAQItem {
   question: string;
@@ -101,6 +102,7 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
 
   const [selectedCategory, setSelectedCategory] = React.useState("All");
   const [expandedItem, setExpandedItem] = React.useState<number | null>(null);
+  const [isExpanding, setIsExpanding] = React.useState(false);
 
   const filteredItems = React.useMemo(() => {
     return displayItems.filter(item => {
@@ -109,19 +111,27 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
     });
   }, [displayItems, selectedCategory]);
 
-  const toggleItem = (index: number) => {
+  const toggleItem = async (index: number) => {
+    if (isExpanding) return;
+    
+    setIsExpanding(true);
+    
+    // Small delay for smooth animation
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
     setExpandedItem(expandedItem === index ? null : index);
+    setIsExpanding(false);
   };
 
   return (
-          <section className="py-20 px-6 bg-[#141414]">
+          <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-[#141414]">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <div className="flex items-center justify-center space-x-2 mb-4">
                           <div className="w-6 h-6 border-2 border-[#5C8EFF] rounded-full flex items-center justify-center">
@@ -129,10 +139,10 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
             </div>
                           <span className="text-[#5C8EFF] text-sm font-medium tracking-wider">{displayBadge}</span>
           </div>
-                      <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
+                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-4">
               {displayTitle}
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
               {displaySubtitle}
             </p>
         </motion.div>
@@ -142,9 +152,9 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-12"
+          className="mb-8 sm:mb-12 px-4"
         >
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
             {categories.map((category) => (
               <motion.button
                 key={category}
@@ -152,7 +162,7 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setSelectedCategory(category)}
                 className={cn(
-                  "px-6 py-3 rounded-full text-sm font-medium transition-all duration-300",
+                  "px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300",
                   "border backdrop-blur-sm",
                   selectedCategory === category
                     ? "bg-orange-500 text-white border-orange-500 shadow-lg shadow-orange-500/25"
@@ -170,7 +180,7 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="space-y-4"
+          className="space-y-3 sm:space-y-4 px-4"
         >
           {filteredItems.map((item: any, index: number) => (
             <motion.div
@@ -185,24 +195,24 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
                 <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden hover:border-orange-500/30 transition-all duration-300">
                   <button
                     onClick={() => toggleItem(index)}
-                    className="w-full p-6 text-left focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-black"
+                    className="w-full p-4 sm:p-6 text-left focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-black"
                   >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-medium text-white group-hover:text-orange-300 transition-colors duration-300 flex-1 pr-4">
+                    <div className="flex items-start sm:items-center justify-between gap-3">
+                      <h3 className="text-base sm:text-lg font-medium text-white group-hover:text-orange-300 transition-colors duration-300 flex-1 leading-snug">
                         {item.question}
                       </h3>
-                      <div className="flex items-center gap-3">
+                      <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-3 flex-shrink-0">
                         <Badge
-                          className="bg-orange-500/20 text-orange-300 border-orange-500/30 text-xs"
+                          className="bg-orange-500/20 text-orange-300 border-orange-500/30 text-xs order-2 sm:order-1"
                         >
                           {item.category}
                         </Badge>
                         <motion.div
                           animate={{ rotate: expandedItem === index ? 180 : 0 }}
                           transition={{ duration: 0.3 }}
-                          className="flex-shrink-0"
+                          className="flex-shrink-0 order-1 sm:order-2"
                         >
-                          <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-orange-400 transition-colors duration-300" />
+                          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-orange-400 transition-colors duration-300" />
                         </motion.div>
                       </div>
                     </div>
@@ -217,9 +227,9 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 pt-0">
-                          <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-4" />
-                          <p className="text-gray-400 leading-relaxed">
+                        <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
+                          <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-3 sm:mb-4" />
+                          <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                             {item.answer}
                           </p>
                         </div>
@@ -240,24 +250,24 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 text-center"
+            className="mt-8 sm:mt-12 lg:mt-16 text-center px-4"
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#F6921A]/8 to-[#5C8EFF]/8 rounded-3xl blur-xl" />
-              <div className="relative bg-gray-800/30 backdrop-blur-lg border border-gray-700/50 rounded-3xl p-8">
-                <h3 className="text-2xl font-semibold text-white mb-2">
+              <div className="relative bg-gray-800/30 backdrop-blur-lg border border-gray-700/50 rounded-3xl p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
                   {contactInfo.title}
                 </h3>
                 {contactInfo.description && (
-                  <p className="text-gray-400 mb-6">
+                  <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6">
                     {contactInfo.description}
                   </p>
                 )}
                 <Button
                   onClick={contactInfo.onContact}
-                  className="px-8 py-3 font-medium flex items-center space-x-2 mx-auto"
+                  className="px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium flex items-center space-x-2 mx-auto"
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.169 1.858-.896 6.728-.896 6.728-.379 2.655-.566 3.118-.745 3.192-.381.156-.859-.218-.859-.218s-4.287-3.377-5.051-3.963c-.179-.138-.308-.26-.031-.55.982-.979 5.111-4.779 5.111-4.779.222-.204.146-.322-.05-.322-.487.032-6.819 4.86-7.835 5.416-.583.318-1.153.204-1.153.204s-1.2-.396-1.379-.63c-.232-.303.229-.586.229-.586 1.956-.805 7.247-2.824 9.514-3.727.887-.354 1.594-.469 1.594-.469s.567-.089.883.213c.316.302.268.708.25.862z"/>
                   </svg>
                   <span>{contactInfo.buttonText}</span>
