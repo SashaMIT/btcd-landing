@@ -1,12 +1,25 @@
 {
-  "name": "my-v0-project",
-  "version": "0.1.0",
+  "name": "btcd-landing",
+  "version": "1.0.0",
+  "description": "A modern, responsive landing page for BTCD - the world's first fully Bitcoin-backed stablecoin",
+  "keywords": ["btcd", "bitcoin", "stablecoin", "defi", "landing-page", "nextjs", "typescript"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SashaMIT/btcd-landing.git"
+  },
   "private": true,
   "scripts": {
-    "build": "next build",
     "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
-    "start": "next start"
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "build:analyze": "ANALYZE=true next build",
+    "preview": "next build && next start",
+    "clean": "rm -rf .next out",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
