@@ -24,9 +24,9 @@
       "purpose": "any maskable"
     },
     {
-      "src": "/BTCD Logo/BTCD #3.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/BTCD Logo/BTCD Logo 1.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any"
     }
   ],

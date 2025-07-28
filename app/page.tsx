@@ -257,7 +257,7 @@ export default function BTCDLanding() {
               <LanguageToggle />
               <Button className="px-6 py-2 font-pp-telegraf">
                 {t.nav.launchApp}
-              </Button>
+            </Button>
             </div>
           </div>
         </div>
@@ -273,17 +273,17 @@ export default function BTCDLanding() {
               <div
                 key={`mobile-${i}`}
                 className="absolute w-0.5 h-0.5 bg-white/8 rounded-full opacity-60"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
                   transform: `translate3d(0, 0, 0)`,
                   willChange: 'opacity',
                   animation: `twinkle ${2 + Math.random() * 3}s ${Math.random() * 5}s infinite ease-in-out alternate`,
-                }}
-              ></div>
-            ))}
-          </div>
-          
+              }}
+            ></div>
+          ))}
+        </div>
+
           {/* Desktop particles (more) */}
           <div className="hidden md:block">
             {[...Array(30)].map((_, i) => (
@@ -377,7 +377,7 @@ export default function BTCDLanding() {
               
               <h1 className="relative text-3xl sm:text-4xl lg:text-5xl xl:text-6xl heading-elastos text-white leading-tight max-w-4xl mx-auto px-2">
                 {t.hero.headline} <span className="text-elastos-orange emphasis-elastos">{t.hero.bitcoin}</span> {t.hero.headlineEnd}
-              </h1>
+            </h1>
             </div>
 
             {/* Subtitle */}
@@ -395,11 +395,11 @@ export default function BTCDLanding() {
           <div className="relative z-20 max-w-6xl mx-auto px-2 sm:px-4">
             <div className="card-elastos overflow-hidden">
               <Image 
-                src="/2.jpg" 
+                src="/Mint BTCD 1.jpg" 
                 alt="BTCD Dashboard Preview" 
                 width={1200}
                 height={675}
-                className="w-full h-auto rounded-[0.65rem]"
+                className="w-full h-auto rounded-[1.25rem]"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
               />
@@ -416,7 +416,7 @@ export default function BTCDLanding() {
               
               <div className="relative text-center mb-6 sm:mb-8">
                 <p className="text-gray-500 text-xs sm:text-sm font-pp-telegraf">{t.hero.securedBy}</p>
-              </div>
+                    </div>
               <div className="relative flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 opacity-60">
               <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
                 <img src="/Bit-w.png" alt="Bitcoin Infrastructure Provider" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
@@ -436,8 +436,8 @@ export default function BTCDLanding() {
               <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
                 <img src="/NBW.png" alt="NBW Infrastructure" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
                     </div>
+                    </div>
                   </div>
-              </div>
             </div>
           </div>
         </div>
@@ -480,7 +480,7 @@ export default function BTCDLanding() {
                     <div key={index} className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-elastos-orange rounded-full"></div>
                       <span className="text-white font-pp-telegraf">{point}</span>
-                    </div>
+                  </div>
                   ))}
                 </div>
               </div>
@@ -520,7 +520,7 @@ export default function BTCDLanding() {
                     <div key={index} className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-elastos-orange rounded-full"></div>
                       <span className="text-white font-pp-telegraf">{point}</span>
-                    </div>
+                  </div>
                   ))}
                 </div>
               </div>
@@ -535,7 +535,7 @@ export default function BTCDLanding() {
                     className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
                     sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
                   />
-                </div>
+                  </div>
               </div>
             </div>
             </motion.div>
@@ -560,7 +560,7 @@ export default function BTCDLanding() {
                     <div key={index} className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-elastos-orange rounded-full"></div>
                       <span className="text-white font-pp-telegraf">{point}</span>
-                    </div>
+                  </div>
                   ))}
                 </div>
               </div>
@@ -618,7 +618,7 @@ export default function BTCDLanding() {
                     <div key={index} className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-elastos-orange rounded-full"></div>
                       <span className="text-white font-pp-telegraf">{point}</span>
-                    </div>
+                  </div>
                   ))}
                 </div>
               </div>
@@ -837,7 +837,14 @@ export default function BTCDLanding() {
             <div className="card-elastos p-8">
               <h3 className="text-xl emphasis-elastos text-white mb-4">{t.protocol.elastos.title}</h3>
               <p className="text-gray-400 text-sm mb-8 leading-relaxed font-pp-telegraf">
-                {t.protocol.elastos.description}
+                We built BTCD on the <a 
+                  href="https://elastos.net" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-elastos-orange hover:text-white transition-colors duration-200 underline"
+                >
+                  Elastos SmartWeb
+                </a>—the only blockchain secured by Bitcoin's hashpower. Your BTCD benefits from the combined security of Bitcoin mining and cross-ecosystem smart contract innovation.
               </p>
 
               {/* Elastos Video */}
@@ -1034,62 +1041,62 @@ export default function BTCDLanding() {
               <div>
                 <h3 className="text-2xl emphasis-elastos text-white mb-6">{t.liquidations.howItWorks}</h3>
                 <div className="space-y-6">
-                              <button 
+                  <button 
                                     onClick={() => handleLiquidationClick('purchase')}
-              className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
-                selectedLiquidatorImage === liquidatorImages.purchase 
+                    className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
+                      selectedLiquidatorImage === liquidatorImages.purchase 
                   ? 'border-elastos-orange bg-gray-800/20' 
                   : 'border-gray-600'
-              }`}
-            >
+                    }`}
+                  >
               <p className={`leading-relaxed group-hover:text-white font-pp-telegraf ${
-                selectedLiquidatorImage === liquidatorImages.purchase ? 'text-white' : 'text-gray-400'
-              }`}>
+                      selectedLiquidatorImage === liquidatorImages.purchase ? 'text-white' : 'text-gray-400'
+                    }`}>
                 {t.liquidations.purchaseDesc}
-              </p>
-            </button>
-                              <button 
+                    </p>
+                  </button>
+                  <button 
                                     onClick={() => handleLiquidationClick('profit')}
-              className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
-                selectedLiquidatorImage === liquidatorImages.profit 
+                    className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
+                      selectedLiquidatorImage === liquidatorImages.profit 
                   ? 'border-elastos-orange bg-gray-800/20' 
                   : 'border-gray-600'
-              }`}
-            >
+                    }`}
+                  >
               <p className={`leading-relaxed group-hover:text-white font-pp-telegraf ${
-                selectedLiquidatorImage === liquidatorImages.profit ? 'text-white' : 'text-gray-400'
-              }`}>
+                      selectedLiquidatorImage === liquidatorImages.profit ? 'text-white' : 'text-gray-400'
+                    }`}>
                 {t.liquidations.earnDesc}
-              </p>
-            </button>
-                              <button 
+                    </p>
+                  </button>
+                  <button 
                                     onClick={() => handleLiquidationClick('peg')}
-              className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
-                selectedLiquidatorImage === liquidatorImages.peg 
+                    className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
+                      selectedLiquidatorImage === liquidatorImages.peg 
                   ? 'border-elastos-orange bg-gray-800/20' 
                   : 'border-gray-600'
-              }`}
-            >
+                    }`}
+                  >
               <p className={`leading-relaxed group-hover:text-white font-pp-telegraf ${
-                selectedLiquidatorImage === liquidatorImages.peg ? 'text-white' : 'text-gray-400'
-              }`}>
+                      selectedLiquidatorImage === liquidatorImages.peg ? 'text-white' : 'text-gray-400'
+                    }`}>
                 {t.liquidations.pegDesc}
-              </p>
-            </button>
-                              <button 
+                    </p>
+                  </button>
+                  <button 
                                     onClick={() => handleLiquidationClick('sustainability')}
-              className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
-                selectedLiquidatorImage === liquidatorImages.sustainability 
+                    className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
+                      selectedLiquidatorImage === liquidatorImages.sustainability 
                   ? 'border-elastos-orange bg-gray-800/20' 
                   : 'border-gray-600'
-              }`}
-            >
+                    }`}
+                  >
               <p className={`leading-relaxed group-hover:text-white font-pp-telegraf ${
-                selectedLiquidatorImage === liquidatorImages.sustainability ? 'text-white' : 'text-gray-400'
-              }`}>
+                      selectedLiquidatorImage === liquidatorImages.sustainability ? 'text-white' : 'text-gray-400'
+                    }`}>
                 {t.liquidations.sustainDesc}
-              </p>
-            </button>
+                    </p>
+                  </button>
                   </div>
               </div>
             </div>
@@ -1107,12 +1114,12 @@ export default function BTCDLanding() {
                   alt="BTCD Liquidation Dashboard Preview" 
                   width={800}
                   height={450}
-                  className="w-full h-auto object-cover rounded-[0.65rem] transition-all duration-500"
+                  className="w-full h-auto object-cover rounded-[1.25rem] transition-all duration-500"
                   key={selectedLiquidatorImage}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                 />
               </LoadingOverlay>
-            </div>
+                </div>
               </div>
                     </div>
       </section>
@@ -1275,8 +1282,8 @@ export default function BTCDLanding() {
                   <div className="flex justify-center">
                     <Button className="px-12 py-4 text-lg flex items-center justify-center space-x-2">
                       <span>{t.finalCta.launchApp}</span>
-                      <ArrowRight className="w-5 h-5" />
-                    </Button>
+                    <ArrowRight className="w-5 h-5" />
+                  </Button>
                   </div>
                   <p className="text-xs text-gray-500 font-pp-telegraf">{t.finalCta.disclaimer}</p>
                 </div>
@@ -1298,7 +1305,7 @@ export default function BTCDLanding() {
                   alt="BTCD Logo" 
                   className="h-20 w-auto"
                 />
-              </div>
+                </div>
               <p className="text-gray-400 text-lg leading-relaxed max-w-md font-pp-telegraf">
                 {t.footer.description}
               </p>
@@ -1355,7 +1362,7 @@ export default function BTCDLanding() {
                 <h4 className="text-white emphasis-elastos mb-4">{t.footer.company.title}</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
+                    <a href="/team" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
                       {t.footer.company.about}
                     </a>
                   </li>

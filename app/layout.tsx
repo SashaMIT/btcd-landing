@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 import ErrorBoundary from '@/components/ErrorBoundary'
-import PWAInstaller from '@/components/PWAInstaller'
+// import PWAInstaller from '@/components/PWAInstaller'
 
 export const metadata: Metadata = {
   title: {
@@ -238,7 +238,7 @@ export default function RootLayout({
         <ErrorBoundary>
           <LanguageProvider>
             {children}
-            <PWAInstaller />
+            {/* <PWAInstaller /> */}
           </LanguageProvider>
         </ErrorBoundary>
       </body>

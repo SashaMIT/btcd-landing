@@ -44,7 +44,7 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
     },
     {
       question: "How is BTCD different from wrapped Bitcoin?",
-      answer: "BTCD uses Bitcoin's native P2WSH locking scripts—your Bitcoin never leaves the Bitcoin blockchain. There are no bridges, no wrapped tokens, and no custodial intermediaries. You maintain complete control through cryptographic keys.",
+      answer: "BTCD uses Bitcoin's native 2-of-3 multi-signature P2WSH scripts—your Bitcoin never leaves the Bitcoin blockchain. Unlike wrapped Bitcoin's full custodial model, BTCD's three-party system ensures no single entity can control your funds while maintaining Bitcoin-native security.",
       category: "Technology"
     },
     {
@@ -54,12 +54,27 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
     },
     {
       question: "How do I know my Bitcoin is safe?",
-      answer: "Your Bitcoin is secured by the same cryptographic principles that secure Bitcoin itself. The protocol provides real-time proof of reserves, and every Bitcoin backing BTCD is verifiable on-chain. You control your Bitcoin through your private keys.",
+      answer: "Your Bitcoin is protected by a 2-of-3 multi-signature system with multiple security scenarios: normal repayment requires borrower + issuer cooperation, disputes are resolved by independent BeL2 arbiters, loan defaults trigger cryptographic timelocks, and extended timelocks ensure you can always recover your Bitcoin even if the issuer fails.",
+      category: "Security"
+    },
+    {
+      question: "What is the BeL2 arbitration system?",
+      answer: "BeL2 arbiters are independent third parties selected from the Elastos network who stake ELA tokens to provide dispute resolution. They earn fees for honest behavior and face economic penalties for collusion, ensuring unbiased resolution when borrowers and issuers disagree.",
+      category: "Security"
+    },
+    {
+      question: "How can I become a BTCD arbiter?",
+      answer: "Stake ELA tokens on the BeL2 network to become an eligible arbiter. Arbiters are selected by borrowers and earn fees for providing dispute resolution services. Strong economic incentives and anti-collusion measures ensure the network remains secure and decentralized.",
+      category: "Security"
+    },
+    {
+      question: "What are the different security scenarios?",
+      answer: "BTCD protects through multiple scenarios: Normal Repayment (requires borrower + issuer signatures), Dispute Resolution (BeL2 arbiters provide independent verification), Loan Default (cryptographic timelocks enable programmatic liquidation), and Issuer Failure (extended timelocks ensure borrowers can always recover their Bitcoin).",
       category: "Security"
     },
     {
       question: "When does BTCD launch?",
-      answer: "BTCD launches in August 2025 on Elastos Smart Chain, with broader expansion planned. The protocol has been audited by leading security firms and developed by Harvard alumni.",
+      answer: "BTCD launches in August 2025 on Elastos Smart Chain, with broader expansion planned. The protocol follows a progressive decentralization model, starting with a single issuer and transitioning to a distributed BPOS node network while maintaining security guarantees.",
       category: "Launch"
     },
     {
