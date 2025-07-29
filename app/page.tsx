@@ -911,21 +911,6 @@ export default function BTCDLanding() {
                 </a>—the only blockchain secured by Bitcoin's hashpower. Your BTCD benefits from the combined security of Bitcoin mining and cross-ecosystem smart contract innovation.
               </p>
 
-              {/* Stake ELA Call-to-Action */}
-              <div className="mb-8">
-                <a 
-                  href="https://elastos.net/buy-ela" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-elastos-blue hover:bg-blue-600 text-white text-sm font-pp-telegraf rounded-lg transition-colors duration-200"
-                >
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                                     {t.protocol.elastos.stakeElaButton}
-                </a>
-              </div>
-
               {/* Elastos Video */}
               <div className="mb-8">
                 <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-700">
@@ -1112,7 +1097,33 @@ export default function BTCDLanding() {
             </div>
             <h2 className="text-5xl heading-elastos text-white mb-4">{t.liquidations.title}</h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto font-pp-telegraf mb-8">
-              {t.liquidations.subtitle}
+              {language === 'en' ? (
+                <>
+                  Participate in protocol security while earning Bitcoin rewards.{' '}
+                  <a 
+                    href="https://elastos.net/buy-ela" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-elastos-orange hover:text-white transition-colors duration-200 underline"
+                  >
+                    Stake ELA
+                  </a>{' '}
+                  to become a BeL2 arbiter providing dispute resolution and earning fees from Bitcoin transactions.
+                </>
+              ) : (
+                <>
+                  参与协议安全性的同时赚取比特币奖励。
+                  <a 
+                    href="https://elastos.net/buy-ela" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-elastos-orange hover:text-white transition-colors duration-200 underline"
+                  >
+                    质押ELA
+                  </a>
+                  成为BeL2仲裁者提供争议解决并从比特币交易中赚取费用。
+                </>
+              )}
             </p>
             
             {/* Details Soon Button */}
