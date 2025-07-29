@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { useLanguage } from '@/contexts/LanguageContext'
 import { LanguageToggle } from '@/components/LanguageToggle'
-import { ArrowLeft, ExternalLink, Shield, Building, Globe } from "lucide-react"
+import { ArrowLeft, ExternalLink, Shield, Building } from "lucide-react"
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -85,7 +85,7 @@ export default function TeamPage() {
                     <p className="text-gray-400 text-xs font-pp-telegraf">{t.about.company.details.license}</p>
                     <p className="text-gray-400 text-xs font-pp-telegraf mt-1">{t.about.company.details.regulator}</p>
                     <a 
-                      href="/The creek business license2026.pdf" 
+                      href="/Thecreekbusinesslicense2026.pdf" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="inline-flex items-center mt-3 text-elastos-orange hover:text-white transition-colors text-xs"

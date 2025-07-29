@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* PP Telegraf Font Integration - Temporarily disabled due to corrupted files */
-/*
+/* PP Telegraf Font Integration with robust fallbacks */
 @font-face {
   font-family: 'PP Telegraf Ultralight';
   src: url('/BTCD Logo/Fonts/PPTelegraf-UltraLight.otf') format('opentype');
@@ -19,9 +18,8 @@
   font-style: normal;
   font-display: swap;
 }
-*/
 
-/* Set fallback fonts for now */
+/* Robust font fallbacks */
 html {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 0.04em; /* 4% letter-spacing for better readability */

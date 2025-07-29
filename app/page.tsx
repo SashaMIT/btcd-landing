@@ -3,7 +3,6 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect, useMemo } from "react"
-import { BitcoinTestimonialsSection } from "@/components/bitcoin-testimonials"
 import { BitcoinFAQSection } from "@/components/professional-faq"
 import { motion } from "framer-motion"
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -16,19 +15,19 @@ import Image from 'next/image'
 
 
 export default function BTCDLanding() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const isMobile = useIsMobile()
-  const [selectedLiquidatorImage, setSelectedLiquidatorImage] = useState("/2.jpg")
+  const [selectedLiquidatorImage, setSelectedLiquidatorImage] = useState("/Arbiter.jpg")
   const [isHeaderVisible, setIsHeaderVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [isImageLoading, setIsImageLoading] = useState(false)
   const [isPageLoading, setIsPageLoading] = useState(true)
   
   const liquidatorImages = {
-    purchase: "/2.jpg",
-    profit: "/2.jpg", 
-    peg: "/2.jpg",
-    sustainability: "/2.jpg"
+    purchase: "/Arbiter.jpg",
+    profit: "/Arbiter.jpg", 
+    peg: "/Arbiter.jpg",
+    sustainability: "/Arbiter.jpg"
   }
 
   const handleLiquidationClick = async (key: keyof typeof liquidatorImages) => {
@@ -354,14 +353,12 @@ export default function BTCDLanding() {
                       <div className="relative z-20 text-center pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 lg:pb-12 px-4 sm:px-6 lg:px-8">
             {/* Watch Intro Video */}
             <div className="mb-6 sm:mb-8">
-              <button className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors mx-auto font-pp-telegraf text-sm">
+              <button 
+                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+                className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors mx-auto font-pp-telegraf text-sm">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-600 rounded-full flex items-center justify-center">
-                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 ml-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                      clipRule="evenodd"
-                    />
+                  <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                   </svg>
                 </div>
                 <span className="text-xs sm:text-sm">{t.hero.watchIntro}</span>
@@ -395,7 +392,7 @@ export default function BTCDLanding() {
           <div className="relative z-20 max-w-6xl mx-auto px-2 sm:px-4">
             <div className="card-elastos overflow-hidden">
               <Image 
-                src="/Mint BTCD 1.jpg" 
+                src="/Mint BTCD 1 copy.jpg" 
                 alt="BTCD Dashboard Preview" 
                 width={1200}
                 height={675}
@@ -419,22 +416,64 @@ export default function BTCDLanding() {
                     </div>
               <div className="relative flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 opacity-60">
               <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
-                <img src="/Bit-w.png" alt="Bitcoin Infrastructure Provider" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                <Image 
+                  src="/Bit-w.png" 
+                  alt="Bitcoin Infrastructure Provider" 
+                  width={120}
+                  height={40}
+                  className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75"
+                  sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 120px"
+                />
                     </div>
               <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
-                <img src="/f2.png" alt="F2Pool" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                <Image 
+                  src="/f2.png" 
+                  alt="F2Pool" 
+                  width={120}
+                  height={40}
+                  className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75"
+                  sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 120px"
+                />
                   </div>
               <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
-                <img src="/Via.png" alt="ViaPool" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                <Image 
+                  src="/Via.png" 
+                  alt="ViaPool" 
+                  width={120}
+                  height={40}
+                  className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75"
+                  sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 120px"
+                />
                         </div>
               <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
-                <img src="/Ok-w.png" alt="OKX Pool" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                <Image 
+                  src="/PGAwhite.png" 
+                  alt="OKX Pool" 
+                  width={120}
+                  height={40}
+                  className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75"
+                  sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 120px"
+                />
                       </div>
               <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
-                <img src="/Elastos Logo Dark - 4.png" alt="Elastos" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                <Image 
+                  src="/BeL2 logo Special.png" 
+                  alt="BeL2" 
+                  width={110}
+                  height={36}
+                  className="max-h-5 sm:max-h-7 lg:max-h-9 max-w-[70px] sm:max-w-[90px] lg:max-w-[110px] w-auto h-auto object-contain filter brightness-75"
+                  sizes="(max-width: 640px) 70px, (max-width: 1024px) 90px, 110px"
+                />
                       </div>
               <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
-                <img src="/NBW.png" alt="NBW Infrastructure" className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75" />
+                <Image 
+                  src="/NBW Logo.png" 
+                  alt="NBW Infrastructure" 
+                  width={120}
+                  height={40}
+                  className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75"
+                  sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 120px"
+                />
                     </div>
                     </div>
                   </div>
@@ -586,10 +625,13 @@ export default function BTCDLanding() {
                       <div className="w-1.5 h-0.5 sm:w-2 sm:h-0.5 bg-elastos-orange"></div>
                     </div>
                     <div className="w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center">
-                      <img 
+                      <Image 
                         src="/BTCD Logo/BTCD 3D 3.png" 
                         alt="BTCD Logo" 
+                        width={160}
+                        height={160}
                         className="w-32 h-32 sm:w-40 sm:h-40 object-contain"
+                        sizes="(max-width: 640px) 128px, 160px"
                       />
                     </div>
                   </div>
@@ -653,7 +695,29 @@ export default function BTCDLanding() {
             </div>
             <h2 className="text-5xl heading-elastos text-white mb-4">{t.protocol.title}</h2>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto font-pp-telegraf">
-              {t.protocol.subtitle}
+              {language === 'en' ? (
+                <>
+                  Built by <a 
+                    href="https://cointelegraph.com/news/harvard-students-launch-new-bretton-woods-project-to-tackle-global-debt-crisis" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-elastos-orange hover:text-white transition-colors duration-200 underline"
+                  >
+                    Harvard alumni
+                  </a> and secured by Bitcoin's own mining network. This isn't just another stablecoin—it's the future of Bitcoin finance.
+                </>
+              ) : (
+                <>
+                  由<a 
+                    href="https://cointelegraph.com/news/harvard-students-launch-new-bretton-woods-project-to-tackle-global-debt-crisis" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-elastos-orange hover:text-white transition-colors duration-200 underline"
+                  >
+                    哈佛校友
+                  </a>构建，由比特币自己的挖矿网络保障。这不仅仅是另一个稳定币——这是比特币金融的未来。
+                </>
+              )}
             </p>
           </div>
 
@@ -836,7 +900,7 @@ export default function BTCDLanding() {
             {/* Elastos Infrastructure */}
             <div className="card-elastos p-8">
               <h3 className="text-xl emphasis-elastos text-white mb-4">{t.protocol.elastos.title}</h3>
-              <p className="text-gray-400 text-sm mb-8 leading-relaxed font-pp-telegraf">
+              <p className="text-gray-400 text-sm mb-6 leading-relaxed font-pp-telegraf">
                 We built BTCD on the <a 
                   href="https://elastos.net" 
                   target="_blank" 
@@ -846,6 +910,21 @@ export default function BTCDLanding() {
                   Elastos SmartWeb
                 </a>—the only blockchain secured by Bitcoin's hashpower. Your BTCD benefits from the combined security of Bitcoin mining and cross-ecosystem smart contract innovation.
               </p>
+
+              {/* Stake ELA Call-to-Action */}
+              <div className="mb-8">
+                <a 
+                  href="https://elastos.net/buy-ela" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 bg-elastos-blue hover:bg-blue-600 text-white text-sm font-pp-telegraf rounded-lg transition-colors duration-200"
+                >
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                                     {t.protocol.elastos.stakeElaButton}
+                </a>
+              </div>
 
               {/* Elastos Video */}
               <div className="mb-8">
@@ -865,9 +944,11 @@ export default function BTCDLanding() {
               <div className="bg-gray-800/50 rounded-xl border border-gray-700 overflow-hidden mb-6">
                 <div className="flex items-center justify-between p-4 border-b border-gray-700">
                   <div className="flex items-center">
-                    <img 
+                    <Image 
                       src="/Elastos Logo Dark - 4.png" 
                       alt="Elastos" 
+                      width={80}
+                      height={20}
                       className="h-5 w-auto object-contain"
                     />
                   </div>
@@ -1030,9 +1111,19 @@ export default function BTCDLanding() {
               <span className="text-elastos-blue text-sm font-pp-telegraf-regular tracking-wider">{t.liquidations.badge}</span>
             </div>
             <h2 className="text-5xl heading-elastos text-white mb-4">{t.liquidations.title}</h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-pp-telegraf">
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-pp-telegraf mb-8">
               {t.liquidations.subtitle}
             </p>
+            
+            {/* Details Soon Button */}
+            <div className="mb-8">
+              <Button 
+                disabled
+                className="px-6 py-3 bg-[rgba(156,163,175,0.15)] border border-[rgba(156,163,175,0.25)] text-gray-400 hover:bg-[rgba(156,163,175,0.15)] font-pp-telegraf cursor-not-allowed opacity-60"
+              >
+                {t.liquidations.detailsButton}
+              </Button>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -1102,7 +1193,7 @@ export default function BTCDLanding() {
             </div>
 
             {/* Right Dashboard Preview */}
-            <div className="relative">
+            <div className="relative lg:pt-14">
               <LoadingOverlay 
                 isLoading={isImageLoading}
                 className="card-elastos overflow-hidden"
@@ -1124,113 +1215,7 @@ export default function BTCDLanding() {
                     </div>
       </section>
 
-      {/* Enhanced Testimonials */}
-      <BitcoinTestimonialsSection
-        title={t.testimonials.title}
-        description={t.testimonials.subtitle}
-        badge={t.testimonials.badge}
-        testimonials={[
-          {
-            author: {
-              name: "Gompos Protocol",
-              handle: "@GomposProtocol",
-              avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-              verified: true
-            },
-            text: "we LOVE new protocols on Bitcoin 🧡"
-          },
-          {
-            author: {
-              name: "Bitcoin Frontier Fund",
-              handle: "@BitcoinFrontierFund",
-              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-              verified: true
-            },
-            text: "Congrats team! 🔥!!! Excited to see what's to come"
-          },
-          {
-            author: {
-              name: "UniquelyJusta",
-              handle: "@UniquelyNFT",
-              avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-              verified: true
-            },
-            text: "Too bullish. Anyone who understands Bitcoin knows exactly what this breakthrough means"
-          },
-          {
-            author: {
-              name: "Birth Spaces 🏗️",
-              handle: "@BirthSpaces",
-              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-              verified: false
-            },
-            text: "The Next Alpha. Expecting a Super launch"
-          },
-          {
-            author: {
-              name: "IrrevocBTC",
-              handle: "@ITO",
-              avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-              verified: true
-            },
-            text: "Congrats! Super bullish on you guys."
-          },
-          {
-            author: {
-              name: "Zest Protocol 🍋",
-              handle: "@ZestProtocol",
-              avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
-              verified: true
-            },
-            text: "this is amazing, when launch 👀"
-          },
-          {
-            author: {
-              name: "Nessie | BIP-420",
-              handle: "@TheOrgyNessie",
-              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-              verified: false
-            },
-            text: "Ahh this is exciting"
-          },
-          {
-            author: {
-              name: "Leather — Bitcoin wallet",
-              handle: "@LeatherBTC",
-              avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-              verified: true
-            },
-            text: "Bitcoin-native means perfect Leather compatibility 🧡 Can't wait to integrate!"
-          },
-          {
-            author: {
-              name: "Bitflow",
-              handle: "@Bitflow_Finance",
-              avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-              verified: true
-            },
-            text: "Incredible work! Bitcoin-native stablecoins are the missing piece for Bitcoin DeFi 🧡"
-          },
-          {
-            author: {
-              name: "B X 🟧🟧",
-              handle: "@bx0000",
-              avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
-              verified: false
-            },
-            text: "Finally! A stablecoin that doesn't compromise Bitcoin's principles 🚀"
-          },
-          {
-            author: {
-              name: "MAX CHADWICK",
-              handle: "@maxchadwick",
-              avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-              verified: true
-            },
-            text: "This changes everything. Bitcoin holders finally have a way to unlock liquidity without trust."
-          }
-        ]}
-      />
+
 
       {/* Enhanced Professional FAQ */}
       <div id="faq">
@@ -1263,10 +1248,13 @@ export default function BTCDLanding() {
                 {/* Dashboard Preview - Centered and Larger */}
                 <div className="flex justify-center mb-12">
                   <div className="w-full max-w-4xl">
-                    <img 
-                      src="/4.jpg" 
+                    <Image 
+                      src="/My Activity.jpg" 
                       alt="BTCD Vault Dashboard" 
+                      width={1200}
+                      height={675}
                       className="w-full h-auto object-contain rounded-2xl"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                     />
                       </div>
                     </div>
@@ -1300,14 +1288,25 @@ export default function BTCDLanding() {
             {/* Left Side - Brand */}
             <div className="space-y-6">
               <div className="flex items-center space-x-2">
-                <img 
+                <Image 
                   src="/BTCD Logo/BTCD Logo 1.svg" 
                   alt="BTCD Logo" 
+                  width={120}
+                  height={80}
                   className="h-20 w-auto"
                 />
                 </div>
               <p className="text-gray-400 text-lg leading-relaxed max-w-md font-pp-telegraf">
-                {t.footer.description}
+                {t.footer.descriptionParts.beforeLink}
+                <a 
+                  href="https://www.nbwlabs.org/offerings" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-blue-300 transition-colors underline"
+                >
+                  {t.footer.descriptionParts.linkText}
+                </a>
+                {t.footer.descriptionParts.afterLink}
               </p>
               <div className="flex space-x-6">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -1329,7 +1328,7 @@ export default function BTCDLanding() {
             </div>
 
             {/* Right Side - Footer Links */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Product */}
               <div>
                 <h4 className="text-white emphasis-elastos mb-4">{t.footer.product.title}</h4>
@@ -1341,7 +1340,7 @@ export default function BTCDLanding() {
                   </li>
                   <li>
                     <a href="#protocol" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.product.security}
+                      {t.footer.product.protocol}
                     </a>
                   </li>
                   <li>
@@ -1366,82 +1365,25 @@ export default function BTCDLanding() {
                       {t.footer.company.about}
                     </a>
                   </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.company.careers}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.company.press}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.company.contact}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Developers */}
-              <div>
-                <h4 className="text-white emphasis-elastos mb-4">{t.footer.developers.title}</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.developers.github}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.developers.docs}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.developers.sdk}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.developers.whitepaper}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Community */}
-              <div>
-                <h4 className="text-white emphasis-elastos mb-4">{t.footer.community.title}</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.community.discord}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://t.me/btcd" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.community.telegram}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.community.twitter}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors font-pp-telegraf text-sm">
-                      {t.footer.community.blog}
-                    </a>
-                  </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          {/* Bottom Bar */}
+          {/* Business Details */}
           <div className="pt-8 border-t border-gray-800">
+            <div className="text-center space-y-2 mb-6">
+              <p className="text-gray-400 text-sm font-pp-telegraf">
+                {t.footer.businessAddress}
+              </p>
+              <p className="text-gray-400 text-sm font-pp-telegraf" dir="rtl">
+                {t.footer.businessAddressArabic}
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="pt-4 border-t border-gray-800">
             <div className="flex md:flex-row flex-col md:items-center justify-between space-y-4 md:space-y-0">
               <p className="text-gray-500 text-sm font-pp-telegraf">
                 {t.footer.copyright}

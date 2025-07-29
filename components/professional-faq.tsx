@@ -39,17 +39,17 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
   items = [
     {
       question: "What is BTCD?",
-      answer: "BTCD is the world's first fully Bitcoin-backed stablecoin. Unlike other stablecoins backed by fiat or centralized assets, every BTCD token is backed by real Bitcoin locked in verifiable locking scripts on the Bitcoin blockchain.",
+      answer: "BTCD is a revolutionary Bitcoin-backed stablecoin with built-in volatility protection. Every BTCD is backed by Bitcoin locked in verifiable scripts, protected by algorithmic options hedging that eliminates price liquidations during the 90-day loan term.",
       category: "Basics"
     },
     {
       question: "How is BTCD different from wrapped Bitcoin?",
-      answer: "BTCD uses Bitcoin's native 2-of-3 multi-signature P2WSH scripts—your Bitcoin never leaves the Bitcoin blockchain. Unlike wrapped Bitcoin's full custodial model, BTCD's three-party system ensures no single entity can control your funds while maintaining Bitcoin-native security.",
+      answer: "BTCD uses Bitcoin's native 2-of-3 multi-signature P2WSH scripts—your Bitcoin never leaves the Bitcoin blockchain. Unlike wrapped Bitcoin's custodial model, BTCD's triple-signature security ensures no single entity controls your funds while providing built-in volatility protection.",
       category: "Technology"
     },
     {
-      question: "What happens if Bitcoin's price drops?",
-      answer: "BTCD has a 135% minimum collateral ratio with a 90-day grace period. If your vault drops below this threshold, you have 90 days to add more Bitcoin or repay BTCD before any liquidation can occur—no surprise liquidations.",
+      question: "What is options hedging and how does it protect me?",
+      answer: "BTCD uses algorithmic options hedging with protective put options to eliminate price liquidations during the loan term. The protocol automatically purchases put options that protect against market downturns for the full 90-day period. Unlike traditional DeFi, you cannot be margin called during this time.",
       category: "Risk Management"
     },
     {
@@ -73,32 +73,42 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
       category: "Security"
     },
     {
-      question: "When does BTCD launch?",
-      answer: "BTCD launches in August 2025 on Elastos Smart Chain, with broader expansion planned. The protocol follows a progressive decentralization model, starting with a single issuer and transitioning to a distributed BPOS node network while maintaining security guarantees.",
-      category: "Launch"
+      question: "What is GSM (Gold-Silver Bimetallic) dual-collateral?",
+      answer: "GSM allows you to use both Bitcoin (gold) and ELA tokens (silver) as collateral, boosting your capital efficiency up to 65% LTV. Your Bitcoin stays in Bitcoin-native scripts while ELA tokens are held in separate smart contracts, maximizing your borrowing power.",
+      category: "Technology"
     },
     {
-      question: "What is my liquidation price?",
-      answer: "Your liquidation price depends on your collateral ratio. With a 135% minimum threshold, if you deposit $10,000 worth of Bitcoin, you can borrow up to $7,407 in BTCD. The system shows your exact liquidation price in real-time.",
+      question: "How do I create a BTCD loan?",
+      answer: "Create an order with your desired amount and duration, choose an arbiter from the network, lock your Bitcoin in a P2WSH script, wait for 3 confirmations, submit proof, then claim your BTCD. The entire process is transparent and Bitcoin-native.",
+      category: "Basics"
+    },
+    {
+      question: "Can I get liquidated with BTCD?",
+      answer: "No price liquidations during the 90-day term! BTCD's algorithmic options hedging eliminates margin call risk entirely. Unlike other protocols that liquidate your collateral during market downturns, BTCD's put options protect your Bitcoin regardless of price movements for the full loan term. However, if you don't repay by maturity, automatic liquidation occurs.",
       category: "Risk Management"
     },
     {
-      question: "How can I avoid getting liquidated?",
-      answer: "Maintain a healthy collateral ratio above 135%, monitor your vault regularly, and take advantage of the 90-day grace period to add more Bitcoin or repay BTCD if needed. The dashboard provides real-time alerts and health monitoring.",
+      question: "What's my maximum borrowing capacity?",
+      answer: "With Bitcoin-only collateral, you can borrow up to 60% LTV. With GSM dual-collateral (Bitcoin + ELA tokens), you can reach up to 65% LTV, significantly higher than traditional lending protocols while maintaining full protection.",
       category: "Risk Management"
     },
     {
-      question: "What are the transaction fees?",
-      answer: "BTCD features minimal transaction fees typically ranging from 0.1% to 0.5% depending on the operation. We leverage Elastos Smart Chain's efficiency to keep costs low while maintaining Bitcoin-level security.",
-      category: "Fees"
+      question: "What are the fees for using BTCD?",
+      answer: "BTCD features transparent pricing: 4% annual interest rate (dynamically adjusted based on volatility), 0.2% minting fee, and minimal transaction fees on Elastos Smart Chain. Options hedging costs are covered by the protocol through dynamic rate adjustments.",
+      category: "DeFi & Fees"
     },
     {
       question: "Can I use BTCD in DeFi protocols?",
-      answer: "Yes! BTCD is designed to be fully compatible with DeFi protocols. You can use BTCD for lending, borrowing, yield farming, and as collateral in other protocols while your underlying Bitcoin remains secure.",
-      category: "DeFi"
+      answer: "Absolutely! BTCD is fully EVM-compatible and works seamlessly across all major DeFi protocols. Trade on DEXs, provide liquidity, lend, borrow, or use in yield farming - all while your underlying Bitcoin remains protected by options hedging.",
+      category: "DeFi & Fees"
+    },
+    {
+      question: "When does BTCD launch?",
+      answer: "BTCD launches in August 2025 on Elastos Smart Chain, with broader expansion planned. The protocol follows a progressive decentralization model, starting with a single issuer and transitioning to a distributed BPOS node network while maintaining security guarantees.",
+      category: "Basics"
     }
   ],
-  categories = ["All", "Basics", "Technology", "Security", "Risk Management", "DeFi & Fees", "Launch"],
+  categories = ["All", "Basics", "Technology", "Security", "Risk Management", "DeFi & Fees"],
   contactInfo = {
     title: "Still Have Questions?",
     description: "Connect with us in our Telegram community and let us know what you need.",
@@ -197,7 +207,7 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
           transition={{ duration: 0.6, delay: 0.2 }}
           className="space-y-3 sm:space-y-4 px-4"
         >
-          {filteredItems.map((item: any, index: number) => (
+          {filteredItems.map((item: FAQItem, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

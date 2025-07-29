@@ -139,7 +139,7 @@ export default function RootLayout({
                 "industry": "Cryptocurrency",
                 "keywords": "Bitcoin, DeFi, Stablecoin, Cryptocurrency, Blockchain",
                 "sameAs": [
-                  "https://twitter.com/BTCDProtocol",
+                  "https://x.com/pgprotocol",
                   "https://t.me/btcd",
                   "https://github.com/BTCDProtocol"
                 ],

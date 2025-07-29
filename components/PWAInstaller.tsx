@@ -11,8 +11,9 @@ export function PWAInstaller({ autoRegister = true }: PWAInstallerProps) {
   const [isOnline, setIsOnline] = useState(true)
   const [isInstallable, setIsInstallable] = useState(false)
   const [showInstallPrompt, setShowInstallPrompt] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
-  const [swRegistration, setSwRegistration] = useState<ServiceWorkerRegistration | null>(null)
+  const [_swRegistration, setSwRegistration] = useState<ServiceWorkerRegistration | null>(null)
 
   useEffect(() => {
     // Register service worker
@@ -26,7 +27,8 @@ export function PWAInstaller({ autoRegister = true }: PWAInstallerProps) {
     window.addEventListener('offline', updateOnlineStatus)
 
     // Handle PWA install prompt
-    const handleBeforeInstallPrompt = (e: Event) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleBeforeInstallPrompt = (e: any) => {
       // Prevent the mini-infobar from appearing on mobile
       e.preventDefault()
       setDeferredPrompt(e)

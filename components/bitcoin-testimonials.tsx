@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Twitter } from 'lucide-react';
 import Image from 'next/image';
@@ -34,7 +34,7 @@ const AvatarImage = React.forwardRef<
     width?: number;
     height?: number;
   }
->(({ className, src, alt, width = 40, height = 40, ...props }, ref) => (
+>(({ className, src, alt, width = 40, height = 40, ...props }, _ref) => (
   <Image
     src={src}
     alt={alt}
@@ -244,7 +244,7 @@ export const BitcoinTestimonialsSection = ({
   testimonials = [],
   className 
 }: TestimonialsSectionProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  // Container ref removed - not used in current implementation
   const [isHovered, setIsHovered] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -253,8 +253,8 @@ export const BitcoinTestimonialsSection = ({
   }, []);
 
   // Create 2 rows for horizontal scrolling
-  const createRows = (items: any[], rowCount: number) => {
-    const rows: any[][] = Array.from({ length: rowCount }, () => []);
+  const createRows = (items: TestimonialCardProps[], rowCount: number) => {
+    const rows: TestimonialCardProps[][] = Array.from({ length: rowCount }, () => []);
     items.forEach((item, index) => {
       rows[index % rowCount].push(item);
     });

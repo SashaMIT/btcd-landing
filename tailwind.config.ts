@@ -73,8 +73,8 @@ const config: Config = {
   			}
   		},
   		fontFamily: {
-  			'pp-telegraf': ['PP Telegraf Ultralight', 'system-ui', 'sans-serif'],
-  			'pp-telegraf-regular': ['PP Telegraf Regular', 'system-ui', 'sans-serif']
+  			'pp-telegraf': ['PP Telegraf Ultralight', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+  			'pp-telegraf-regular': ['PP Telegraf Regular', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 interface LoadingSpinnerProps {
@@ -149,7 +150,7 @@ export function ProgressiveImage({
         <Skeleton className="absolute inset-0" />
       )}
       
-      <img
+      <Image
         src={src}
         alt={alt}
         width={width}

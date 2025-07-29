@@ -1,4 +1,4 @@
-import { onCLS, onFCP, onLCP, onTTFB, onINP } from 'web-vitals'
+import { onCLS, onFCP, onLCP, onTTFB, onINP, type Metric } from 'web-vitals'
 
 export interface PerformanceMetric {
   name: string
@@ -121,7 +121,7 @@ export class PerformanceMonitor {
   }
 
   private initializeWebVitals() {
-    const handleMetric = (metric: any) => {
+    const handleMetric = (metric: Metric) => {
       const performanceMetric: PerformanceMetric = {
         name: metric.name,
         value: metric.value,
