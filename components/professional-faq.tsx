@@ -111,11 +111,11 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
   categories = ["All", "Basics", "Technology", "Security", "Risk Management", "DeFi & Fees"],
   contactInfo = {
     title: "Still Have Questions?",
-    description: "Connect with us in our Telegram community and let us know what you need.",
-    buttonText: "Ask us on Telegram",
+    description: "Connect with us on X and let us know what you need.",
+    buttonText: "Ask us on X",
     onContact: () => {
-      // Telegram link functionality
-      window.open("https://t.me/btcd", "_blank");
+      // X/Twitter link functionality
+      window.open("https://twitter.com/btcd", "_blank");
     }
   }
 }) => {
@@ -286,7 +286,7 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
                   className="px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium flex items-center space-x-2 mx-auto"
                 >
                                       <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.169 1.858-.896 6.728-.896 6.728-.379 2.655-.566 3.118-.745 3.192-.381.156-.859-.218-.859-.218s-4.287-3.377-5.051-3.963c-.179-.138-.308-.26-.031-.55.982-.979 5.111-4.779 5.111-4.779.222-.204.146-.322-.05-.322-.487.032-6.819 4.86-7.835 5.416-.583.318-1.153.204-1.153.204s-1.2-.396-1.379-.63c-.232-.303.229-.586.229-.586 1.956-.805 7.247-2.824 9.514-3.727.887-.354 1.594-.469 1.594-.469s.567-.089.883.213c.316.302.268.708.25.862z"/>
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>
                   <span>{contactInfo.buttonText}</span>
                 </Button>

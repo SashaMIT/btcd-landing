@@ -300,8 +300,8 @@ export const translations = {
       
       contact: {
         title: "Still Have Questions?",
-        description: "Connect with us in our Telegram community and let us know what you need.",
-        button: "Ask us on Telegram"
+        description: "Connect with us on X and let us know what you need.",
+        button: "Ask us on X"
       }
     },
 
@@ -638,8 +638,8 @@ export const translations = {
       
       contact: {
         title: "还有问题？",
-        description: "在我们的Telegram社区中联系我们，告诉我们你需要什么。",
-        button: "在Telegram上询问我们"
+        description: "在X上联系我们，告诉我们你需要什么。",
+        button: "在X上询问我们"
       }
     },
 
