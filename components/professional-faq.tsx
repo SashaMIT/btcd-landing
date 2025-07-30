@@ -228,17 +228,10 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
                       </h3>
                       <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-3 flex-shrink-0">
                         <Badge
-                          className="bg-orange-500/20 text-orange-300 border-orange-500/30 text-xs order-2 sm:order-1"
+                          className="bg-orange-500/20 text-orange-300 border-orange-500/30 text-xs"
                         >
                           {item.category}
                         </Badge>
-                        <motion.div
-                          animate={{ rotate: expandedItem === index ? 180 : 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="flex-shrink-0 order-1 sm:order-2"
-                        >
-                          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-orange-400 transition-colors duration-300" />
-                        </motion.div>
                       </div>
                     </div>
                   </button>
