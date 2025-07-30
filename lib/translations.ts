@@ -12,7 +12,7 @@ export const translations = {
     
     // Hero Section
     hero: {
-      watchIntro: "How it works",
+      watchIntro: "Revolutionary Design",
       headline: "Finally, put your",
       bitcoin: "Bitcoin", 
       headlineEnd: "to work without selling it",
@@ -360,7 +360,7 @@ export const translations = {
 
     // Hero Section - 主页
     hero: {
-      watchIntro: "工作原理",
+      watchIntro: "革命性设计",
       headline: "终于可以让你的",
       bitcoin: "比特币",
       headlineEnd: "发挥作用而无需出售",

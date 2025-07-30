@@ -351,18 +351,16 @@ export default function BTCDLanding() {
           {/* Hero Container with Rounded Edges */}
           <div className="card-elastos mx-1 sm:mx-2 my-6 sm:my-8">
                       <div className="relative z-20 text-center pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 lg:pb-12 px-4 sm:px-6 lg:px-8">
-            {/* Watch Intro Video */}
+            {/* Supporting Statement */}
             <div className="mb-6 sm:mb-8">
-              <button 
-                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-                className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors mx-auto font-pp-telegraf text-sm">
+              <div className="flex items-center space-x-2 text-gray-400 mx-auto font-pp-telegraf text-sm justify-center">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-600 rounded-full flex items-center justify-center">
                   <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
                 </div>
                 <span className="text-xs sm:text-sm">{t.hero.watchIntro}</span>
-              </button>
+              </div>
             </div>
 
             {/* Main Headline */}
