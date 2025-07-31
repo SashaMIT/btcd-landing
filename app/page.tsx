@@ -1388,9 +1388,9 @@ export default function BTCDLanding() {
                 {t.footer.copyright}
               </p>
               <div className="flex space-x-6">
-                <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm font-pp-telegraf">{t.footer.legal.privacy}</a>
-                <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm font-pp-telegraf">{t.footer.legal.terms}</a>
-                <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm font-pp-telegraf">{t.footer.legal.disclaimer}</a>
+                <a href="/privacy" className="text-gray-500 hover:text-white transition-colors text-sm font-pp-telegraf">{t.footer.legal.privacy}</a>
+                <a href="/terms" className="text-gray-500 hover:text-white transition-colors text-sm font-pp-telegraf">{t.footer.legal.terms}</a>
+                <a href="/risk-disclaimer" className="text-gray-500 hover:text-white transition-colors text-sm font-pp-telegraf">{t.footer.legal.disclaimer}</a>
               </div>
             </div>
           </div>
