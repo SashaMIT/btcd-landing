@@ -1,20 +1,52 @@
-import { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Risk Disclaimer | BTCD',
-  description: 'Risk Disclaimer for BTCD - Understanding cryptocurrency and DeFi risks'
-}
+import Image from 'next/image'
+import Link from 'next/link'
+import { Button } from "@/components/ui/button"
+import { useLanguage } from '@/contexts/LanguageContext'
+import { translations } from '@/lib/translations'
+import { LanguageToggle } from '@/components/LanguageToggle'
 
 export default function RiskDisclaimer() {
+  const { language } = useLanguage()
+  const t = translations[language]
+
   return (
     <div className="min-h-screen bg-elastos-darker text-white">
-      <div className="max-w-4xl mx-auto px-6 py-16">
+      {/* Navigation Header */}
+      <nav className="fixed top-0 w-full z-50 bg-elastos-darker/80 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/BTCD Logo/BTCD Logo 1.svg" 
+                alt="BTCD Logo" 
+                width={120}
+                height={56}
+                className="h-12 w-auto"
+                priority
+              />
+            </Link>
+            
+            {/* Right Section */}
+            <div className="flex items-center space-x-4">
+              <LanguageToggle />
+              <Button className="px-4 sm:px-6 py-2 text-sm sm:text-base font-pp-telegraf">
+                {t.nav.launchApp}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div className="max-w-4xl mx-auto px-6 py-24">
         <div className="space-y-8">
           {/* Header */}
           <div className="text-center space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold heading-elastos">Risk Disclaimer</h1>
-            <p className="text-gray-400 text-lg">Effective Date: January 28, 2025</p>
-            <p className="text-gray-400">Last Updated: January 28, 2025</p>
+            <h1 className="text-4xl md:text-5xl font-bold heading-elastos">{t.legal.riskDisclaimer.title}</h1>
+            <p className="text-gray-400 text-lg">{t.legal.riskDisclaimer.effectiveDate}</p>
+            <p className="text-gray-400">{t.legal.riskDisclaimer.lastUpdated}</p>
           </div>
 
           {/* Critical Warning */}
@@ -23,72 +55,59 @@ export default function RiskDisclaimer() {
               <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-4">
                 <span className="text-white font-bold text-lg">!</span>
               </div>
-              <h2 className="text-2xl font-semibold text-red-400">Critical Risk Warning</h2>
+              <h2 className="text-2xl font-semibold text-red-400">{t.legal.riskDisclaimer.sections.criticalWarning.title}</h2>
             </div>
-            <p className="text-gray-200 leading-relaxed text-lg mb-4">
-              <strong>CRYPTOCURRENCY AND DEFI INVESTMENTS CARRY EXTREME RISK OF LOSS.</strong>
-            </p>
-            <p className="text-gray-300 leading-relaxed">
-              The BTCD platform involves highly risky activities including cryptocurrency lending, 
-              collateralization, and exposure to volatile digital assets. You may lose some or all 
-              of your funds. Only invest what you can afford to lose completely.
-            </p>
+            <div className="text-gray-200 leading-relaxed text-lg">
+              {t.legal.riskDisclaimer.sections.criticalWarning.content.split('\n\n').map((paragraph, index) => (
+                <p key={index} className={index === 0 ? "mb-4" : ""}>{paragraph}</p>
+              ))}
+            </div>
           </div>
 
           {/* About This Document */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-elastos-orange">About This Risk Disclaimer</h2>
+            <h2 className="text-2xl font-semibold text-elastos-orange">{t.legal.riskDisclaimer.sections.aboutDisclaimer.title}</h2>
             <div className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700">
-              <p className="text-gray-300 leading-relaxed mb-4">
-                This Risk Disclaimer is issued by <strong>Creek Business Center</strong> (Trade License No. 1293230), 
-                a business entity registered in Dubai, United Arab Emirates, operator of the BTCD platform.
-              </p>
-              <p className="text-gray-300 leading-relaxed">
-                By using the BTCD platform, you acknowledge that you have read, understood, and accepted 
-                all risks outlined in this document. This disclaimer does not constitute financial, 
-                investment, or legal advice.
-              </p>
+              {t.legal.riskDisclaimer.sections.aboutDisclaimer.content.split('\n\n').map((paragraph, index) => (
+                <p key={index} className={`text-gray-300 leading-relaxed ${index < 1 ? 'mb-4' : ''}`}>
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
 
           {/* Cryptocurrency Risks */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-elastos-orange">1. Cryptocurrency and Digital Asset Risks</h2>
+            <h2 className="text-2xl font-semibold text-elastos-orange">{t.legal.riskDisclaimer.sections.cryptoRisks.title}</h2>
             
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">1.1 Extreme Price Volatility</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.cryptoRisks.volatility.title}</h3>
                 <p className="text-gray-300 leading-relaxed mb-3">
-                  Bitcoin and other cryptocurrencies are extremely volatile and can experience:
+                  {t.legal.riskDisclaimer.sections.cryptoRisks.volatility.intro}
                 </p>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>Daily price swings of 10% or more</li>
-                  <li>Sudden and significant crashes (50%+ losses)</li>
-                  <li>Extended bear markets lasting months or years</li>
-                  <li>Market manipulation by large holders ("whales")</li>
-                  <li>Complete loss of value in extreme scenarios</li>
+                  {t.legal.riskDisclaimer.sections.cryptoRisks.volatility.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">1.2 Regulatory and Legal Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.cryptoRisks.regulatory.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>Governments may ban or restrict cryptocurrency activities</li>
-                  <li>New regulations may impact platform operations</li>
-                  <li>Tax treatment may change unexpectedly</li>
-                  <li>Cross-border transactions may face additional restrictions</li>
-                  <li>Legal status varies significantly between jurisdictions</li>
+                  {t.legal.riskDisclaimer.sections.cryptoRisks.regulatory.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">1.3 Market and Liquidity Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.cryptoRisks.market.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>Limited liquidity during market stress</li>
-                  <li>Wide bid-ask spreads in volatile conditions</li>
-                  <li>Potential inability to exit positions quickly</li>
-                  <li>Market closure or suspension risks</li>
-                  <li>Price manipulation in smaller markets</li>
+                  {t.legal.riskDisclaimer.sections.cryptoRisks.market.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -96,54 +115,47 @@ export default function RiskDisclaimer() {
 
           {/* BTCD Platform Specific Risks */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-elastos-orange">2. BTCD Platform-Specific Risks</h2>
+            <h2 className="text-2xl font-semibold text-elastos-orange">{t.legal.riskDisclaimer.sections.platformRisks.title}</h2>
             
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">2.1 Liquidation Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.platformRisks.liquidation.title}</h3>
                 <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-3">
                   <p className="text-gray-300 leading-relaxed mb-3">
-                    <strong>Critical:</strong> While BTCD's options hedging eliminates price liquidations 
-                    during the 90-day term, you still face liquidation risks:
+                    {t.legal.riskDisclaimer.sections.platformRisks.liquidation.intro}
                   </p>
                   <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                    <li><strong>Maturity Liquidation:</strong> Automatic liquidation if loan not repaid by term end</li>
-                    <li><strong>Default Risk:</strong> Loss of collateral if unable to meet repayment obligations</li>
-                    <li><strong>Options Protection Limits:</strong> Protection may not cover extreme market conditions</li>
-                    <li><strong>System Failure:</strong> Technical failures could impact liquidation protection</li>
+                    {t.legal.riskDisclaimer.sections.platformRisks.liquidation.items.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">2.2 Multi-Signature and Custody Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.platformRisks.custody.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li><strong>Key Loss:</strong> Losing access to your private keys means permanent fund loss</li>
-                  <li><strong>Multi-Sig Complexity:</strong> Errors in multi-signature operations can lock funds</li>
-                  <li><strong>Arbiter Risk:</strong> BeL2 arbiters may make unfavorable decisions</li>
-                  <li><strong>Technical Errors:</strong> Mistakes in Bitcoin script creation or execution</li>
-                  <li><strong>Counterparty Risk:</strong> Issuer or arbiter may become unavailable or hostile</li>
+                  {t.legal.riskDisclaimer.sections.platformRisks.custody.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">2.3 BeL2 Arbitration Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.platformRisks.bel2.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>Arbiters may make biased or incorrect decisions</li>
-                  <li>Arbitration process may be slow during disputes</li>
-                  <li>Economic incentives may not prevent collusion</li>
-                  <li>Appeals process may not reverse unfair decisions</li>
-                  <li>Arbiters may lose their staked ELA, affecting dispute resolution</li>
+                  {t.legal.riskDisclaimer.sections.platformRisks.bel2.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">2.4 GSM Dual-Collateral Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.platformRisks.gsm.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li><strong>ELA Token Risk:</strong> ELA tokens may lose value or become illiquid</li>
-                  <li><strong>Correlation Risk:</strong> Bitcoin and ELA may decline simultaneously</li>
-                  <li><strong>Cross-Chain Risk:</strong> Elastos Smart Chain technical failures</li>
-                  <li><strong>Complexity Risk:</strong> More complex systems have more failure points</li>
+                  {t.legal.riskDisclaimer.sections.platformRisks.gsm.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -151,39 +163,33 @@ export default function RiskDisclaimer() {
 
           {/* Technical and Operational Risks */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-elastos-orange">3. Technical and Operational Risks</h2>
+            <h2 className="text-2xl font-semibold text-elastos-orange">{t.legal.riskDisclaimer.sections.technicalRisks.title}</h2>
             
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">3.1 Smart Contract and Code Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.technicalRisks.smartContract.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li><strong>Bugs and Vulnerabilities:</strong> Code errors may result in permanent fund loss</li>
-                  <li><strong>Hacking and Exploits:</strong> Malicious attacks on smart contracts</li>
-                  <li><strong>Audit Limitations:</strong> Security audits cannot guarantee bug-free code</li>
-                  <li><strong>Upgrade Risks:</strong> Platform updates may introduce new vulnerabilities</li>
-                  <li><strong>Oracle Failures:</strong> Price feed manipulations or failures</li>
+                  {t.legal.riskDisclaimer.sections.technicalRisks.smartContract.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">3.2 Blockchain and Network Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.technicalRisks.blockchain.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li><strong>Bitcoin Network:</strong> Congestion, high fees, or consensus failures</li>
-                  <li><strong>Elastos Network:</strong> Technical issues or reduced hash power</li>
-                  <li><strong>Fork Risks:</strong> Blockchain splits may affect operations</li>
-                  <li><strong>51% Attacks:</strong> Network security compromises</li>
-                  <li><strong>Transaction Failures:</strong> Failed or delayed blockchain transactions</li>
+                  {t.legal.riskDisclaimer.sections.technicalRisks.blockchain.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">3.3 Platform Operational Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.technicalRisks.operational.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>Server downtime or system maintenance issues</li>
-                  <li>Database corruption or data loss</li>
-                  <li>Cybersecurity breaches or data theft</li>
-                  <li>Human error in platform operations</li>
-                  <li>Third-party service provider failures</li>
+                  {t.legal.riskDisclaimer.sections.technicalRisks.operational.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -191,36 +197,33 @@ export default function RiskDisclaimer() {
 
           {/* Financial and Economic Risks */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-elastos-orange">4. Financial and Economic Risks</h2>
+            <h2 className="text-2xl font-semibold text-elastos-orange">{t.legal.riskDisclaimer.sections.financialRisks.title}</h2>
             
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">4.1 Interest Rate and Fee Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.financialRisks.interestRate.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>Interest rates may increase during your loan term</li>
-                  <li>Additional fees may be introduced</li>
-                  <li>Network transaction fees may spike unexpectedly</li>
-                  <li>Options hedging costs may exceed projections</li>
+                  {t.legal.riskDisclaimer.sections.financialRisks.interestRate.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">4.2 Stablecoin and Peg Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.financialRisks.stablecoin.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li><strong>Depeg Risk:</strong> BTCD may trade below $1.00</li>
-                  <li><strong>Liquidity Risk:</strong> Difficulty selling BTCD in secondary markets</li>
-                  <li><strong>Redemption Risk:</strong> Delays or failures in BTCD redemption</li>
-                  <li><strong>Market Confidence:</strong> Loss of confidence may affect BTCD value</li>
+                  {t.legal.riskDisclaimer.sections.financialRisks.stablecoin.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">4.3 Macroeconomic Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.financialRisks.macroeconomic.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>Global financial crises affecting cryptocurrency markets</li>
-                  <li>Central bank policies impacting digital assets</li>
-                  <li>Economic sanctions affecting cross-border transactions</li>
-                  <li>Currency devaluation in your local jurisdiction</li>
+                  {t.legal.riskDisclaimer.sections.financialRisks.macroeconomic.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -228,28 +231,24 @@ export default function RiskDisclaimer() {
 
           {/* Business and Regulatory Risks */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-elastos-orange">5. Business and Regulatory Risks</h2>
+            <h2 className="text-2xl font-semibold text-elastos-orange">{t.legal.riskDisclaimer.sections.businessRisks.title}</h2>
             
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">5.1 Platform Business Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.businessRisks.business.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li><strong>Business Failure:</strong> Creek Business Center may cease operations</li>
-                  <li><strong>Insolvency:</strong> Financial difficulties may affect platform operations</li>
-                  <li><strong>Key Personnel:</strong> Loss of critical team members</li>
-                  <li><strong>Funding:</strong> Inability to secure necessary operational funding</li>
-                  <li><strong>Competition:</strong> Superior competing platforms may emerge</li>
+                  {t.legal.riskDisclaimer.sections.businessRisks.business.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">5.2 Regulatory and Compliance Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.businessRisks.regulatory.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>UAE regulatory changes affecting cryptocurrency businesses</li>
-                  <li>International sanctions or restrictions</li>
-                  <li>Tax law changes in UAE or your jurisdiction</li>
-                  <li>Compliance failures resulting in penalties or closure</li>
-                  <li>License revocation or regulatory action</li>
+                  {t.legal.riskDisclaimer.sections.businessRisks.regulatory.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -257,124 +256,97 @@ export default function RiskDisclaimer() {
 
           {/* User-Specific Risks */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-elastos-orange">6. User-Specific Risks</h2>
+            <h2 className="text-2xl font-semibold text-elastos-orange">{t.legal.riskDisclaimer.sections.userRisks.title}</h2>
             
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">6.1 Personal Security Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.userRisks.security.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li><strong>Private Key Security:</strong> Loss, theft, or compromise of private keys</li>
-                  <li><strong>Phishing Attacks:</strong> Fraudulent websites or communications</li>
-                  <li><strong>Device Security:</strong> Malware or compromise of your devices</li>
-                  <li><strong>Social Engineering:</strong> Manipulation to reveal sensitive information</li>
-                  <li><strong>Physical Security:</strong> Theft or coercion related to cryptocurrency holdings</li>
+                  {t.legal.riskDisclaimer.sections.userRisks.security.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">6.2 Knowledge and Experience Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.userRisks.knowledge.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>Insufficient understanding of cryptocurrency and DeFi concepts</li>
-                  <li>Mistakes in transaction execution or wallet operations</li>
-                  <li>Poor risk management and position sizing</li>
-                  <li>Emotional decision-making during market volatility</li>
-                  <li>Failure to understand platform mechanics and risks</li>
+                  {t.legal.riskDisclaimer.sections.userRisks.knowledge.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-red-400">6.3 Legal and Tax Risks</h3>
+                <h3 className="text-xl font-semibold mb-3 text-red-400">{t.legal.riskDisclaimer.sections.userRisks.legal.title}</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>Cryptocurrency activities may be illegal in your jurisdiction</li>
-                  <li>Unexpected tax liabilities on gains or transactions</li>
-                  <li>Inability to access legal remedies for losses</li>
-                  <li>Compliance failures with local reporting requirements</li>
+                  {t.legal.riskDisclaimer.sections.userRisks.legal.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
           </div>
 
-          {/* Risk Mitigation */}
-          <div className="bg-blue-500/10 border border-blue-500/30 rounded-2xl p-6">
-            <h2 className="text-2xl font-semibold text-blue-400 mb-4">Risk Mitigation Measures</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              While BTCD implements several risk mitigation measures, these do not eliminate all risks:
-            </p>
-            <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li><strong>Options Hedging:</strong> Algorithmic protection against price liquidations (90-day term only)</li>
-              <li><strong>Multi-Signature Security:</strong> 2-of-3 architecture prevents single points of failure</li>
-              <li><strong>BeL2 Arbitration:</strong> Independent dispute resolution with economic incentives</li>
-              <li><strong>Progressive Decentralization:</strong> Reducing platform centralization over time</li>
-              <li><strong>Security Audits:</strong> Regular code reviews and vulnerability assessments</li>
-              <li><strong>Regulatory Compliance:</strong> Operating under Dubai business license</li>
-            </ul>
-            <p className="text-gray-300 leading-relaxed mt-4">
-              <strong>Important:</strong> These measures significantly reduce but do not eliminate risks. 
-              Users must still exercise extreme caution and proper risk management.
-            </p>
-          </div>
-
-          {/* Regulatory Status */}
+          {/* Risk Mitigation Measures */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-elastos-orange">7. Regulatory and Legal Status</h2>
-            <div className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700">
-              <p className="text-gray-300 leading-relaxed mb-4">
-                <strong>Important Legal Information:</strong>
-              </p>
-              <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                <li>BTCD and related services are not regulated financial products in most jurisdictions</li>
-                <li>No government agency has reviewed or approved this platform</li>
-                <li>Users have limited legal protections compared to traditional financial services</li>
-                <li>Creek Business Center operates under UAE commercial law, not financial services regulation</li>
-                <li>Regulatory status may change, potentially affecting platform operations</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Professional Advice */}
-          <div className="bg-orange-500/10 border border-orange-500/30 rounded-2xl p-6">
-            <h2 className="text-2xl font-semibold text-elastos-orange mb-4">Professional Advice Recommended</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              Before using the BTCD platform, we strongly recommend consulting with qualified professionals:
-            </p>
+            <h2 className="text-2xl font-semibold text-elastos-orange">{t.legal.riskDisclaimer.sections.mitigation.title}</h2>
+            <p className="text-gray-300 leading-relaxed">{t.legal.riskDisclaimer.sections.mitigation.intro}</p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li><strong>Financial Advisor:</strong> To assess suitability for your financial situation</li>
-              <li><strong>Tax Professional:</strong> To understand tax implications in your jurisdiction</li>
-              <li><strong>Legal Counsel:</strong> To review legal and regulatory compliance</li>
-              <li><strong>Risk Management Expert:</strong> To develop appropriate risk management strategies</li>
+              {t.legal.riskDisclaimer.sections.mitigation.items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+            <p className="text-gray-300 leading-relaxed mt-4 font-semibold text-red-400">
+              {t.legal.riskDisclaimer.sections.mitigation.warning}
+            </p>
+          </div>
+
+          {/* Regulatory and Legal Status */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold text-elastos-orange">{t.legal.riskDisclaimer.sections.regulatoryStatus.title}</h2>
+            <p className="text-gray-300 leading-relaxed">{t.legal.riskDisclaimer.sections.regulatoryStatus.intro}</p>
+            <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
+              {t.legal.riskDisclaimer.sections.regulatoryStatus.items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </div>
 
-          {/* Final Acknowledgment */}
-          <div className="bg-red-500/20 border-2 border-red-500/50 rounded-2xl p-8">
-            <h2 className="text-2xl font-semibold text-red-400 mb-4">Final Risk Acknowledgment</h2>
-            <p className="text-gray-200 leading-relaxed mb-4">
-              <strong>By using the BTCD platform, you acknowledge and accept that:</strong>
-            </p>
-            <ul className="list-disc list-inside text-gray-300 space-y-3 ml-4">
-              <li>You have read and understood all risks outlined in this disclaimer</li>
-              <li>You may lose some or all of your funds</li>
-              <li>You are using the platform at your own risk</li>
-              <li>You have sufficient knowledge and experience with cryptocurrency and DeFi</li>
-              <li>You can afford to lose your entire investment</li>
-              <li>You will not hold Creek Business Center liable for any losses</li>
-              <li>You understand this is not financial advice</li>
+          {/* Professional Advice Recommended */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold text-elastos-orange">{t.legal.riskDisclaimer.sections.professionalAdvice.title}</h2>
+            <p className="text-gray-300 leading-relaxed">{t.legal.riskDisclaimer.sections.professionalAdvice.intro}</p>
+            <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
+              {t.legal.riskDisclaimer.sections.professionalAdvice.items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
-            <p className="text-red-400 leading-relaxed mt-6 text-lg font-semibold">
-              If you do not accept these risks, do not use the BTCD platform.
+          </div>
+
+          {/* Final Risk Acknowledgment */}
+          <div className="bg-red-500/20 border-2 border-red-500/50 rounded-2xl p-8">
+            <h2 className="text-2xl font-semibold text-red-400 mb-4">{t.legal.riskDisclaimer.sections.finalAcknowledgment.title}</h2>
+            <p className="text-gray-300 leading-relaxed mb-4">{t.legal.riskDisclaimer.sections.finalAcknowledgment.intro}</p>
+            <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4 mb-4">
+              {t.legal.riskDisclaimer.sections.finalAcknowledgment.items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+            <p className="text-red-400 font-bold text-lg">
+              {t.legal.riskDisclaimer.sections.finalAcknowledgment.warning}
             </p>
           </div>
+
+
 
           {/* Contact Information */}
           <div className="bg-gray-800/30 rounded-2xl p-6 border border-gray-700">
-            <h2 className="text-2xl font-semibold text-elastos-orange mb-4">Questions About Risks</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              For questions about the risks outlined in this disclaimer:
-            </p>
+            <h2 className="text-2xl font-semibold text-elastos-orange mb-4">{t.legal.riskDisclaimer.sections.contact.title}</h2>
             <div className="text-gray-300">
-              <p><strong>Address:</strong> Office G-01-MEZZ, Al Sabkha, The Creek Business Center, Dubai, UAE</p>
+              <p><strong>Address:</strong> {t.legal.riskDisclaimer.sections.contact.address}</p>
               <p className="text-red-400 mt-4 font-semibold">
-                Note: We cannot provide financial, investment, or legal advice. Consult qualified professionals.
+                {t.legal.riskDisclaimer.sections.contact.note}
               </p>
             </div>
           </div>

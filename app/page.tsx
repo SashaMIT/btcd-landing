@@ -506,7 +506,7 @@ export default function BTCDLanding() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               style={{ zIndex: 10 }}
             >
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-0 sm:gap-12 lg:gap-16 items-center">
               <div className="space-y-4 sm:space-y-6">
                 <h3 className="text-2xl sm:text-3xl heading-elastos text-white">{t.howWorks.step1.title}</h3>
                 <p className="text-gray-400 text-base sm:text-lg leading-relaxed font-pp-telegraf">
@@ -522,15 +522,15 @@ export default function BTCDLanding() {
                 </div>
               </div>
 
-              <div className="relative mt-8 lg:mt-0">
+              <div className="relative lg:mt-0">
                 <div className="flex justify-center">
                   <Image 
-                    src="/Bitcoin secure lock.png" 
-                    alt="Bitcoin Secure Lock" 
-                    width={384}
-                    height={384}
-                    className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
-                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
+                    src="/BTCD Logo/Lock Your Bitcoin Securely (1).png" 
+                    alt="Lock Your Bitcoin Securely" 
+                    width={448}
+                    height={320}
+                    className="w-80 h-56 sm:w-96 sm:h-64 lg:w-[28rem] lg:h-80 object-contain"
+                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 384px, 448px"
                   />
                 </div>
               </div>
@@ -546,7 +546,7 @@ export default function BTCDLanding() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
               style={{ zIndex: 20 }}
             >
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-0 sm:gap-12 lg:gap-16 items-center">
               <div className="space-y-4 sm:space-y-6">
                 <h3 className="text-2xl sm:text-3xl heading-elastos text-white">{t.howWorks.step2.title}</h3>
                 <p className="text-gray-400 text-base sm:text-lg leading-relaxed font-pp-telegraf">
@@ -562,15 +562,15 @@ export default function BTCDLanding() {
                 </div>
               </div>
 
-              <div className="relative mt-8 lg:mt-0">
+              <div className="relative lg:mt-0">
                 <div className="flex justify-center">
                   <Image 
-                    src="/Cryptographic Credential.png" 
-                    alt="Cryptographic Credential" 
-                    width={384}
-                    height={384}
-                    className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
-                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
+                    src="/BTCD Logo/Collateral Verification.png" 
+                    alt="Collateral Verification" 
+                    width={448}
+                    height={320}
+                    className="w-80 h-56 sm:w-96 sm:h-64 lg:w-[28rem] lg:h-80 object-contain"
+                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 384px, 448px"
                   />
                   </div>
               </div>
@@ -603,36 +603,15 @@ export default function BTCDLanding() {
               </div>
 
               <div className="relative mt-8 lg:mt-0">
-                <div className="bg-gradient-to-br from-elastos-orange/20 via-elastos-blue/10 to-elastos-blue/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 backdrop-blur-sm border border-gray-800">
-                  <div className="flex items-center justify-center space-x-4 sm:space-x-6 lg:space-x-8">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-800 rounded-lg sm:rounded-xl flex items-center justify-center border-2 border-elastos-orange relative">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-700 rounded-md sm:rounded-lg flex items-center justify-center">
-                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-1 sm:space-x-2">
-                      <div className="w-1.5 h-0.5 sm:w-2 sm:h-0.5 bg-elastos-orange"></div>
-                      <div className="w-1.5 h-0.5 sm:w-2 sm:h-0.5 bg-elastos-orange"></div>
-                      <div className="w-1.5 h-0.5 sm:w-2 sm:h-0.5 bg-elastos-orange"></div>
-                    </div>
-                    <div className="w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center">
-                      <Image 
-                        src="/BTCD Logo/BTCD 3D 3.png" 
-                        alt="BTCD Logo" 
-                        width={160}
-                        height={160}
-                        className="w-32 h-32 sm:w-40 sm:h-40 object-contain"
-                        sizes="(max-width: 640px) 128px, 160px"
-                      />
-                    </div>
-                  </div>
+                <div className="flex justify-center">
+                  <Image 
+                    src="/BTCD Logo/Mint & Use Your BTCD (1).png" 
+                    alt="Mint & Use Your BTCD" 
+                    width={500}
+                    height={400}
+                    className="w-full h-80 sm:h-96 lg:h-[400px] object-contain"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
+                  />
                 </div>
               </div>
             </div>
@@ -666,12 +645,12 @@ export default function BTCDLanding() {
               <div className="relative mt-8 lg:mt-0">
                 <div className="flex justify-center">
                   <Image 
-                    src="/Meter.png" 
-                    alt="Smart Risk Management Meter" 
-                    width={384}
-                    height={384}
-                    className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 object-contain"
-                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
+                    src="/BTCD Logo/Indicator.png" 
+                    alt="Smart Risk Management Indicator" 
+                    width={256}
+                    height={256}
+                    className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 object-contain"
+                    sizes="(max-width: 640px) 192px, (max-width: 1024px) 224px, 256px"
                   />
                 </div>
               </div>
@@ -730,7 +709,7 @@ export default function BTCDLanding() {
               <div className="relative mb-8">
                 <div className="w-48 h-48 mx-auto flex items-center justify-center">
                   <Image 
-                    src="/BTCD Logo/BTC lock.png" 
+                    src="/BTCD Logo/BTC Lock.png" 
                     alt="BTC Lock" 
                     width={192}
                     height={192}
@@ -1106,7 +1085,7 @@ export default function BTCDLanding() {
                   >
                     Stake ELA
                   </a>{' '}
-                  to become a BeL2 arbiter providing dispute resolution and earning fees from Bitcoin transactions.
+                  to become a BeL2 arbiter providing dispute resolution and earning BTC fees from Bitcoin transactions.
                 </>
               ) : (
                 <>
@@ -1119,7 +1098,7 @@ export default function BTCDLanding() {
                   >
                     质押ELA
                   </a>
-                  成为BeL2仲裁者提供争议解决并从比特币交易中赚取费用。
+                  成为BeL2仲裁者提供争议解决并从比特币交易中赚取BTC费用。
                 </>
               )}
             </p>

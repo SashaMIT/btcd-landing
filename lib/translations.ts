@@ -183,7 +183,7 @@ export const translations = {
     liquidations: {
       badge: "EARN REWARDS",
       title: "Earn Yield as a BTCD Arbiter", 
-      subtitle: "Participate in protocol security while earning Bitcoin rewards. Stake ELA to become a BeL2 arbiter providing dispute resolution and earning fees from Bitcoin transactions.",
+      subtitle: "Participate in protocol security while earning Bitcoin rewards. Stake ELA to become a BeL2 arbiter providing dispute resolution and earning BTC fees from Bitcoin transactions.",
       detailsButton: "Details Soon",
       
       howItWorks: "How You Can Earn",
@@ -302,6 +302,536 @@ export const translations = {
         title: "Still Have Questions?",
         description: "Connect with us on X and let us know what you need.",
         button: "Ask us on X"
+      }
+    },
+
+    // Legal Pages
+    legal: {
+      privacy: {
+        title: "Privacy Policy",
+        effectiveDate: "Effective Date: August 1, 2025",
+        lastUpdated: "Last Updated: August 1, 2025",
+        sections: {
+          aboutUs: {
+            title: "1. About Us",
+            content: "This Privacy Policy applies to the BTCD platform operated by Creek Business Center, a business entity registered in Dubai, United Arab Emirates (Trade License No. 1293230).",
+            contact: "Contact Information:"
+          },
+          informationCollection: {
+            title: "2. Information We Collect",
+            personalInfo: {
+              title: "2.1 Personal Information",
+              intro: "When you use the BTCD platform, we may collect:",
+              items: [
+                "Account information for platform access and communications",
+                "Wallet addresses for Bitcoin transactions and collateral management", 
+                "Transaction data related to BTCD minting, redemption, and arbitration",
+                "Identity verification information as required by UAE regulations"
+              ]
+            },
+            technicalInfo: {
+              title: "2.2 Technical Information",
+              intro: "We automatically collect technical data including:",
+              items: [
+                "Device and browser information for security and optimization",
+                "IP addresses and location data for compliance and fraud prevention",
+                "Platform usage patterns and performance metrics",
+                "Blockchain transaction records and smart contract interactions"
+              ]
+            }
+          },
+          dataUsage: {
+            title: "3. How We Use Your Information",
+            intro: "We use collected information to:",
+            items: [
+              "Facilitate BTCD minting, redemption, and arbitration processes",
+              "Ensure platform security and prevent fraudulent activities",
+              "Comply with UAE regulatory requirements and international standards",
+              "Improve platform functionality and user experience",
+              "Communicate important updates and security notifications"
+            ]
+          },
+          dataSharing: {
+            title: "4. Information Sharing and Disclosure",
+            intro: "We may share your information:",
+            items: [
+              "With blockchain networks for transaction verification",
+              "With regulatory authorities as required by UAE law",
+              "With service providers who assist in platform operations",
+              "In response to legal requests or to protect our rights"
+            ],
+            noSale: "We never sell your personal information to third parties."
+          },
+          userRights: {
+            title: "5. Your Rights and Choices",
+            intro: "Under UAE data protection laws, you have the right to:",
+            items: [
+              "Access and review your personal information",
+              "Request correction of inaccurate data",
+              "Request deletion of your account and associated data",
+              "Object to certain processing activities",
+              "Receive a copy of your data in portable format"
+            ]
+          },
+          security: {
+            title: "6. Data Security",
+            content: "We implement industry-standard security measures including encryption, access controls, and regular security audits. However, no system is completely secure, and we cannot guarantee absolute security."
+          },
+          updates: {
+            title: "7. Policy Updates",
+            content: "We may update this Privacy Policy periodically to reflect changes in our practices, technology, or legal requirements. We will notify you of any material changes through the platform. Your continued use of the BTCD platform after changes constitutes acceptance of the updated policy."
+          },
+          contact: {
+            title: "8. Contact Us",
+            address: "Office G-01-MEZZ, Al Sabkha, The Creek Business Center, Dubai, UAE",
+            responseTime: "We will respond to privacy requests within 30 days"
+          }
+        }
+      },
+      terms: {
+        title: "Terms of Service",
+        effectiveDate: "Effective Date: August 1, 2025", 
+        lastUpdated: "Last Updated: August 1, 2025",
+        sections: {
+          importantNotice: {
+            title: "Important Notice",
+            content: "By accessing or using the BTCD platform, you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use the platform. These terms constitute a legally binding agreement between you and Creek Business Center."
+          },
+          aboutUs: {
+            title: "1. About Us",
+            content: "These Terms of Service govern your use of the BTCD platform operated by Creek Business Center, registered in Dubai, UAE (Trade License No. 1293230)."
+          },
+          platform: {
+            title: "2. Platform Description", 
+            content: "BTCD is a Bitcoin-backed stablecoin platform utilizing multi-signature security and BeL2 arbitration for secure, non-liquidatable Bitcoin-backed lending."
+          },
+          eligibility: {
+            title: "3. Eligibility",
+            content: "You must be at least 18 years old and legally capable of entering into binding agreements to use this platform."
+          },
+          services: {
+            title: "4. Platform Services",
+            bitcoinCollateral: {
+              title: "4.1 Bitcoin Collateral System",
+              items: [
+                "Users lock Bitcoin in 2-of-3 multi-signature P2WSH scripts",
+                "Collateral remains on Bitcoin blockchain for maximum security", 
+                "Multi-signature involves user, issuer, and BeL2 arbiter",
+                "Minimum 3 confirmations required for collateral verification"
+              ]
+            },
+            minting: {
+              title: "4.2 BTCD Minting and Redemption",
+              items: [
+                "BTCD tokens minted 1:1 against Bitcoin collateral value",
+                "90-day loan terms with algorithmic options hedging",
+                "Redemption requires principal plus interest payment",
+                "Early redemption permitted subject to terms"
+              ]
+            },
+            arbitration: {
+              title: "4.3 BeL2 Arbitration Network", 
+              items: [
+                "Independent arbiters from Elastos network",
+                "Dispute resolution for borrower-issuer disagreements",
+                "Economic incentives ensure honest behavior",
+                "Arbiters stake ELA tokens as collateral"
+              ]
+            }
+          },
+          userObligations: {
+            title: "5. User Obligations and Restrictions",
+            prohibited: {
+              title: "5.1 Prohibited Activities",
+              intro: "You agree not to:",
+              items: [
+                "Use the platform for money laundering or terrorist financing",
+                "Provide false or misleading information",
+                "Attempt to manipulate platform operations or pricing",
+                "Interfere with platform security or other users' access",
+                "Use the platform for any illegal activities",
+                "Circumvent arbitration or dispute resolution processes"
+              ]
+            },
+            security: {
+              title: "5.2 Security Responsibilities",
+              items: [
+                "Maintain secure custody of private keys and wallet access",
+                "Verify all transaction details before confirmation",
+                "Report security incidents promptly",
+                "Use supported wallets and software versions"
+              ]
+            },
+            loan: {
+              title: "5.3 Loan Obligations",
+              items: [
+                "Repay principal plus interest within 90-day term",
+                "Monitor collateral ratios and margin requirements",
+                "Understand liquidation triggers and timelock mechanisms",
+                "Participate in good faith in any dispute resolution"
+              ]
+            }
+          },
+          fees: {
+            title: "6. Fees and Payments",
+            intro: "Platform fees include:",
+            items: [
+              "Interest Rate: 4% annual (dynamically adjusted for market conditions)",
+              "Minting Fee: 0.2% of BTCD amount",
+              "Options Hedging: Covered by protocol through dynamic rate adjustments",
+              "Arbitration Fees: Paid to BeL2 arbiters for dispute resolution",
+              "Network Fees: Bitcoin and Elastos transaction costs"
+            ],
+            disclosure: "All fees are clearly disclosed before transaction execution. Fee structures may be updated with advance notice."
+          },
+          riskDisclosure: {
+            title: "7. Risk Disclosure",
+            intro: "Cryptocurrency and DeFi activities involve significant risks. By using BTCD, you acknowledge:",
+            items: [
+              "Bitcoin and cryptocurrency prices are highly volatile",
+              "Smart contract and technical risks may result in loss of funds",
+              "Liquidation may occur if loan terms are not met",
+              "Blockchain transactions are irreversible",
+              "Regulatory changes may affect platform operations",
+              "Options hedging does not guarantee against all losses"
+            ],
+            reference: "For complete risk information, see our Risk Disclaimer."
+          },
+          disputeResolution: {
+            title: "8. Dispute Resolution",
+            bel2: {
+              title: "8.1 BeL2 Arbitration",
+              intro: "Platform-related disputes are resolved through the BeL2 arbitration system:",
+              items: [
+                "Independent arbiters selected from Elastos network",
+                "Economic incentives ensure fair resolution",
+                "Decisions are binding on platform participants",
+                "Appeals process available for significant disputes"
+              ]
+            },
+            legal: {
+              title: "8.2 Legal Jurisdiction",
+              content: "For disputes not resolved through BeL2 arbitration, these Terms are governed by UAE law, and any legal proceedings shall be conducted in Dubai courts."
+            }
+          },
+          liability: {
+            title: "9. Limitations of Liability",
+            intro: "To the maximum extent permitted by UAE law:",
+            items: [
+              "Creek Business Center's liability is limited to direct damages only",
+              "No liability for indirect, consequential, or speculative damages",
+              "Maximum liability shall not exceed fees paid by user in preceding 12 months",
+              "No warranty that platform will be uninterrupted or error-free",
+              "Users assume risks inherent in cryptocurrency and DeFi activities"
+            ]
+          },
+          modifications: {
+            title: "10. Platform Modifications",
+            intro: "We reserve the right to:",
+            items: [
+              "Modify platform features and functionality",
+              "Update fee structures with 30 days notice",
+              "Suspend or terminate services for maintenance or security",
+              "Implement additional security or compliance measures",
+              "Update these Terms with advance notice"
+            ]
+          },
+          termination: {
+            title: "11. Termination",
+            user: {
+              title: "11.1 User Termination",
+              content: "You may stop using the platform at any time, subject to fulfilling existing loan obligations and completing pending transactions."
+            },
+            platform: {
+              title: "11.2 Platform Termination",
+              content: "We may suspend or terminate access for violations of these Terms, illegal activities, or security concerns. Active positions will be handled according to established protocols."
+            }
+          },
+          finalSections: {
+            indemnification: {
+              title: "12. Indemnification",
+              content: "You agree to indemnify and hold harmless Creek Business Center from any claims, losses, or damages arising from your use of the platform, violation of these Terms, or violation of applicable laws."
+            },
+            forceMajeure: {
+              title: "13. Force Majeure",
+              content: "Creek Business Center shall not be liable for delays or failures in performance resulting from circumstances beyond our reasonable control, including blockchain network congestion, regulatory actions, or natural disasters."
+            },
+            severability: {
+              title: "14. Severability",
+              content: "If any provision of these Terms is deemed invalid or unenforceable, the remaining provisions shall continue in full force and effect."
+            },
+            changes: {
+              title: "15. Changes to Terms",
+              content: "We may update these Terms periodically. Material changes will be announced through the platform with at least 30 days notice. Continued use after changes constitutes acceptance of updated Terms."
+            }
+          },
+          footer: {
+            copyright: "© 2025 Creek Business Center. All rights reserved.",
+            license: "Licensed in Dubai, United Arab Emirates (Trade License No. 1293230)"
+          }
+        }
+      },
+      riskDisclaimer: {
+        title: "Risk Disclaimer",
+        effectiveDate: "Effective Date: August 1, 2025",
+        lastUpdated: "Last Updated: August 1, 2025",
+        sections: {
+          criticalWarning: {
+            title: "Critical Risk Warning",
+            content: "CRYPTOCURRENCY AND DEFI INVESTMENTS CARRY EXTREME RISK OF LOSS.\n\nThe BTCD platform involves highly risky activities including cryptocurrency lending, collateralization, and exposure to volatile digital assets. You may lose some or all of your funds. Only invest what you can afford to lose completely."
+          },
+          aboutDisclaimer: {
+            title: "About This Risk Disclaimer",
+            content: "This Risk Disclaimer is issued by Creek Business Center (Trade License No. 1293230), a business entity registered in Dubai, United Arab Emirates, operator of the BTCD platform.\n\nBy using the BTCD platform, you acknowledge that you have read, understood, and accepted all risks outlined in this document. This disclaimer does not constitute financial, investment, or legal advice."
+          },
+          cryptoRisks: {
+            title: "1. Cryptocurrency and Digital Asset Risks",
+            volatility: {
+              title: "1.1 Extreme Price Volatility",
+              intro: "Bitcoin and other cryptocurrencies are extremely volatile and can experience:",
+              items: [
+                "Daily price swings of 10% or more",
+                "Sudden and significant crashes (50%+ losses)",
+                "Extended bear markets lasting months or years",
+                "Market manipulation by large holders (\"whales\")",
+                "Complete loss of value in extreme scenarios"
+              ]
+            },
+            regulatory: {
+              title: "1.2 Regulatory and Legal Risks",
+              items: [
+                "Governments may ban or restrict cryptocurrency activities",
+                "New regulations may impact platform operations",
+                "Tax treatment may change unexpectedly",
+                "Cross-border transactions may face additional restrictions",
+                "Legal status varies significantly between jurisdictions"
+              ]
+            },
+            market: {
+              title: "1.3 Market and Liquidity Risks",
+              items: [
+                "Limited liquidity during market stress",
+                "Wide bid-ask spreads in volatile conditions",
+                "Potential inability to exit positions quickly",
+                "Market closure or suspension risks",
+                "Price manipulation in smaller markets"
+              ]
+            }
+          },
+          platformRisks: {
+            title: "2. BTCD Platform-Specific Risks",
+            liquidation: {
+              title: "2.1 Liquidation Risks",
+              intro: "Critical: While BTCD's options hedging eliminates price liquidations during the 90-day term, you still face liquidation risks:",
+              items: [
+                "Maturity Liquidation: Automatic liquidation if loan not repaid by term end",
+                "Default Risk: Loss of collateral if unable to meet repayment obligations",
+                "Options Protection Limits: Protection may not cover extreme market conditions",
+                "System Failure: Technical failures could impact liquidation protection"
+              ]
+            },
+            custody: {
+              title: "2.2 Multi-Signature and Custody Risks",
+              items: [
+                "Key Loss: Losing access to your private keys means permanent fund loss",
+                "Multi-Sig Complexity: Errors in multi-signature operations can lock funds",
+                "Arbiter Risk: BeL2 arbiters may make unfavorable decisions",
+                "Technical Errors: Mistakes in Bitcoin script creation or execution",
+                "Counterparty Risk: Issuer or arbiter may become unavailable or hostile"
+              ]
+            },
+            bel2: {
+              title: "2.3 BeL2 Arbitration Risks",
+              items: [
+                "Arbiters may make biased or incorrect decisions",
+                "Arbitration process may be slow during disputes",
+                "Economic incentives may not prevent collusion",
+                "Appeals process may not reverse unfair decisions",
+                "Arbiters may lose their staked ELA, affecting dispute resolution"
+              ]
+            },
+            gsm: {
+              title: "2.4 GSM Dual-Collateral Risks",
+              items: [
+                "ELA Token Risk: ELA tokens may lose value or become illiquid",
+                "Correlation Risk: Bitcoin and ELA may decline simultaneously",
+                "Cross-Chain Risk: Elastos Smart Chain technical failures",
+                "Complexity Risk: More complex systems have more failure points"
+              ]
+            }
+          },
+          technicalRisks: {
+            title: "3. Technical and Operational Risks",
+            smartContract: {
+              title: "3.1 Smart Contract and Code Risks",
+              items: [
+                "Bugs and Vulnerabilities: Code errors may result in permanent fund loss",
+                "Hacking and Exploits: Malicious attacks on smart contracts",
+                "Audit Limitations: Security audits cannot guarantee bug-free code",
+                "Upgrade Risks: Platform updates may introduce new vulnerabilities",
+                "Oracle Failures: Price feed manipulations or failures"
+              ]
+            },
+            blockchain: {
+              title: "3.2 Blockchain and Network Risks",
+              items: [
+                "Bitcoin Network: Congestion, high fees, or consensus failures",
+                "Elastos Network: Technical issues or reduced hash power",
+                "Fork Risks: Blockchain splits may affect operations",
+                "51% Attacks: Network security compromises",
+                "Transaction Failures: Failed or delayed blockchain transactions"
+              ]
+            },
+            operational: {
+              title: "3.3 Platform Operational Risks",
+              items: [
+                "Server downtime or system maintenance issues",
+                "Database corruption or data loss",
+                "Cybersecurity breaches or data theft",
+                "Human error in platform operations",
+                "Third-party service provider failures"
+              ]
+            }
+          },
+          financialRisks: {
+            title: "4. Financial and Economic Risks",
+            interestRate: {
+              title: "4.1 Interest Rate and Fee Risks",
+              items: [
+                "Interest rates may increase during your loan term",
+                "Additional fees may be introduced",
+                "Network transaction fees may spike unexpectedly",
+                "Options hedging costs may exceed projections"
+              ]
+            },
+            stablecoin: {
+              title: "4.2 Stablecoin and Peg Risks",
+              items: [
+                "Depeg Risk: BTCD may trade below $1.00",
+                "Liquidity Risk: Difficulty selling BTCD in secondary markets",
+                "Redemption Risk: Delays or failures in BTCD redemption",
+                "Market Confidence: Loss of confidence may affect BTCD value"
+              ]
+            },
+            macroeconomic: {
+              title: "4.3 Macroeconomic Risks",
+              items: [
+                "Global financial crises affecting cryptocurrency markets",
+                "Central bank policies impacting digital assets",
+                "Economic sanctions affecting cross-border transactions",
+                "Currency devaluation in your local jurisdiction"
+              ]
+            }
+          },
+          businessRisks: {
+            title: "5. Business and Regulatory Risks",
+            business: {
+              title: "5.1 Platform Business Risks",
+              items: [
+                "Business Failure: Creek Business Center may cease operations",
+                "Insolvency: Financial difficulties may affect platform operations",
+                "Key Personnel: Loss of critical team members",
+                "Funding: Inability to secure necessary operational funding",
+                "Competition: Superior competing platforms may emerge"
+              ]
+            },
+            regulatory: {
+              title: "5.2 Regulatory and Compliance Risks",
+              items: [
+                "UAE regulatory changes affecting cryptocurrency businesses",
+                "International sanctions or restrictions",
+                "Tax law changes in UAE or your jurisdiction",
+                "Compliance failures resulting in penalties or closure",
+                "License revocation or regulatory action"
+              ]
+            }
+          },
+          userRisks: {
+            title: "6. User-Specific Risks",
+            security: {
+              title: "6.1 Personal Security Risks",
+              items: [
+                "Private Key Security: Loss, theft, or compromise of private keys",
+                "Phishing Attacks: Fraudulent websites or communications",
+                "Device Security: Malware or compromise of your devices",
+                "Social Engineering: Manipulation to reveal sensitive information",
+                "Physical Security: Theft or coercion related to cryptocurrency holdings"
+              ]
+            },
+            knowledge: {
+              title: "6.2 Knowledge and Experience Risks",
+              items: [
+                "Insufficient understanding of cryptocurrency and DeFi concepts",
+                "Mistakes in transaction execution or wallet operations",
+                "Poor risk management and position sizing",
+                "Emotional decision-making during market volatility",
+                "Failure to understand platform mechanics and risks"
+              ]
+            },
+            legal: {
+              title: "6.3 Legal and Tax Risks",
+              items: [
+                "Cryptocurrency activities may be illegal in your jurisdiction",
+                "Unexpected tax liabilities on gains or transactions",
+                "Inability to access legal remedies for losses",
+                "Compliance failures with local reporting requirements"
+              ]
+            }
+          },
+          mitigation: {
+            title: "Risk Mitigation Measures",
+            intro: "While BTCD implements several risk mitigation measures, these do not eliminate all risks:",
+            items: [
+              "Options Hedging: Algorithmic protection against price liquidations (90-day term only)",
+              "Multi-Signature Security: 2-of-3 architecture prevents single points of failure",
+              "BeL2 Arbitration: Independent dispute resolution with economic incentives",
+              "Progressive Decentralization: Reducing platform centralization over time",
+              "Security Audits: Regular code reviews and vulnerability assessments",
+              "Regulatory Compliance: Operating under Dubai business license"
+            ],
+            warning: "Important: These measures significantly reduce but do not eliminate risks. Users must still exercise extreme caution and proper risk management."
+          },
+          regulatoryStatus: {
+            title: "7. Regulatory and Legal Status",
+            intro: "Important Legal Information:",
+            items: [
+              "BTCD and related services are not regulated financial products in most jurisdictions",
+              "No government agency has reviewed or approved this platform",
+              "Users have limited legal protections compared to traditional financial services",
+              "Creek Business Center operates under UAE commercial law, not financial services regulation",
+              "Regulatory status may change, potentially affecting platform operations"
+            ]
+          },
+          professionalAdvice: {
+            title: "Professional Advice Recommended",
+            intro: "Before using the BTCD platform, we strongly recommend consulting with qualified professionals:",
+            items: [
+              "Financial Advisor: To assess suitability for your financial situation",
+              "Tax Professional: To understand tax implications in your jurisdiction",
+              "Legal Counsel: To review legal and regulatory compliance",
+              "Risk Management Expert: To develop appropriate risk management strategies"
+            ]
+          },
+          finalAcknowledgment: {
+            title: "Final Risk Acknowledgment",
+            intro: "By using the BTCD platform, you acknowledge and accept that:",
+            items: [
+              "You have read and understood all risks outlined in this disclaimer",
+              "You may lose some or all of your funds",
+              "You are using the platform at your own risk",
+              "You have sufficient knowledge and experience with cryptocurrency and DeFi",
+              "You can afford to lose your entire investment",
+              "You will not hold Creek Business Center liable for any losses",
+              "You understand this is not financial advice"
+            ],
+            warning: "If you do not accept these risks, do not use the BTCD platform."
+          },
+          contact: {
+            title: "Contact Information",
+            address: "Office G-01-MEZZ, Al Sabkha, The Creek Business Center, Dubai, UAE",
+            note: "We cannot provide financial, investment, or legal advice. Please consult qualified professionals."
+          }
+        }
       }
     },
 
@@ -531,7 +1061,7 @@ export const translations = {
     liquidations: {
       badge: "赚取奖励",
       title: "作为BTCD仲裁者赚取收益",
-      subtitle: "参与协议安全性的同时赚取比特币奖励。质押ELA成为BeL2仲裁者提供争议解决并从比特币交易中赚取费用。",
+      subtitle: "参与协议安全性的同时赚取比特币奖励。质押ELA成为BeL2仲裁者提供争议解决并从比特币交易中赚取BTC费用。",
       detailsButton: "详情即将发布",
       
       howItWorks: "如何赚取收益",
@@ -640,6 +1170,541 @@ export const translations = {
         title: "还有问题？",
         description: "在X上联系我们，告诉我们你需要什么。",
         button: "在X上询问我们"
+      }
+    },
+
+    // Legal Pages
+    legal: {
+      privacy: {
+        title: "隐私政策",
+        effectiveDate: "生效日期：2025年8月1日",
+        lastUpdated: "最后更新：2025年8月1日",
+        sections: {
+          aboutUs: {
+            title: "1. 关于我们",
+            content: "本隐私政策适用于由Creek Business Center运营的BTCD平台，这是一家在阿拉伯联合酋长国迪拜（贸易执照号1293230）注册的企业实体。",
+            contact: "联系方式："
+          },
+          informationCollection: {
+            title: "2. 我们收集的信息",
+            personalInfo: {
+              title: "2.1 个人信息",
+              intro: "当您使用BTCD平台时，我们可能会收集：",
+              items: [
+                "平台访问和通信的账户信息",
+                "比特币交易和抵押品管理的钱包地址", 
+                "BTCD铸造、赎回和仲裁相关的交易数据",
+                "根据阿联酋法规要求的身份验证信息"
+              ]
+            },
+            technicalInfo: {
+              title: "2.2 技术信息",
+              intro: "我们自动收集技术数据，包括：",
+              items: [
+                "为安全性和优化收集的设备和浏览器信息",
+                "为合规和反欺诈目的收集的IP地址和位置数据",
+                "平台使用模式和性能指标",
+                "区块链交易记录和智能合约交互"
+              ]
+            }
+          },
+          dataUsage: {
+            title: "3. 我们如何使用您的信息",
+            intro: "我们使用收集到的信息：",
+            items: [
+              "促进BTCD铸造、赎回和仲裁流程",
+              "确保平台安全和防止欺诈活动",
+              "遵守阿联酋法规要求和国际标准",
+              "改进平台功能和用户体验",
+              "传达重要更新和安全通知"
+            ]
+          },
+          dataSharing: {
+            title: "4. 信息共享和披露",
+            intro: "我们可能会共享您的信息：",
+            items: [
+              "与区块链网络进行交易验证",
+              "根据阿联酋法律要求向监管机构披露",
+              "与协助平台运营的服务提供商共享",
+              "在法律要求或保护我们的权利时做出回应"
+            ],
+            noSale: "我们永远不会向第三方出售您的个人信息。"
+          },
+          userRights: {
+            title: "5. 您的权利和选择",
+            intro: "根据阿联酋数据保护法律，您有权：",
+            items: [
+              "访问和审查您的个人资料",
+              "请求更正不准确的数据",
+              "请求删除您的账户及相关数据",
+              "反对某些处理活动",
+              "接收可移植格式的数据副本"
+            ]
+          },
+          security: {
+            title: "6. 数据安全",
+            content: "我们实施行业标准的加密、访问控制和定期安全审计。然而，没有任何系统是完全安全的，我们无法保证绝对安全。"
+          },
+          updates: {
+            title: "7. 政策更新",
+            content: "我们可能会定期更新本隐私政策，以反映我们的实践、技术或法律要求的变化。我们将在平台上通知您任何重大变更。您在变更后继续使用BTCD平台即表示您接受更新后的政策。"
+          },
+          contact: {
+            title: "8. 联系我们",
+            address: "Office G-01-MEZZ, Al Sabkha, The Creek Business Center, Dubai, UAE",
+            responseTime: "我们将在30天内响应隐私请求"
+          }
+        }
+      },
+      terms: {
+        title: "服务条款",
+        effectiveDate: "生效日期：2025年8月1日", 
+        lastUpdated: "最后更新：2025年8月1日",
+        sections: {
+          importantNotice: {
+            title: "重要通知",
+            content: "通过访问或使用BTCD平台，您同意受这些服务条款的约束。如果您不同意这些条款，请勿使用该平台。这些条款构成您与Creek Business Center之间的具有法律约束力的协议。"
+          },
+          aboutUs: {
+            title: "1. 关于我们",
+            content: "这些服务条款适用于由Creek Business Center运营的BTCD平台，这是一家在阿拉伯联合酋长国迪拜（贸易执照号1293230）注册的企业实体。"
+          },
+          platform: {
+            title: "2. 平台描述", 
+            content: "BTCD 是一个利用多重签名安全性和 BeL2 仲裁机制的比特币支持稳定币平台，用于安全、非清算的比特币支持借贷。"
+          },
+          eligibility: {
+            title: "3. 资格",
+            content: "您必须年满 18 岁，并具有法律能力签订具有约束力的协议才能使用此平台。"
+          },
+          services: {
+            title: "4. 平台服务",
+            bitcoinCollateral: {
+              title: "4.1 比特币抵押系统",
+              items: [
+                "用户在2-3多重签名P2WSH脚本中锁定比特币",
+                "抵押品保留在比特币区块链上以确保最大安全性", 
+                "多重签名涉及用户、发行方和BeL2仲裁者",
+                "抵押品验证需要至少3次确认"
+              ]
+            },
+            minting: {
+              title: "4.2 BTCD铸造和赎回",
+              items: [
+                "BTCD代币按1:1比例铸造，与比特币抵押品价值相对应",
+                "90天借贷期限，带算法期权对冲",
+                "赎回需要支付本金加利息",
+                "提前赎回需符合条款"
+              ]
+            },
+            arbitration: {
+              title: "4.3 BeL2仲裁网络", 
+              items: [
+                "来自Elastos网络的独立仲裁者",
+                "解决借款方与发行方之间的争议",
+                "经济激励确保诚实行为",
+                "仲裁者质押ELA代币作为抵押品"
+              ]
+            }
+          },
+          userObligations: {
+            title: "5. 用户义务和限制",
+            prohibited: {
+              title: "5.1 禁止活动",
+              intro: "您同意不：",
+              items: [
+                "使用平台进行洗钱或恐怖主义融资",
+                "提供虚假或误导性信息",
+                "试图操纵平台运营或定价",
+                "干扰平台安全或其他用户的访问权限",
+                "将平台用于任何非法活动",
+                "规避仲裁或争议解决程序"
+              ]
+            },
+            security: {
+              title: "5.2 安全责任",
+              items: [
+                "维护私钥和钱包访问的安全保管",
+                "在确认前验证所有交易详情",
+                "及时报告安全事件",
+                "使用受支持的钱包和软件版本"
+              ]
+            },
+            loan: {
+              title: "5.3 借贷义务",
+              items: [
+                "在90天期限内偿还本金加利息",
+                "监控抵押品比率和保证金要求",
+                "了解清算触发器和时间锁定机制",
+                "诚信参与任何争议解决"
+              ]
+            }
+          },
+          fees: {
+            title: "6. 费用和付款",
+            intro: "平台费用包括：",
+            items: [
+              "利率：4%年利率（根据市场条件动态调整）",
+              "铸造费：BTCD金额的0.2%",
+              "期权对冲：通过协议动态费率调整覆盖",
+              "仲裁费：支付给BeL2仲裁者的争议解决费用",
+              "网络费：比特币和Elastos交易成本"
+            ],
+            disclosure: "所有费用在交易执行前均有明确披露。费用结构可能会提前通知更新。"
+          },
+          riskDisclosure: {
+            title: "7. 风险披露",
+            intro: "加密货币和DeFi活动涉及重大风险。通过使用BTCD，您承认：",
+            items: [
+              "比特币和加密货币价格高度波动",
+              "智能合约和技术风险可能导致资金损失",
+              "如果不满足借贷条款可能发生清算",
+              "区块链交易不可逆转",
+              "监管变化可能影响平台运营",
+              "期权对冲不能保证防范所有损失"
+            ],
+            reference: "有关完整的风险信息，请参阅我们的风险声明。"
+          },
+          disputeResolution: {
+            title: "8. 争议解决",
+            bel2: {
+              title: "8.1 BeL2仲裁",
+              intro: "平台相关争议通过BeL2仲裁系统解决：",
+              items: [
+                "从Elastos网络选择的独立仲裁者",
+                "经济激励确保公平解决",
+                "决定对平台参与者具有约束力",
+                "重大争议可申请上诉程序"
+              ]
+            },
+            legal: {
+              title: "8.2 法律管辖权",
+              content: "对于未通过BeL2仲裁解决的争议，这些条款受阿联酋法律管辖，任何法律程序应在迪拜法院进行。"
+            }
+          },
+          liability: {
+            title: "9. 责任限制",
+            intro: "在阿联酋法律允许的最大范围内：",
+            items: [
+              "Creek Business Center的责任仅限于直接损害",
+              "对间接、后果性或投机性损害不承担责任",
+              "最大责任不应超过用户在前12个月支付的费用",
+              "不保证平台将不间断或无错误",
+              "用户承担加密货币和DeFi活动的固有风险"
+            ]
+          },
+          modifications: {
+            title: "10. 平台修改",
+            intro: "我们保留以下权利：",
+            items: [
+              "修改平台功能和特性",
+              "提前30天通知更新费用结构",
+              "因维护或安全原因暂停或终止服务",
+              "实施额外的安全或合规措施",
+              "提前通知更新这些条款"
+            ]
+          },
+          termination: {
+            title: "11. 终止",
+            user: {
+              title: "11.1 用户终止",
+              content: "您可以随时停止使用平台，但须履行现有借贷义务并完成待处理交易。"
+            },
+            platform: {
+              title: "11.2 平台终止",
+              content: "我们可能因违反这些条款、非法活动或安全问题而暂停或终止访问权限。活跃仓位将根据既定协议处理。"
+            }
+          },
+          finalSections: {
+            indemnification: {
+              title: "12. 赔偿",
+              content: "您同意赔偿并使Creek Business Center免受因您使用平台、违反这些条款或违反适用法律而产生的任何索赔、损失或损害。"
+            },
+            forceMajeure: {
+              title: "13. 不可抗力",
+              content: "Creek Business Center不对因超出我们合理控制范围的情况（包括区块链网络拥堵、监管行动或自然灾害）导致的延迟或履行失败承担责任。"
+            },
+            severability: {
+              title: "14. 可分割性",
+              content: "如果这些条款的任何条款被认定为无效或不可执行，其余条款应继续具有完全效力。"
+            },
+            changes: {
+              title: "15. 条款变更",
+              content: "我们可能会定期更新这些条款。重大变更将通过平台宣布，至少提前30天通知。变更后继续使用即构成接受更新条款。"
+            }
+          },
+          contact: {
+            title: "联系方式",
+            address: "Office G-01-MEZZ, Al Sabkha, The Creek Business Center, Dubai, UAE",
+            businessHours: "星期日 - 星期四，上午 9:00 - 下午 5:00 阿联酋标准时间"
+          },
+          footer: {
+            copyright: "© 2025 Creek Business Center. 版权所有。",
+            license: "在阿拉伯联合酋长国迪拜获得许可（贸易执照号1293230）"
+          }
+        }
+      },
+      riskDisclaimer: {
+        title: "风险声明",
+        effectiveDate: "生效日期：2025年8月1日",
+        lastUpdated: "最后更新：2025年8月1日",
+        sections: {
+          criticalWarning: {
+            title: "关键风险警告",
+            content: "加密货币和DeFi投资涉及重大损失风险，并非所有投资者都适合。价格可能极其波动。\n\nBTCD平台涉及高度风险活动，包括加密货币借贷、抵押化以及对波动性数字资产的暴露。您可能会损失部分或全部资金。仅投资您能够承受完全损失的资金。"
+          },
+          aboutDisclaimer: {
+            title: "关于此风险声明",
+            content: "本风险声明由Creek Business Center（贸易执照号1293230）发布，这是一家在阿拉伯联合酋长国迪拜注册的企业实体，运营BTCD平台。\n\n通过使用BTCD平台，您承认已阅读、理解并接受本文件中列明的所有风险。此声明不构成财务、投资或法律建议。"
+          },
+          cryptoRisks: {
+            title: "1. 加密货币和数字资产风险",
+            volatility: {
+              title: "1.1 极端价格波动",
+              intro: "比特币和其他加密货币极其波动，可能会经历：",
+              items: [
+                "每日价格波动超过10%",
+                "突然和显著的崩溃（50%+损失）",
+                "持续数月或数年的熊市",
+                "大型持有者（\"鲸鱼\"）的市场操纵",
+                "极端情况下完全价值损失"
+              ]
+            },
+            regulatory: {
+              title: "1.2 监管和法律风险",
+              items: [
+                "政府可能会禁止或限制加密货币活动",
+                "新法规可能会影响平台运营",
+                "税收待遇可能出乎意料地改变",
+                "跨境交易可能面临额外限制",
+                "不同司法管辖区之间的法律地位差异显著"
+              ]
+            },
+            market: {
+              title: "1.3 市场和流动性风险",
+              items: [
+                "市场压力期间流动性有限",
+                "波动性条件下宽买卖价差",
+                "可能无法快速退出仓位",
+                "市场关闭或暂停风险",
+                "小型市场中的价格操纵"
+              ]
+            }
+          },
+          platformRisks: {
+            title: "2. BTCD平台特定风险",
+            liquidation: {
+              title: "2.1 清算风险",
+              intro: "关键：虽然BTCD的期权对冲在整个90天期间内消除了价格清算，您仍然面临清算风险：",
+              items: [
+                "到期清算：如果贷款未在到期日偿还，将自动清算",
+                "违约风险：无法履行还款义务导致的抵押品损失",
+                "期权保护限制：保护可能无法覆盖极端市场条件",
+                "系统故障：技术故障可能影响清算保护"
+              ]
+            },
+            custody: {
+              title: "2.2 多重签名和托管风险",
+              items: [
+                "密钥丢失：丢失私钥意味着永久资金损失",
+                "多重签名复杂性：多重签名操作中的错误可能导致资金锁定",
+                "仲裁者风险：BeL2仲裁者可能做出不利决定",
+                "技术错误：比特币脚本创建或执行中的错误",
+                "对手方风险：发行方或仲裁者可能变得不可用或敌对"
+              ]
+            },
+            bel2: {
+              title: "2.3 BeL2仲裁风险",
+              items: [
+                "仲裁者可能做出有偏见或错误的决定",
+                "争议期间仲裁过程可能缓慢",
+                "经济激励可能无法防止串通",
+                "上诉过程可能无法推翻不公平决定",
+                "仲裁者可能失去其质押的ELA，影响争议解决"
+              ]
+            },
+            gsm: {
+              title: "2.4 GSM双重抵押风险",
+              items: [
+                "ELA代币风险：ELA代币可能失去价值或变得流动性不足",
+                "相关性风险：比特币和ELA可能同时下跌",
+                "跨链风险：Elastos智能链技术故障",
+                "复杂性风险：更复杂的系统有更多故障点"
+              ]
+            }
+          },
+          technicalRisks: {
+            title: "3. 技术和运营风险",
+            smartContract: {
+              title: "3.1 智能合约和代码风险",
+              items: [
+                "漏洞和弱点：代码错误可能导致永久资金损失",
+                "黑客攻击和漏洞利用：对智能合约的恶意攻击",
+                "审计局限性：安全审计无法保证代码无漏洞",
+                "升级风险：平台更新可能引入新的漏洞",
+                "预言机故障：价格馈送操纵或故障"
+              ]
+            },
+            blockchain: {
+              title: "3.2 区块链和网络风险",
+              items: [
+                "比特币网络：拥堵、高费用或共识故障",
+                "Elastos网络：技术问题或哈希算力降低",
+                "分叉风险：区块链分裂可能影响运营",
+                "51%攻击：网络安全妥协",
+                "交易失败：失败或延迟的区块链交易"
+              ]
+            },
+            operational: {
+              title: "3.3 平台运营风险",
+              items: [
+                "服务器停机或系统维护问题",
+                "数据库损坏或数据丢失",
+                "网络安全漏洞或数据盗窃",
+                "平台运营中的人为错误",
+                "第三方服务提供商故障"
+              ]
+            }
+          },
+          financialRisks: {
+            title: "4. 金融和经济风险",
+            interestRate: {
+              title: "4.1 利率和费用风险",
+              items: [
+                "贷款期间利率可能增加",
+                "可能引入额外费用",
+                "网络交易费用可能意外飙升",
+                "期权对冲成本可能超出预期"
+              ]
+            },
+            stablecoin: {
+              title: "4.2 稳定币和锚定风险",
+              items: [
+                "脱锚风险：BTCD可能低于1.00美元交易",
+                "流动性风险：在二级市场上出售BTCD困难",
+                "赎回风险：BTCD赎回中的延迟或失败",
+                "市场信心：信心丧失可能影响BTCD价值"
+              ]
+            },
+            macroeconomic: {
+              title: "4.3 宏观经济风险",
+              items: [
+                "影响加密货币市场的全球金融危机",
+                "影响数字资产的央行政策",
+                "影响跨境交易的经济制裁",
+                "您当地司法管辖区的货币贬值"
+              ]
+            }
+          },
+          businessRisks: {
+            title: "5. 业务和监管风险",
+            business: {
+              title: "5.1 平台业务风险",
+              items: [
+                "业务失败：Creek Business Center可能停止运营",
+                "破产：财务困难可能影响平台运营",
+                "关键人员：失去关键团队成员",
+                "资金：无法获得必要的运营资金",
+                "竞争：可能出现更优秀的竞争平台"
+              ]
+            },
+            regulatory: {
+              title: "5.2 监管和合规风险",
+              items: [
+                "阿联酋影响加密货币业务的监管变化",
+                "国际制裁或限制",
+                "阿联酋或您管辖区的税法变化",
+                "导致处罚或关闭的合规失败",
+                "许可证撤销或监管行动"
+              ]
+            }
+          },
+          userRisks: {
+            title: "6. 用户特定风险",
+            security: {
+              title: "6.1 个人安全风险",
+              items: [
+                "私钥安全：私钥的丢失、盗窃或泄露",
+                "钓鱼攻击：欺诈性网站或通信",
+                "设备安全：您设备的恶意软件或泄露",
+                "社会工程：操纵以揭示敏感信息",
+                "物理安全：与加密货币持有相关的盗窃或胁迫"
+              ]
+            },
+            knowledge: {
+              title: "6.2 知识和经验风险",
+              items: [
+                "对加密货币和DeFi概念理解不足",
+                "交易执行或钱包操作中的错误",
+                "糟糕的风险管理和仓位规模",
+                "市场波动期间的情绪化决策",
+                "未能理解平台机制和风险"
+              ]
+            },
+            legal: {
+              title: "6.3 法律和税务风险",
+              items: [
+                "加密货币活动在您的管辖区可能是非法的",
+                "收益或交易的意外税务负债",
+                "无法获得损失的法律救济",
+                "当地报告要求的合规失败"
+              ]
+            }
+          },
+          mitigation: {
+            title: "风险缓解措施",
+            intro: "虽然BTCD实施了几项风险缓解措施，但这些并不能消除所有风险：",
+            items: [
+              "期权对冲：针对价格清算的算法保护（仅限90天期限）",
+              "多重签名安全：2-3架构防止单点故障",
+              "BeL2仲裁：具有经济激励的独立争议解决",
+              "渐进式去中心化：随时间减少平台中心化",
+              "安全审计：定期代码审查和漏洞评估",
+              "监管合规：在迪拜商业许可下运营"
+            ],
+            warning: "重要：这些措施显著降低但不能消除风险。用户仍必须极其谨慎并进行适当的风险管理。"
+          },
+          regulatoryStatus: {
+            title: "7. 监管和法律地位",
+            intro: "重要法律信息：",
+            items: [
+              "BTCD和相关服务在大多数司法管辖区不是受监管的金融产品",
+              "没有政府机构审查或批准这个平台",
+              "与传统金融服务相比，用户的法律保护有限",
+              "Creek Business Center在阿联酋商法下运营，而非金融服务法规",
+              "监管地位可能改变，可能影响平台运营"
+            ]
+          },
+          professionalAdvice: {
+            title: "建议咨询专业人士",
+            intro: "在使用BTCD平台之前，我们强烈建议咨询合格的专业人士：",
+            items: [
+              "财务顾问：评估您财务状况的适合性",
+              "税务专业人士：了解您管辖区的税务影响",
+              "法律顾问：审查法律和监管合规性",
+              "风险管理专家：制定适当的风险管理策略"
+            ]
+          },
+          finalAcknowledgment: {
+            title: "最终风险确认",
+            intro: "通过使用BTCD平台，您承认并接受：",
+            items: [
+              "您已阅读并理解本声明中概述的所有风险",
+              "您可能会损失部分或全部资金",
+              "您使用平台承担自己的风险",
+              "您对加密货币和DeFi有足够的知识和经验",
+              "您能够承受失去全部投资",
+              "您不会让Creek Business Center对任何损失承担责任",
+              "您理解这不是财务建议"
+            ],
+            warning: "如果您不接受这些风险，请勿使用BTCD平台。"
+          },
+          contact: {
+            title: "联系方式",
+            address: "Office G-01-MEZZ, Al Sabkha, The Creek Business Center, Dubai, UAE",
+            note: "我们无法提供财务、投资或法律建议。请咨询合格的专业人士。"
+          }
+        }
       }
     },
 
