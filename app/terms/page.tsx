@@ -40,7 +40,6 @@ export default function TermsOfService() {
                 <p><strong>Jurisdiction:</strong> Dubai, United Arab Emirates</p>
                 <p><strong>Regulator:</strong> Dubai Department of Economy and Tourism</p>
                 <p><strong>Address:</strong> Office G-01-MEZZ, Al Sabkha, The Creek Business Center, Dubai, UAE</p>
-                <p><strong>Contact:</strong> legal@btcd.finance</p>
               </div>
             </div>
           </div>
@@ -336,7 +335,6 @@ export default function TermsOfService() {
               For questions about these Terms of Service:
             </p>
             <div className="text-gray-300">
-              <p><strong>Email:</strong> legal@btcd.finance</p>
               <p><strong>Address:</strong> Office G-01-MEZZ, Al Sabkha, The Creek Business Center, Dubai, UAE</p>
               <p><strong>Business Hours:</strong> Sunday - Thursday, 9:00 AM - 5:00 PM GST</p>
             </div>

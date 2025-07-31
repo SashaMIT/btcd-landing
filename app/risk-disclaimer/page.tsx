@@ -372,7 +372,6 @@ export default function RiskDisclaimer() {
               For questions about the risks outlined in this disclaimer:
             </p>
             <div className="text-gray-300">
-              <p><strong>Email:</strong> risk@btcd.finance</p>
               <p><strong>Address:</strong> Office G-01-MEZZ, Al Sabkha, The Creek Business Center, Dubai, UAE</p>
               <p className="text-red-400 mt-4 font-semibold">
                 Note: We cannot provide financial, investment, or legal advice. Consult qualified professionals.

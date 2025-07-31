@@ -28,8 +28,7 @@ export default function PrivacyPolicy() {
               <strong>Contact Information:</strong><br/>
               Creek Business Center<br/>
               Office G-01-MEZZ, Al Sabkha, The Creek Business Center<br/>
-              Dubai, United Arab Emirates<br/>
-              Email: privacy@btcd.finance
+              Dubai, United Arab Emirates
             </p>
           </div>
 
@@ -44,7 +43,7 @@ export default function PrivacyPolicy() {
                   When you use the BTCD platform, we may collect:
                 </p>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                  <li>Email address for account creation and communications</li>
+                  <li>Account information for platform access and communications</li>
                   <li>Wallet addresses for Bitcoin transactions and collateral management</li>
                   <li>Transaction data related to BTCD minting, redemption, and arbitration</li>
                   <li>Identity verification information as required by UAE regulations</li>
@@ -187,7 +186,7 @@ export default function PrivacyPolicy() {
             <p className="text-gray-300 leading-relaxed">
               We may update this Privacy Policy periodically to reflect changes in our practices, 
               technology, or legal requirements. We will notify you of any material changes through 
-              the platform or via email. Your continued use of the BTCD platform after changes 
+              the platform. Your continued use of the BTCD platform after changes 
               constitutes acceptance of the updated policy.
             </p>
           </div>
@@ -199,7 +198,6 @@ export default function PrivacyPolicy() {
               For questions about this Privacy Policy or to exercise your rights, contact us:
             </p>
             <div className="text-gray-300">
-              <p><strong>Email:</strong> privacy@btcd.finance</p>
               <p><strong>Address:</strong> Office G-01-MEZZ, Al Sabkha, The Creek Business Center, Dubai, UAE</p>
               <p><strong>Response Time:</strong> We will respond to privacy requests within 30 days</p>
             </div>
