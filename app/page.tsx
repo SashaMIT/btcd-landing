@@ -180,9 +180,14 @@ export default function BTCDLanding() {
             {/* Right Section - Actions */}
             <div className="flex items-center justify-end space-x-2 sm:space-x-4">
               <LanguageToggle />
-              <Button className="px-4 sm:px-6 py-2 text-sm sm:text-base font-pp-telegraf">
+              <a 
+                href="https://app.btcdprotocol.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-4 sm:px-6 py-2 text-sm sm:text-base font-pp-telegraf inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-[200] bg-[rgba(246,146,26,0.15)] border border-[rgba(246,146,26,0.25)] text-white hover:bg-[rgba(246,146,26,0.25)] rounded-full h-10"
+              >
                 {t.nav.launchApp}
-              </Button>
+              </a>
             </div>
           </div>
 
@@ -254,9 +259,14 @@ export default function BTCDLanding() {
             {/* Right Section - Actions */}
             <div className="flex items-center justify-end space-x-4">
               <LanguageToggle />
-              <Button className="px-6 py-2 font-pp-telegraf">
+              <a 
+                href="https://app.btcdprotocol.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-6 py-2 font-pp-telegraf inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-[200] bg-[rgba(246,146,26,0.15)] border border-[rgba(246,146,26,0.25)] text-white hover:bg-[rgba(246,146,26,0.25)] rounded-full h-10"
+              >
                 {t.nav.launchApp}
-            </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -381,9 +391,14 @@ export default function BTCDLanding() {
             </p>
 
             {/* CTA Button */}
-            <Button className="px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-pp-telegraf mb-12 sm:mb-14 lg:mb-16">
+            <a 
+              href="https://app.btcdprotocol.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-pp-telegraf mb-12 sm:mb-14 lg:mb-16 inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-[200] bg-[rgba(246,146,26,0.15)] border border-[rgba(246,146,26,0.25)] text-white hover:bg-[rgba(246,146,26,0.25)] rounded-full h-10"
+            >
               {t.hero.mintToday}
-            </Button>
+            </a>
           </div>
 
           {/* Dashboard Preview */}
@@ -603,11 +618,11 @@ export default function BTCDLanding() {
               </div>
 
               <div className="relative mt-8 lg:mt-0">
-                <div className="flex justify-center">
-                  <Image 
-                    src="/BTCD Logo/Mint & Use Your BTCD (1).png" 
-                    alt="Mint & Use Your BTCD" 
-                    width={500}
+                                  <div className="flex justify-center">
+                    <Image 
+                      src="/Mint Use Your BTCD.png" 
+                      alt="Mint & Use Your BTCD" 
+                      width={500}
                     height={400}
                     className="w-full h-80 sm:h-96 lg:h-[400px] object-contain"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
@@ -707,11 +722,11 @@ export default function BTCDLanding() {
               </p>
 
               <div className="relative mb-8">
-                <div className="w-48 h-48 mx-auto flex items-center justify-center">
-                  <Image 
-                    src="/BTCD Logo/BTC Lock.png" 
-                    alt="BTC Lock" 
-                    width={192}
+                                  <div className="w-48 h-48 mx-auto flex items-center justify-center">
+                    <Image 
+                      src="/BTC Lock.png" 
+                      alt="BTC Lock" 
+                      width={192}
                     height={192}
                     className="w-48 h-48 object-contain"
                   />
@@ -839,35 +854,35 @@ export default function BTCDLanding() {
                 </div>
 
                 {/* Comparison Table */}
-                <div className="bg-gradient-to-br from-slate-800/60 via-gray-900/50 to-slate-800/40 backdrop-blur-sm rounded-lg p-4 border border-orange-500/20">
+                <div className="bg-gradient-to-br from-slate-800/60 via-gray-900/50 to-slate-800/40 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-orange-500/20">
                   <h4 className="text-white text-xs font-medium mb-3 text-center">{t.protocol.btcdToken.comparison.title}</h4>
-                  <div className="space-y-2 text-xs">
+                  <div className="space-y-2 sm:space-y-3 text-xs">
                     {/* Header Row */}
-                    <div className="flex justify-between items-center border-b border-gray-600 pb-2">
-                      <span className="text-gray-400 w-20"></span>
-                      <span className="text-elastos-orange font-medium text-center flex-1">{t.protocol.btcdToken.comparison.btcd}</span>
-                      <span className="text-gray-400 text-center flex-1">{t.protocol.btcdToken.comparison.others}</span>
+                    <div className="grid grid-cols-3 gap-1 sm:gap-2 items-center border-b border-gray-600 pb-2">
+                      <span className="text-gray-400"></span>
+                      <span className="text-elastos-orange font-medium text-center">{t.protocol.btcdToken.comparison.btcd}</span>
+                      <span className="text-gray-400 text-center">{t.protocol.btcdToken.comparison.others}</span>
                     </div>
                     
                     {/* Custody Row */}
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-400 w-20">{t.protocol.btcdToken.comparison.custody}</span>
-                      <span className="text-green-400 text-center flex-1">✓ {t.protocol.btcdToken.comparison.btcdCustody}</span>
-                      <span className="text-red-400 text-center flex-1">✗ {t.protocol.btcdToken.comparison.othersCustody}</span>
+                    <div className="grid grid-cols-3 gap-1 sm:gap-2 items-start">
+                      <span className="text-gray-400 text-left leading-tight pr-1">{t.protocol.btcdToken.comparison.custody}</span>
+                      <span className="text-green-400 text-center leading-tight px-1">✓ {t.protocol.btcdToken.comparison.btcdCustody}</span>
+                      <span className="text-red-400 text-center leading-tight px-1">✗ {t.protocol.btcdToken.comparison.othersCustody}</span>
                     </div>
                     
                     {/* Backing Row */}
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-400 w-20">{t.protocol.btcdToken.comparison.backing}</span>
-                      <span className="text-green-400 text-center flex-1">✓ {t.protocol.btcdToken.comparison.btcdBacking}</span>
-                      <span className="text-red-400 text-center flex-1">✗ {t.protocol.btcdToken.comparison.othersBacking}</span>
+                    <div className="grid grid-cols-3 gap-1 sm:gap-2 items-start">
+                      <span className="text-gray-400 text-left leading-tight pr-1">{t.protocol.btcdToken.comparison.backing}</span>
+                      <span className="text-green-400 text-center leading-tight px-1">✓ {t.protocol.btcdToken.comparison.btcdBacking}</span>
+                      <span className="text-red-400 text-center leading-tight px-1">✗ {t.protocol.btcdToken.comparison.othersBacking}</span>
                     </div>
                     
                     {/* Grace Period Row */}
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-400 w-20">{t.protocol.btcdToken.comparison.grace}</span>
-                      <span className="text-green-400 text-center flex-1">✓ {t.protocol.btcdToken.comparison.btcdGrace}</span>
-                      <span className="text-red-400 text-center flex-1">✗ {t.protocol.btcdToken.comparison.othersGrace}</span>
+                    <div className="grid grid-cols-3 gap-1 sm:gap-2 items-start">
+                      <span className="text-gray-400 text-left leading-tight pr-1">{t.protocol.btcdToken.comparison.grace}</span>
+                      <span className="text-green-400 text-center leading-tight px-1">✓ {t.protocol.btcdToken.comparison.btcdGrace}</span>
+                      <span className="text-red-400 text-center leading-tight px-1">✗ {t.protocol.btcdToken.comparison.othersGrace}</span>
                     </div>
                   </div>
                 </div>
@@ -1256,10 +1271,12 @@ export default function BTCDLanding() {
                     </p>
                   </div>
                   <div className="flex justify-center">
-                    <Button className="px-12 py-4 text-lg flex items-center justify-center space-x-2">
-                      <span>{t.finalCta.launchApp}</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </Button>
+                    <Button className="px-12 py-4 text-lg flex items-center justify-center space-x-2" asChild>
+                      <a href="https://app.btcdprotocol.com/" target="_blank" rel="noopener noreferrer">
+                        <span>{t.finalCta.launchApp}</span>
+                        <ArrowRight className="w-5 h-5" />
+                      </a>
+                    </Button>
                   </div>
                   <p className="text-xs text-gray-500 font-pp-telegraf">{t.finalCta.disclaimer}</p>
                 </div>
