@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { useLanguage } from '@/contexts/LanguageContext'
 import { translations } from '@/lib/translations'
 import { LanguageToggle } from '@/components/LanguageToggle'
+import { config } from '@/lib/config'
 
 export default function RiskDisclaimer() {
   const { language } = useLanguage()
@@ -33,10 +34,10 @@ export default function RiskDisclaimer() {
             <div className="flex items-center space-x-4">
               <LanguageToggle />
               <a 
-                href="https://app.btcdprotocol.com" 
+                href={config.appUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="px-4 sm:px-6 py-2 text-sm sm:text-base font-pp-telegraf inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-[200] bg-[rgba(246,146,26,0.15)] border border-[rgba(246,146,26,0.25)] text-white hover:bg-[rgba(246,146,26,0.25)] rounded-full h-10"
+                className="px-4 sm:px-6 py-2 text-sm sm:text-base font-pp-telegraf inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-[200] bg-[rgba(246,146,26,0.25)] text-white hover:bg-[rgba(246,146,26,0.25)] rounded-full h-10"
               >
                 {t.nav.launchApp}
               </a>

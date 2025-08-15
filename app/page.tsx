@@ -11,6 +11,7 @@ import { useIsMobile } from '@/hooks/use-mobile'
 import { startPerformanceMonitoring } from '@/lib/performance'
 import { LoadingOverlay } from '@/components/ui/loading-states'
 import Image from 'next/image'
+import { config } from '@/lib/config'
 
 
 
@@ -181,7 +182,7 @@ export default function BTCDLanding() {
             <div className="flex items-center justify-end space-x-2 sm:space-x-4">
               <LanguageToggle />
               <a 
-                href="https://app.btcdprotocol.com" 
+                href={config.appUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-4 sm:px-6 py-2 text-sm sm:text-base font-pp-telegraf inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-[200] bg-[rgba(246,146,26,0.15)] border border-[rgba(246,146,26,0.25)] text-white hover:bg-[rgba(246,146,26,0.25)] rounded-full h-10"
@@ -260,10 +261,10 @@ export default function BTCDLanding() {
             <div className="flex items-center justify-end space-x-4">
               <LanguageToggle />
               <a 
-                href="https://app.btcdprotocol.com" 
+                href={config.appUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="px-6 py-2 font-pp-telegraf inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-[200] bg-[rgba(246,146,26,0.15)] border border-[rgba(246,146,26,0.25)] text-white hover:bg-[rgba(246,146,26,0.25)] rounded-full h-10"
+                className="px-6 py-2 font-pp-telegraf inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-[200] bg-[rgba(246,146,26,0.15)] border border-[rgba(246,146,26,0.25)] text-white hover:bg-[rgba(246,146,26,0.25)] rounded-full h-10"
               >
                 {t.nav.launchApp}
               </a>
@@ -392,7 +393,7 @@ export default function BTCDLanding() {
 
             {/* CTA Button */}
             <a 
-              href="https://app.btcdprotocol.com" 
+              href={config.appUrl} 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-pp-telegraf mb-12 sm:mb-14 lg:mb-16 inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-[200] bg-[rgba(246,146,26,0.15)] border border-[rgba(246,146,26,0.25)] text-white hover:bg-[rgba(246,146,26,0.25)] rounded-full h-10"
@@ -893,8 +894,8 @@ export default function BTCDLanding() {
             <div className="card-elastos p-8">
               <h3 className="text-xl emphasis-elastos text-white mb-4">{t.protocol.elastos.title}</h3>
               <p className="text-gray-400 text-sm mb-6 leading-relaxed font-pp-telegraf">
-                We built BTCD on the <a 
-                  href="https://elastos.net" 
+                We built BTCD on the                 <a 
+                  href={config.external.elastos} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-elastos-orange hover:text-white transition-colors duration-200 underline"
@@ -1093,7 +1094,7 @@ export default function BTCDLanding() {
                 <>
                   Participate in protocol security while earning Bitcoin rewards.{' '}
                   <a 
-                    href="https://elastos.net/buy-ela" 
+                    href={config.external.elastosBuyEla} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-elastos-orange hover:text-white transition-colors duration-200 underline"
@@ -1106,7 +1107,7 @@ export default function BTCDLanding() {
                 <>
                   参与协议安全性的同时赚取比特币奖励。
                   <a 
-                    href="https://elastos.net/buy-ela" 
+                    href={config.external.elastosBuyEla} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-elastos-orange hover:text-white transition-colors duration-200 underline"
@@ -1231,7 +1232,7 @@ export default function BTCDLanding() {
             title: t.faq.contact.title,
             description: t.faq.contact.description,
             buttonText: t.faq.contact.button,
-            onContact: () => window.open('https://twitter.com/btcd', '_blank')
+                            onContact: () => window.open(config.external.twitter, '_blank')
           }}
         />
           </div>
@@ -1271,12 +1272,15 @@ export default function BTCDLanding() {
                     </p>
                   </div>
                   <div className="flex justify-center">
-                    <Button className="px-12 py-4 text-lg flex items-center justify-center space-x-2" asChild>
-                      <a href="https://app.btcdprotocol.com/" target="_blank" rel="noopener noreferrer">
-                        <span>{t.finalCta.launchApp}</span>
-                        <ArrowRight className="w-5 h-5" />
-                      </a>
-                    </Button>
+                    <a 
+                      href={config.appUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="px-12 py-4 text-lg flex items-center justify-center space-x-2 inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-300 ease focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-[200] bg-[rgba(246,146,26,0.15)] border border-[rgba(246,146,26,0.25)] text-white hover:bg-[rgba(246,146,26,0.25)] rounded-full h-11"
+                    >
+                      <span>{t.finalCta.launchApp}</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </a>
                   </div>
                   <p className="text-xs text-gray-500 font-pp-telegraf">{t.finalCta.disclaimer}</p>
                 </div>
@@ -1304,7 +1308,7 @@ export default function BTCDLanding() {
               <p className="text-gray-400 text-lg leading-relaxed max-w-md font-pp-telegraf">
                 {t.footer.descriptionParts.beforeLink}
                 <a 
-                  href="https://www.nbwlabs.org/offerings" 
+                  href={config.external.nbwLabs} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-white hover:text-blue-300 transition-colors underline"
@@ -1314,7 +1318,7 @@ export default function BTCDLanding() {
                 {t.footer.descriptionParts.afterLink}
               </p>
               <div className="flex space-x-6">
-                <a href="https://twitter.com/btcd" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <a href={config.external.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                   </svg>

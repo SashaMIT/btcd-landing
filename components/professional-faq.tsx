@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { config } from "@/lib/config";
 
 
 interface FAQItem {
@@ -115,7 +116,7 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
     buttonText: "Ask us on X",
     onContact: () => {
       // X/Twitter link functionality
-      window.open("https://twitter.com/btcd", "_blank");
+              window.open(config.external.twitter, "_blank");
     }
   }
 }) => {
