@@ -29,10 +29,10 @@ export const translations = {
       
       step1: {
         title: "Lock Your Bitcoin Securely",
-        description: "Create your BTCD order by choosing amount and duration, then pick an independent arbiter from our network. Your Bitcoin goes into a secure P2WSH multi-signature script with three parties: you, the issuer, and your chosen arbiter.",
+        description: "Create your BTCD order by choosing amount and duration, then pick an independent Keeper from our network. Your Bitcoin goes into a secure P2WSH multi-signature script with three parties: you, the issuer, and your chosen Keeper.",
         points: [
           "Create order with custom amount and duration",
-          "Choose your preferred arbiter from order list",
+          "Choose your preferred Keeper from order list",
           "Lock BTC in P2WSH script on Bitcoin mainnet"
         ]
       },
@@ -72,14 +72,14 @@ export const translations = {
     protocol: {
       badge: "TECHNICAL EXCELLENCE",
       title: "Why BTCD is Different",
-      subtitle: "Built by Harvard alumni and secured by Bitcoin's own mining network. This isn't just another stablecoin—it's the future of Bitcoin finance.",
+      subtitle: "Secured by Bitcoin's own mining network. This isn't just another stablecoin—it's the future of Bitcoin finance.",
       
       bitcoinNative: {
         title: "2-of-3 Multi-Signature Security",
-        description: "BTCD employs industry-standard 2-of-3 multi-signature P2WSH scripts with three independent parties: borrower, issuer, and BeL2 arbiter. This architecture ensures no single entity can control user funds while maintaining Bitcoin-native security. Dual-collateral support with ELA tokens boosts capital efficiency up to 65% LTV.",
+        description: "BTCD employs industry-standard 2-of-3 multi-signature P2WSH scripts with three independent parties: borrower, issuer, and BTCD Keeper. This architecture ensures no single entity can control user funds while maintaining Bitcoin-native security. Dual-collateral support with ELA tokens boosts capital efficiency up to 45% LTV.",
         smartContractsTitle: "Multi-Sig P2WSH Architecture",
         codeComment: "// Decentralized 2-of-3 multi-signature security",
-        codeDescription: "Triple-signature security where no single party controls your Bitcoin: you control one key, the issuer holds another, and independent BeL2 arbiters provide dispute resolution that can't be manipulated. Multiple cryptographic timelocks ensure you can always recover your Bitcoin."
+        codeDescription: "Triple-signature security where no single party controls your Bitcoin: you control one key, the issuer holds another, and independent BTCD Keepers provide dispute resolution that can't be manipulated. Multiple cryptographic timelocks ensure you can always recover your Bitcoin."
       },
 
       btcdToken: {
@@ -88,9 +88,9 @@ export const translations = {
         backingAsset: "Backing Asset",
         bitcoin100: "100% Bitcoin + Options Protection",
         collateralRatio: "Capital Efficiency", 
-        ratioRequired: "Up to 65% LTV",
+        ratioRequired: "Up to 45% LTV",
         liquidation: "Liquidation Risk",
-        gracePeriod: "Eliminated via Put Options",
+        gracePeriod: "Minimized via Put Options",
         comparison: {
           title: "vs. Other Stablecoins",
           btcd: "BTCD",
@@ -102,7 +102,7 @@ export const translations = {
           btcdBacking: "Options hedging",
           othersBacking: "None",
           grace: "Liquidation Risk",
-          btcdGrace: "Eliminated",
+          btcdGrace: "Minimized",
           othersGrace: "High"
         }
       },
@@ -110,13 +110,13 @@ export const translations = {
 
 
       elastos: {
-        title: "Progressive Decentralization on Elastos",
+        title: "Built on Elastos Infrastructure",
         description: "We built BTCD on the Elastos SmartWeb—the only blockchain secured by Bitcoin's hashpower. BTCD follows a structured decentralization roadmap, currently operating with a single issuer model transitioning to a fully distributed BPOS node network while maintaining security guarantees.",
-        codeDescription: "BeL2 arbiters inherit over 50% of Bitcoin's hash power through merge mining. Economic staking incentives and anti-collusion measures ensure honest behavior in dispute resolution.",
+        codeDescription: "BTCD Keepers inherit over 50% of Bitcoin's hash power through merge mining. Economic staking incentives and anti-collusion measures ensure honest behavior in dispute resolution.",
         stakeElaButton: "Stake ELA Tokens",
         hashpowerLabel: "Bitcoin Hashpower",
-        securityLabel: "Progressive Decentralization", 
-        mergedLabel: "BeL2 Arbitration Network",
+        securityLabel: "Secured with Bitcoin", 
+        mergedLabel: "Data Ownership Toolsets",
         poolsLabel: "Major Mining Pools",
         annualSecurity: "Annual Mining Security",
         features: [
@@ -141,7 +141,7 @@ export const translations = {
 
       bottomBanner: {
         title: "The First Bitcoin-Native Stablecoin is Here",
-        description: "Join the revolution that's putting Bitcoin's $2 trillion market cap to work in DeFi through progressive decentralization and Bitcoin-native security."
+        description: "Join the revolution that's putting Bitcoin's $2 trillion market cap to work in DeFi through Bitcoin-native security and Elastos infrastructure."
       }
     },
 
@@ -174,7 +174,7 @@ export const translations = {
           "Licensed entity in crypto-friendly Dubai jurisdiction",
           "Clear business registration and regulatory compliance", 
           "Built on proven Elastos SmartWeb infrastructure",
-          "Progressive decentralization roadmap with institutional backing"
+          "Built on Elastos infrastructure with institutional backing"
         ]
       }
     },
@@ -182,12 +182,12 @@ export const translations = {
     // Liquidations
     liquidations: {
       badge: "EARN REWARDS",
-      title: "Earn Yield as a BTCD Arbiter", 
-      subtitle: "Participate in protocol security while earning Bitcoin rewards. Stake ELA to become a BeL2 arbiter providing dispute resolution and earning BTC fees from Bitcoin transactions.",
+      title: "Earn Yield as a BTCD Keeper", 
+      subtitle: "Participate in protocol security while earning Bitcoin rewards. Stake ELA to become a BTCD Keeper providing dispute resolution and earning BTC fees from Bitcoin transactions.",
       detailsButton: "Details Soon",
       
       howItWorks: "How You Can Earn",
-      purchaseDesc: "Stake ELA tokens for dispute resolution and buy discounted Bitcoin (2-8% off) when vaults need rebalancing.",
+
       earnDesc: "Multiple revenue streams: dispute fees, discounted Bitcoin purchases, and protocol security rewards.",
       pegDesc: "Help maintain BTCD's dollar peg and protocol decentralization", 
       sustainDesc: "Contribute to protocol sustainability through economic security"
@@ -233,37 +233,37 @@ export const translations = {
         },
         {
           question: "How do I know my Bitcoin is safe?",
-          answer: "Your Bitcoin is protected by a 2-of-3 multi-signature system with multiple security scenarios: normal repayment requires borrower + issuer cooperation, disputes are resolved by independent BeL2 arbiters, loan defaults trigger cryptographic timelocks, and extended timelocks ensure you can always recover your Bitcoin even if the issuer fails.",
+          answer: "Your Bitcoin is protected by a 2-of-3 multi-signature system with multiple security scenarios: normal repayment requires borrower + issuer cooperation, disputes are resolved by independent BTCD Keepers, loan defaults trigger cryptographic timelocks, and extended timelocks ensure you can always recover your Bitcoin even if the issuer fails.",
           category: "Security"
         },
         {
-          question: "What is the BeL2 arbitration system?",
-          answer: "BeL2 arbiters are independent third parties selected from the Elastos network who stake ELA tokens to provide dispute resolution. They earn fees for honest behavior and face economic penalties for collusion, ensuring unbiased resolution when borrowers and issuers disagree.",
+          question: "What is the BTCD Keeper system?",
+          answer: "BTCD Keepers are community-driven, with participants holding ELA tokens to provide dispute resolution services. They earn fees for honest behavior and face economic penalties for collusion, ensuring unbiased resolution when borrowers and issuers disagree.",
           category: "Security"
         },
         {
-          question: "How can I become a BTCD arbiter?",
-          answer: "Stake ELA tokens on the BeL2 network to become an eligible arbiter. Arbiters are selected by borrowers and earn fees for providing dispute resolution services. Strong economic incentives and anti-collusion measures ensure the network remains secure and decentralized.",
+          question: "How can I become a BTCD Keeper?",
+          answer: "Stake ELA tokens on the BTCD network to become an eligible Keeper. Keepers are selected by borrowers and earn fees for providing dispute resolution services. Strong economic incentives and anti-collusion measures ensure the network remains secure and decentralized.",
           category: "Security"
         },
         {
           question: "What are the different security scenarios?",
-          answer: "BTCD protects through multiple scenarios: Normal Repayment (requires borrower + issuer signatures), Dispute Resolution (BeL2 arbiters provide independent verification), Loan Default (cryptographic timelocks enable programmatic liquidation), and Issuer Failure (extended timelocks ensure borrowers can always recover their Bitcoin).",
+          answer: "BTCD protects through multiple scenarios: Normal Repayment (requires borrower + issuer signatures), Dispute Resolution (BTCD Keepers provide independent verification), Loan Default (cryptographic timelocks enable programmatic liquidation), and Issuer Failure (extended timelocks ensure borrowers can always recover your Bitcoin).",
           category: "Security"
         },
         {
           question: "What is GSM (Gold-Silver Bimetallic) dual-collateral?",
-          answer: "GSM allows you to use both Bitcoin (gold) and ELA tokens (silver) as collateral, boosting your capital efficiency up to 65% LTV. Your Bitcoin stays in Bitcoin-native scripts while ELA tokens are held in separate smart contracts, maximizing your borrowing power.",
+          answer: "GSM allows you to use both Bitcoin (gold) and ELA tokens (silver) as collateral, boosting your capital efficiency up to 45% LTV. Your Bitcoin stays in Bitcoin-native scripts while ELA tokens are held in separate smart contracts, maximizing your borrowing power.",
           category: "Technology"
         },
         {
           question: "How do I create a BTCD loan?",
-          answer: "Create an order with your desired amount and duration, choose an arbiter from the network, lock your Bitcoin in a P2WSH script, wait for 3 confirmations, submit proof, then claim your BTCD. The entire process is transparent and Bitcoin-native.",
+          answer: "Create an order with your desired amount and duration, choose a Keeper from the network, lock your Bitcoin in a P2WSH script, wait for 3 confirmations, submit proof, then claim your BTCD. The entire process is transparent and Bitcoin-native.",
           category: "Basics"
         },
         {
           question: "Who is behind BTCD?",
-          answer: "BTCD is issued by Creek Business Center, a Dubai-licensed entity (Trade License No. 1293230) specializing in digital asset infrastructure. The protocol is built on Elastos SmartWeb infrastructure and follows a progressive decentralization roadmap.",
+          answer: "BTCD is issued by Creek Business Center, a Dubai-licensed entity (Trade License No. 1293230) specializing in digital asset infrastructure. The protocol is built on Elastos SmartWeb infrastructure.",
           category: "Basics"
         },
         {
@@ -273,12 +273,12 @@ export const translations = {
         },
         {
           question: "What's my maximum borrowing capacity?",
-          answer: "With Bitcoin-only collateral, you can borrow up to 60% LTV. With GSM dual-collateral (Bitcoin + ELA tokens), you can reach up to 65% LTV, significantly higher than traditional lending protocols while maintaining full protection.",
+          answer: "With Bitcoin-only collateral, you can borrow up to 40% LTV. With GSM dual-collateral (Bitcoin + ELA tokens), you can reach up to 45% LTV, significantly higher than traditional lending protocols while maintaining full protection.",
           category: "Risk Management"
         },
         {
           question: "What are the fees for using BTCD?",
-          answer: "BTCD features transparent pricing: 4% annual interest rate (dynamically adjusted based on volatility), 0.2% minting fee, and minimal transaction fees on Elastos Smart Chain. Options hedging costs are covered by the protocol through dynamic rate adjustments.",
+          answer: "BTCD features transparent pricing: 7% annual interest rate (dynamically adjusted based on volatility), and minimal transaction fees on ECO chain. Options hedging costs are covered by the protocol through dynamic rate adjustments.",
           category: "DeFi & Fees"
         },
         {
@@ -293,7 +293,7 @@ export const translations = {
         },
         {
           question: "When does BTCD launch?",
-          answer: "BTCD launches in August 2025 on Elastos Smart Chain, with broader expansion planned. The protocol follows a progressive decentralization model, starting with a single issuer and transitioning to a distributed BPOS node network while maintaining security guarantees.",
+          answer: "BTCD launches in August 2025 on ECO chain, with broader expansion planned. The protocol is built on Elastos infrastructure, starting with a single issuer and transitioning to a distributed BPOS node network while maintaining security guarantees.",
           category: "Basics"
         }
       ],
@@ -403,7 +403,7 @@ export const translations = {
           },
           platform: {
             title: "2. Platform Description", 
-            content: "BTCD is a Bitcoin-backed stablecoin platform utilizing multi-signature security and BeL2 arbitration for secure, non-liquidatable Bitcoin-backed lending."
+            content: "BTCD is a Bitcoin-backed stablecoin platform utilizing multi-signature security and BTCD Keeper system for secure, non-liquidatable Bitcoin-backed lending."
           },
           eligibility: {
             title: "3. Eligibility",
@@ -416,7 +416,7 @@ export const translations = {
               items: [
                 "Users lock Bitcoin in 2-of-3 multi-signature P2WSH scripts",
                 "Collateral remains on Bitcoin blockchain for maximum security", 
-                "Multi-signature involves user, issuer, and BeL2 arbiter",
+                "Multi-signature involves user, issuer, and BTCD Keeper",
                 "Minimum 3 confirmations required for collateral verification"
               ]
             },
@@ -430,12 +430,12 @@ export const translations = {
               ]
             },
             arbitration: {
-              title: "4.3 BeL2 Arbitration Network", 
+              title: "4.3 BTCD Keeper Network", 
               items: [
-                "Independent arbiters from Elastos network",
+                "Independent Keepers from Elastos network",
                 "Dispute resolution for borrower-issuer disagreements",
                 "Economic incentives ensure honest behavior",
-                "Arbiters stake ELA tokens as collateral"
+                "Keepers stake ELA tokens as collateral"
               ]
             }
           },
@@ -476,10 +476,10 @@ export const translations = {
             title: "6. Fees and Payments",
             intro: "Platform fees include:",
             items: [
-              "Interest Rate: 4% annual (dynamically adjusted for market conditions)",
-              "Minting Fee: 0.2% of BTCD amount",
+              "Interest Rate: 7% annual (dynamically adjusted for market conditions)",
+
               "Options Hedging: Covered by protocol through dynamic rate adjustments",
-              "Arbitration Fees: Paid to BeL2 arbiters for dispute resolution",
+              "Arbitration Fees: Paid to BTCD Keepers for dispute resolution",
               "Network Fees: Bitcoin and Elastos transaction costs"
             ],
             disclosure: "All fees are clearly disclosed before transaction execution. Fee structures may be updated with advance notice."
@@ -500,10 +500,10 @@ export const translations = {
           disputeResolution: {
             title: "8. Dispute Resolution",
             bel2: {
-              title: "8.1 BeL2 Arbitration",
-              intro: "Platform-related disputes are resolved through the BeL2 arbitration system:",
+              title: "8.1 BTCD Keeper System",
+              intro: "Platform-related disputes are resolved through the BTCD Keeper system:",
               items: [
-                "Independent arbiters selected from Elastos network",
+                "Independent Keepers selected from Elastos network",
                 "Economic incentives ensure fair resolution",
                 "Decisions are binding on platform participants",
                 "Appeals process available for significant disputes"
@@ -511,7 +511,7 @@ export const translations = {
             },
             legal: {
               title: "8.2 Legal Jurisdiction",
-              content: "For disputes not resolved through BeL2 arbitration, these Terms are governed by UAE law, and any legal proceedings shall be conducted in Dubai courts."
+              content: "For disputes not resolved through BTCD Keeper system, these Terms are governed by UAE law, and any legal proceedings shall be conducted in Dubai courts."
             }
           },
           liability: {
@@ -635,19 +635,19 @@ export const translations = {
               items: [
                 "Key Loss: Losing access to your private keys means permanent fund loss",
                 "Multi-Sig Complexity: Errors in multi-signature operations can lock funds",
-                "Arbiter Risk: BeL2 arbiters may make unfavorable decisions",
+                "Keeper Risk: BTCD Keepers may make unfavorable decisions",
                 "Technical Errors: Mistakes in Bitcoin script creation or execution",
-                "Counterparty Risk: Issuer or arbiter may become unavailable or hostile"
+                "Counterparty Risk: Issuer or Keeper may become unavailable or hostile"
               ]
             },
             bel2: {
-              title: "2.3 BeL2 Arbitration Risks",
+              title: "2.3 BTCD Keeper Risks",
               items: [
-                "Arbiters may make biased or incorrect decisions",
+                "Keepers may make biased or incorrect decisions",
                 "Arbitration process may be slow during disputes",
                 "Economic incentives may not prevent collusion",
                 "Appeals process may not reverse unfair decisions",
-                "Arbiters may lose their staked ELA, affecting dispute resolution"
+                "Keepers may lose their staked ELA, affecting dispute resolution"
               ]
             },
             gsm: {
@@ -655,7 +655,7 @@ export const translations = {
               items: [
                 "ELA Token Risk: ELA tokens may lose value or become illiquid",
                 "Correlation Risk: Bitcoin and ELA may decline simultaneously",
-                "Cross-Chain Risk: Elastos Smart Chain technical failures",
+                "Cross-Chain Risk: ECO chain technical failures",
                 "Complexity Risk: More complex systems have more failure points"
               ]
             }
@@ -784,8 +784,8 @@ export const translations = {
             items: [
               "Options Hedging: Algorithmic protection against price liquidations (90-day term only)",
               "Multi-Signature Security: 2-of-3 architecture prevents single points of failure",
-              "BeL2 Arbitration: Independent dispute resolution with economic incentives",
-              "Progressive Decentralization: Reducing platform centralization over time",
+              "BTCD Keeper System: Independent dispute resolution with economic incentives",
+              "Elastos Infrastructure: Built on Bitcoin-secured blockchain technology",
               "Security Audits: Regular code reviews and vulnerability assessments",
               "Regulatory Compliance: Operating under Dubai business license"
             ],
@@ -848,11 +848,11 @@ export const translations = {
     // Footer
     footer: {
       tagline: "The first Bitcoin-native stablecoin",
-      description: "The world's first fully Bitcoin-backed stablecoin. Developed by NBW Labs and secured by Bitcoin's own mining network.",
+      description: "The world's first fully Bitcoin-backed stablecoin. Secured by Bitcoin's own mining network.",
       descriptionParts: {
-        beforeLink: "The world's first fully Bitcoin-backed stablecoin. Developed by ",
-        linkText: "NBW Labs",
-        afterLink: " and secured by Bitcoin's own mining network."
+        beforeLink: "The world's first fully Bitcoin-backed stablecoin. Secured by Bitcoin's own mining network.",
+        linkText: "",
+        afterLink: ""
       },
       product: {
         title: "Product",
@@ -907,10 +907,10 @@ export const translations = {
       
       step1: {
         title: "安全锁定你的比特币",
-        description: "通过选择金额和期限创建你的BTCD订单，然后从我们的网络中选择一个独立仲裁者。你的比特币进入一个安全的P2WSH多重签名脚本，涉及三方：你、发行方和你选择的仲裁者。",
+        description: "通过选择金额和期限创建你的BTCD订单，然后从我们的网络中选择一个独立Keeper。你的比特币进入一个安全的P2WSH多重签名脚本，涉及三方：你、发行方和你选择的Keeper。",
         points: [
           "创建自定义金额和期限的订单",
-          "从订单列表中选择你偏好的仲裁者",
+          "从订单列表中选择你偏好的Keeper",
           "在比特币主网的P2WSH脚本中锁定BTC"
         ]
       },
@@ -954,10 +954,10 @@ export const translations = {
       
       bitcoinNative: {
         title: "2-3多重签名安全性",
-        description: "BTCD采用行业标准的2-3多重签名P2WSH脚本，涉及三个独立方：借款人、发行方和BeL2仲裁者。这种架构确保任何单一实体都无法控制用户资金，同时保持比特币原生安全性。双重抵押支持ELA代币，将资本效率提升至65% LTV。",
+        description: "BTCD采用行业标准的2-3多重签名P2WSH脚本，涉及三个独立方：借款人、发行方和BTCD Keeper。这种架构确保任何单一实体都无法控制用户资金，同时保持比特币原生安全性。双重抵押支持ELA代币，将资本效率提升至45% LTV。",
         smartContractsTitle: "多重签名P2WSH架构",
         codeComment: "// 去中心化2-3多重签名安全",
-        codeDescription: "三重签名安全确保任何单方无法控制您的比特币：您控制一个密钥，发行方持有另一个，独立的BeL2仲裁者提供无法操控的争议解决。多重加密时间锁确保您始终可以恢复您的比特币。"
+        codeDescription: "三重签名安全确保任何单方无法控制您的比特币：您控制一个密钥，发行方持有另一个，独立的BTCD Keeper提供无法操控的争议解决。多重加密时间锁确保您始终可以恢复您的比特币。"
       },
 
       btcdToken: {
@@ -966,7 +966,7 @@ export const translations = {
         backingAsset: "支持资产",
         bitcoin100: "100% 比特币 + 期权保护",
         collateralRatio: "资本效率",
-        ratioRequired: "高达65% LTV",
+        ratioRequired: "高达45% LTV",
         liquidation: "清算风险",
         gracePeriod: "通过看跌期权消除",
         comparison: {
@@ -990,11 +990,11 @@ export const translations = {
       elastos: {
         title: "在Elastos上的渐进式去中心化",
         description: "我们在Elastos SmartWeb上构建了BTCD——唯一由比特币算力保护的区块链。BTCD遵循结构化的去中心化路线图，目前采用单一发行者模式，正在过渡到完全分布式的BPOS节点网络，同时保持安全保证。",
-        codeDescription: "BeL2仲裁者通过合并挖矿继承超过50%的比特币算力。经济质押激励和反合谋措施确保争议解决中的诚实行为。",
+        codeDescription: "BTCD Keeper通过合并挖矿继承超过50%的比特币算力。经济质押激励和反合谋措施确保争议解决中的诚实行为。",
         stakeElaButton: "质押ELA代币",
         hashpowerLabel: "比特币算力",
-        securityLabel: "渐进式去中心化",
-        mergedLabel: "BeL2仲裁网络",
+        securityLabel: "由比特币保障",
+        mergedLabel: "数据所有权工具集",
         poolsLabel: "主要矿池",
         annualSecurity: "年度挖矿安全保障",
         features: [
@@ -1060,12 +1060,12 @@ export const translations = {
     // Liquidations - 清算
     liquidations: {
       badge: "赚取奖励",
-      title: "作为BTCD仲裁者赚取收益",
-      subtitle: "参与协议安全性的同时赚取比特币奖励。质押ELA成为BeL2仲裁者提供争议解决并从比特币交易中赚取BTC费用。",
+      title: "作为BTCD Keeper赚取收益",
+      subtitle: "参与协议安全性的同时赚取比特币奖励。质押ELA成为BTCD Keeper提供争议解决并从比特币交易中赚取BTC费用。",
       detailsButton: "详情即将发布",
       
       howItWorks: "如何赚取收益",
-      purchaseDesc: "质押ELA代币进行争议解决，并在金库需要重新平衡时购买折扣比特币（2-8%折扣）。",
+
       earnDesc: "多重收入流：争议费用、折扣比特币购买和协议安全奖励。",
       pegDesc: "帮助维护BTCD美元锚定和协议去中心化",
       sustainDesc: "通过经济安全为协议可持续性做贡献"
@@ -1111,17 +1111,17 @@ export const translations = {
         },
         {
           question: "我如何知道我的比特币是安全的？",
-          answer: "您的比特币受到2-3多重签名系统保护，具有多种安全场景：正常还款需要借款人+发行方合作，争议由独立BeL2仲裁者解决，贷款违约触发加密时间锁，延长时间锁确保即使发行方失败您也能始终恢复比特币。",
+          answer: "您的比特币受到2-3多重签名系统保护，具有多种安全场景：正常还款需要借款人+发行方合作，争议由独立BTCD Keeper解决，贷款违约触发加密时间锁，延长时间锁确保即使发行方失败您也能始终恢复比特币。",
           category: "安全性"
         },
         {
           question: "什么是GSM（金银双重抵押）系统？",
-          answer: "GSM允许您同时使用比特币（金）和ELA代币（银）作为抵押品，将资本效率提升至65% LTV。您的比特币保留在比特币原生脚本中，而ELA代币存储在独立智能合约中，最大化您的借贷能力。",
+          answer: "GSM允许您同时使用比特币（金）和ELA代币（银）作为抵押品，将资本效率提升至45% LTV。您的比特币保留在比特币原生脚本中，而ELA代币存储在独立智能合约中，最大化您的借贷能力。",
           category: "技术"
         },
         {
           question: "如何创建BTCD贷款？",
-          answer: "创建订单并选择所需金额和期限，从网络中选择仲裁者，将比特币锁定在P2WSH脚本中，等待3次确认，提交证明，然后领取您的BTCD。整个过程透明且比特币原生。",
+          answer: "创建订单并选择所需金额和期限，从网络中选择Keeper，将比特币锁定在P2WSH脚本中，等待3次确认，提交证明，然后领取您的BTCD。整个过程透明且比特币原生。",
           category: "基础知识"
         },
         {
@@ -1131,12 +1131,12 @@ export const translations = {
         },
         {
           question: "我的最大借贷能力是多少？",
-          answer: "仅使用比特币抵押，您可以借贷高达60% LTV。使用GSM双重抵押（比特币+ELA代币），您可以达到65% LTV，比传统借贷协议显著更高，同时保持全面保护。",
+          answer: "仅使用比特币抵押，您可以借贷高达40% LTV。使用GSM双重抵押（比特币+ELA代币），您可以达到45% LTV，比传统借贷协议显著更高，同时保持全面保护。",
           category: "风险管理"
         },
         {
           question: "使用BTCD的费用是多少？",
-          answer: "BTCD具有透明定价：4%年利率（根据波动性动态调整），0.2%铸造费，以及Elastos智能链上的最低交易费。期权对冲成本通过协议动态利率调整覆盖。",
+          answer: "BTCD具有透明定价：7%年利率（根据波动性动态调整），以及ECO链上的最低交易费。期权对冲成本通过协议动态利率调整覆盖。",
           category: "DeFi和费用"
         },
         {
@@ -1161,7 +1161,7 @@ export const translations = {
         },
         {
           question: "有哪些不同的安全场景？",
-          answer: "BTCD通过多种场景提供保护：正常还款（需要借款人+发行方签名），争议解决（BeL2仲裁者提供独立验证），贷款违约（加密时间锁启用程序化清算），以及发行方故障（延长时间锁确保借款人始终可以恢复比特币）。",
+          answer: "BTCD通过多种场景提供保护：正常还款（需要借款人+发行方签名），争议解决（BTCD Keeper提供独立验证），贷款违约（加密时间锁启用程序化清算），以及发行方故障（延长时间锁确保借款人始终可以恢复比特币）。",
           category: "安全性"
         }
       ],
@@ -1271,7 +1271,7 @@ export const translations = {
           },
           platform: {
             title: "2. 平台描述", 
-            content: "BTCD 是一个利用多重签名安全性和 BeL2 仲裁机制的比特币支持稳定币平台，用于安全、非清算的比特币支持借贷。"
+            content: "BTCD 是一个利用多重签名安全性和 BTCD Keeper 机制的比特币支持稳定币平台，用于安全、非清算的比特币支持借贷。"
           },
           eligibility: {
             title: "3. 资格",
@@ -1284,7 +1284,7 @@ export const translations = {
               items: [
                 "用户在2-3多重签名P2WSH脚本中锁定比特币",
                 "抵押品保留在比特币区块链上以确保最大安全性", 
-                "多重签名涉及用户、发行方和BeL2仲裁者",
+                "多重签名涉及用户、发行方和BTCD Keeper",
                 "抵押品验证需要至少3次确认"
               ]
             },
@@ -1298,12 +1298,12 @@ export const translations = {
               ]
             },
             arbitration: {
-              title: "4.3 BeL2仲裁网络", 
+              title: "4.3 BTCD Keeper网络", 
               items: [
-                "来自Elastos网络的独立仲裁者",
+                "来自Elastos网络的独立Keeper",
                 "解决借款方与发行方之间的争议",
                 "经济激励确保诚实行为",
-                "仲裁者质押ELA代币作为抵押品"
+                "Keeper质押ELA代币作为抵押品"
               ]
             }
           },
@@ -1344,10 +1344,10 @@ export const translations = {
             title: "6. 费用和付款",
             intro: "平台费用包括：",
             items: [
-              "利率：4%年利率（根据市场条件动态调整）",
+              "利率：7%年利率（根据市场条件动态调整）",
               "铸造费：BTCD金额的0.2%",
               "期权对冲：通过协议动态费率调整覆盖",
-              "仲裁费：支付给BeL2仲裁者的争议解决费用",
+              "仲裁费：支付给BTCD Keeper的争议解决费用",
               "网络费：比特币和Elastos交易成本"
             ],
             disclosure: "所有费用在交易执行前均有明确披露。费用结构可能会提前通知更新。"
@@ -1368,10 +1368,10 @@ export const translations = {
           disputeResolution: {
             title: "8. 争议解决",
             bel2: {
-              title: "8.1 BeL2仲裁",
-              intro: "平台相关争议通过BeL2仲裁系统解决：",
+              title: "8.1 BTCD Keeper系统",
+              intro: "平台相关争议通过BTCD Keeper系统解决：",
               items: [
-                "从Elastos网络选择的独立仲裁者",
+                "从Elastos网络选择的独立Keeper",
                 "经济激励确保公平解决",
                 "决定对平台参与者具有约束力",
                 "重大争议可申请上诉程序"
@@ -1379,7 +1379,7 @@ export const translations = {
             },
             legal: {
               title: "8.2 法律管辖权",
-              content: "对于未通过BeL2仲裁解决的争议，这些条款受阿联酋法律管辖，任何法律程序应在迪拜法院进行。"
+              content: "对于未通过BTCD Keeper系统解决的争议，这些条款受阿联酋法律管辖，任何法律程序应在迪拜法院进行。"
             }
           },
           liability: {
@@ -1508,19 +1508,19 @@ export const translations = {
               items: [
                 "密钥丢失：丢失私钥意味着永久资金损失",
                 "多重签名复杂性：多重签名操作中的错误可能导致资金锁定",
-                "仲裁者风险：BeL2仲裁者可能做出不利决定",
+                "Keeper风险：BTCD Keeper可能做出不利决定",
                 "技术错误：比特币脚本创建或执行中的错误",
-                "对手方风险：发行方或仲裁者可能变得不可用或敌对"
+                "对手方风险：发行方或Keeper可能变得不可用或敌对"
               ]
             },
             bel2: {
-              title: "2.3 BeL2仲裁风险",
+              title: "2.3 BTCD Keeper风险",
               items: [
-                "仲裁者可能做出有偏见或错误的决定",
+                "Keeper可能做出有偏见或错误的决定",
                 "争议期间仲裁过程可能缓慢",
                 "经济激励可能无法防止串通",
                 "上诉过程可能无法推翻不公平决定",
-                "仲裁者可能失去其质押的ELA，影响争议解决"
+                "Keeper可能失去其质押的ELA，影响争议解决"
               ]
             },
             gsm: {
@@ -1657,7 +1657,7 @@ export const translations = {
             items: [
               "期权对冲：针对价格清算的算法保护（仅限90天期限）",
               "多重签名安全：2-3架构防止单点故障",
-              "BeL2仲裁：具有经济激励的独立争议解决",
+              "BTCD Keeper系统：具有经济激励的独立争议解决",
               "渐进式去中心化：随时间减少平台中心化",
               "安全审计：定期代码审查和漏洞评估",
               "监管合规：在迪拜商业许可下运营"
@@ -1721,11 +1721,11 @@ export const translations = {
     // Footer - 页脚
     footer: {
       tagline: "第一个比特币原生稳定币",
-      description: "世界上第一个完全由比特币支持的稳定币。由NBW Labs开发，由比特币自己的挖矿网络保障。",
+      description: "世界上第一个完全由比特币支持的稳定币。由比特币自己的挖矿网络保障。",
       descriptionParts: {
-        beforeLink: "世界上第一个完全由比特币支持的稳定币。由 ",
-        linkText: "NBW Labs",
-        afterLink: " 开发，由比特币自己的挖矿网络保障。"
+        beforeLink: "世界上第一个完全由比特币支持的稳定币。由比特币自己的挖矿网络保障。",
+        linkText: "",
+        afterLink: ""
       },
       product: {
         title: "产品",

@@ -18,17 +18,17 @@ import { config } from '@/lib/config'
 export default function BTCDLanding() {
   const { t, language } = useLanguage()
   const isMobile = useIsMobile()
-  const [selectedLiquidatorImage, setSelectedLiquidatorImage] = useState("/Arbiter.jpg")
+  const [selectedLiquidatorImage, setSelectedLiquidatorImage] = useState("/Keeper.jpg")
   const [isHeaderVisible, setIsHeaderVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [isImageLoading, setIsImageLoading] = useState(false)
   const [isPageLoading, setIsPageLoading] = useState(true)
   
   const liquidatorImages = {
-    purchase: "/Arbiter.jpg",
-    profit: "/Arbiter.jpg", 
-    peg: "/Arbiter.jpg",
-    sustainability: "/Arbiter.jpg"
+    purchase: "/Keeper.jpg",
+    profit: "/Keeper.jpg", 
+    peg: "/Keeper.jpg",
+    sustainability: "/Keeper.jpg"
   }
 
   const handleLiquidationClick = async (key: keyof typeof liquidatorImages) => {
@@ -471,24 +471,15 @@ export default function BTCDLanding() {
                       </div>
               <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
                 <Image 
-                  src="/BeL2 logo Special.png" 
-                  alt="BeL2" 
+                  src="/BTCD Logo/BTCD Logo 1.png" 
+                  alt="BTCD" 
                   width={110}
                   height={36}
                   className="max-h-5 sm:max-h-7 lg:max-h-9 max-w-[70px] sm:max-w-[90px] lg:max-w-[110px] w-auto h-auto object-contain filter brightness-75"
                   sizes="(max-width: 640px) 70px, (max-width: 1024px) 90px, 110px"
                 />
                       </div>
-              <div className="h-6 sm:h-8 lg:h-10 flex items-center justify-center">
-                <Image 
-                  src="/NBW Logo.png" 
-                  alt="NBW Infrastructure" 
-                  width={120}
-                  height={40}
-                  className="max-h-6 sm:max-h-8 lg:max-h-10 max-w-[80px] sm:max-w-[100px] lg:max-w-[120px] w-auto h-auto object-contain filter brightness-75"
-                  sizes="(max-width: 640px) 80px, (max-width: 1024px) 100px, 120px"
-                />
-                    </div>
+
                     </div>
                   </div>
             </div>
@@ -690,25 +681,11 @@ export default function BTCDLanding() {
             <p className="text-gray-400 text-lg max-w-3xl mx-auto font-pp-telegraf">
               {language === 'en' ? (
                 <>
-                  Built by <a 
-                    href="https://cointelegraph.com/news/harvard-students-launch-new-bretton-woods-project-to-tackle-global-debt-crisis" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-elastos-orange hover:text-white transition-colors duration-200 underline"
-                  >
-                    Harvard alumni
-                  </a> and secured by Bitcoin's own mining network. This isn't just another stablecoin—it's the future of Bitcoin finance.
+                  Secured by Bitcoin's own mining network. This isn't just another stablecoin—it's the future of Bitcoin finance.
                 </>
               ) : (
                 <>
-                  由<a 
-                    href="https://cointelegraph.com/news/harvard-students-launch-new-bretton-woods-project-to-tackle-global-debt-crisis" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-elastos-orange hover:text-white transition-colors duration-200 underline"
-                  >
-                    哈佛校友
-                  </a>构建，由比特币自己的挖矿网络保障。这不仅仅是另一个稳定币——这是比特币金融的未来。
+                  由比特币自己的挖矿网络保障。这不仅仅是另一个稳定币——这是比特币金融的未来。
                 </>
               )}
             </p>
@@ -1101,7 +1078,7 @@ export default function BTCDLanding() {
                   >
                     Stake ELA
                   </a>{' '}
-                  to become a BeL2 arbiter providing dispute resolution and earning BTC fees from Bitcoin transactions.
+                  to become a BTCD Keeper providing dispute resolution and earning BTC fees from Bitcoin transactions.
                 </>
               ) : (
                 <>
@@ -1114,7 +1091,7 @@ export default function BTCDLanding() {
                   >
                     质押ELA
                   </a>
-                  成为BeL2仲裁者提供争议解决并从比特币交易中赚取BTC费用。
+                  成为BTCD Keeper提供争议解决并从比特币交易中赚取BTC费用。
                 </>
               )}
             </p>
@@ -1136,20 +1113,7 @@ export default function BTCDLanding() {
               <div>
                 <h3 className="text-2xl emphasis-elastos text-white mb-6">{t.liquidations.howItWorks}</h3>
                 <div className="space-y-6">
-                  <button 
-                                    onClick={() => handleLiquidationClick('purchase')}
-                    className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
-                      selectedLiquidatorImage === liquidatorImages.purchase 
-                  ? 'border-elastos-orange bg-gray-800/20' 
-                  : 'border-gray-600'
-                    }`}
-                  >
-              <p className={`leading-relaxed group-hover:text-white font-pp-telegraf ${
-                      selectedLiquidatorImage === liquidatorImages.purchase ? 'text-white' : 'text-gray-400'
-                    }`}>
-                {t.liquidations.purchaseDesc}
-                    </p>
-                  </button>
+
                   <button 
                                     onClick={() => handleLiquidationClick('profit')}
                     className={`w-full text-left border-l-4 pl-6 hover:bg-gray-800/30 rounded-r-lg transition-all p-4 group ${
@@ -1307,15 +1271,6 @@ export default function BTCDLanding() {
                 </div>
               <p className="text-gray-400 text-lg leading-relaxed max-w-md font-pp-telegraf">
                 {t.footer.descriptionParts.beforeLink}
-                <a 
-                  href={config.external.nbwLabs} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-blue-300 transition-colors underline"
-                >
-                  {t.footer.descriptionParts.linkText}
-                </a>
-                {t.footer.descriptionParts.afterLink}
               </p>
               <div className="flex space-x-6">
                 <a href={config.external.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">

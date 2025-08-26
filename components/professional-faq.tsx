@@ -55,32 +55,32 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
     },
     {
       question: "How do I know my Bitcoin is safe?",
-      answer: "Your Bitcoin is protected by a 2-of-3 multi-signature system with multiple security scenarios: normal repayment requires borrower + issuer cooperation, disputes are resolved by independent BeL2 arbiters, loan defaults trigger cryptographic timelocks, and extended timelocks ensure you can always recover your Bitcoin even if the issuer fails.",
+      answer: "Your Bitcoin is protected by a 2-of-3 multi-signature system with multiple security scenarios: normal repayment requires borrower + issuer cooperation, disputes are resolved by independent BTCD Keepers, loan defaults trigger cryptographic timelocks, and extended timelocks ensure you can always recover your Bitcoin even if the issuer fails.",
       category: "Security"
     },
     {
-      question: "What is the BeL2 arbitration system?",
-      answer: "BeL2 arbiters are independent third parties selected from the Elastos network who stake ELA tokens to provide dispute resolution. They earn fees for honest behavior and face economic penalties for collusion, ensuring unbiased resolution when borrowers and issuers disagree.",
+      question: "What is the BTCD Keeper system?",
+      answer: "BTCD Keepers are community-driven, with participants holding ELA tokens to provide dispute resolution services. They earn fees for honest behavior and face economic penalties for collusion, ensuring unbiased resolution when borrowers and issuers disagree.",
       category: "Security"
     },
     {
-      question: "How can I become a BTCD arbiter?",
-      answer: "Stake ELA tokens on the BeL2 network to become an eligible arbiter. Arbiters are selected by borrowers and earn fees for providing dispute resolution services. Strong economic incentives and anti-collusion measures ensure the network remains secure and decentralized.",
+      question: "How can I become a BTCD Keeper?",
+      answer: "Stake ELA tokens on the BTCD network to become an eligible Keeper. Keepers are selected by borrowers and earn fees for providing dispute resolution services. Strong economic incentives and anti-collusion measures ensure the network remains secure and decentralized.",
       category: "Security"
     },
     {
       question: "What are the different security scenarios?",
-      answer: "BTCD protects through multiple scenarios: Normal Repayment (requires borrower + issuer signatures), Dispute Resolution (BeL2 arbiters provide independent verification), Loan Default (cryptographic timelocks enable programmatic liquidation), and Issuer Failure (extended timelocks ensure borrowers can always recover their Bitcoin).",
+      answer: "BTCD protects through multiple scenarios: Normal Repayment (requires borrower + issuer signatures), Dispute Resolution (BTCD Keepers provide independent verification), Loan Default (cryptographic timelocks enable programmatic liquidation), and Issuer Failure (extended timelocks ensure borrowers can always recover their Bitcoin).",
       category: "Security"
     },
     {
       question: "What is GSM (Gold-Silver Bimetallic) dual-collateral?",
-      answer: "GSM allows you to use both Bitcoin (gold) and ELA tokens (silver) as collateral, boosting your capital efficiency up to 65% LTV. Your Bitcoin stays in Bitcoin-native scripts while ELA tokens are held in separate smart contracts, maximizing your borrowing power.",
+      answer: "GSM allows you to use both Bitcoin (gold) and ELA tokens (silver) as collateral, boosting your capital efficiency up to 45% LTV. Your Bitcoin stays in Bitcoin-native scripts while ELA tokens are held in separate smart contracts, maximizing your borrowing power.",
       category: "Technology"
     },
     {
       question: "How do I create a BTCD loan?",
-      answer: "Create an order with your desired amount and duration, choose an arbiter from the network, lock your Bitcoin in a P2WSH script, wait for 3 confirmations, submit proof, then claim your BTCD. The entire process is transparent and Bitcoin-native.",
+      answer: "Create an order with your desired amount and duration, choose a Keeper from the network, lock your Bitcoin in a P2WSH script, wait for 3 confirmations, submit proof, then claim your BTCD. The entire process is transparent and Bitcoin-native.",
       category: "Basics"
     },
     {
@@ -90,12 +90,12 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
     },
     {
       question: "What's my maximum borrowing capacity?",
-      answer: "With Bitcoin-only collateral, you can borrow up to 60% LTV. With GSM dual-collateral (Bitcoin + ELA tokens), you can reach up to 65% LTV, significantly higher than traditional lending protocols while maintaining full protection.",
+      answer: "With Bitcoin-only collateral, you can borrow up to 40% LTV. With GSM dual-collateral (Bitcoin + ELA tokens), you can reach up to 45% LTV, significantly higher than traditional lending protocols while maintaining full protection.",
       category: "Risk Management"
     },
     {
       question: "What are the fees for using BTCD?",
-      answer: "BTCD features transparent pricing: 4% annual interest rate (dynamically adjusted based on volatility), 0.2% minting fee, and minimal transaction fees on Elastos Smart Chain. Options hedging costs are covered by the protocol through dynamic rate adjustments.",
+      answer: "BTCD features transparent pricing: 7% annual interest rate (dynamically adjusted based on volatility), and minimal transaction fees on ECO chain. Options hedging costs are covered by the protocol through dynamic rate adjustments.",
       category: "DeFi & Fees"
     },
     {
@@ -105,7 +105,7 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
     },
     {
       question: "When does BTCD launch?",
-      answer: "BTCD launches in August 2025 on Elastos Smart Chain, with broader expansion planned. The protocol follows a progressive decentralization model, starting with a single issuer and transitioning to a distributed BPOS node network while maintaining security guarantees.",
+      answer: "BTCD launches in August 2025 on ECO chain, with broader expansion planned. The protocol is built on Elastos infrastructure, starting with a single issuer and transitioning to a distributed BPOS node network while maintaining security guarantees.",
       category: "Basics"
     }
   ],
