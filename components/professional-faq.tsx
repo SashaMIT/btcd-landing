@@ -75,7 +75,7 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
     },
     {
       question: "What is GSM (Gold-Silver Bimetallic) dual-collateral?",
-      answer: "GSM allows you to use both Bitcoin (gold) and ELA tokens (silver) as collateral, boosting your capital efficiency up to 45% LTV. Your Bitcoin stays in Bitcoin-native scripts while ELA tokens are held in separate smart contracts, maximizing your borrowing power.",
+      answer: "GSM allows you to use both Bitcoin (gold) and ELA tokens (silver) as collateral, boosting your capital efficiency up to 65% LTV. Your Bitcoin stays in Bitcoin-native scripts while ELA tokens are held in separate smart contracts, maximizing your borrowing power.",
       category: "Technology"
     },
     {
@@ -90,7 +90,7 @@ export const BitcoinFAQSection: React.FC<BitcoinFAQSectionProps> = ({
     },
     {
       question: "What's my maximum borrowing capacity?",
-      answer: "With Bitcoin-only collateral, you can borrow up to 40% LTV. With GSM dual-collateral (Bitcoin + ELA tokens), you can reach up to 45% LTV, significantly higher than traditional lending protocols while maintaining full protection.",
+      answer: "With Bitcoin-only collateral, you can borrow up to 40% LTV. With GSM dual-collateral (Bitcoin + ELA tokens), you can reach up to 65% LTV, significantly higher than traditional lending protocols while maintaining full protection.",
       category: "Risk Management"
     },
     {

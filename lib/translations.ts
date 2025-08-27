@@ -16,7 +16,7 @@ export const translations = {
       headline: "Finally, put your",
       bitcoin: "Bitcoin", 
       headlineEnd: "to work without selling it",
-      subtitle: "The only Bitcoin-backed stablecoin with zero price liquidation risk during the loan term. Unlock liquidity from your BTC—no wrapped tokens, no bridges, maximum Bitcoin-native security.",
+      subtitle: "The only Bitcoin-backed stablecoin with minimal price liquidation risk during the loan term. Unlock liquidity from your BTC—no wrapped tokens, no bridges, maximum Bitcoin-native security.",
       mintToday: "Mint today",
       securedBy: "Secured by leading Bitcoin infrastructure providers"
     },
@@ -76,7 +76,7 @@ export const translations = {
       
       bitcoinNative: {
         title: "2-of-3 Multi-Signature Security",
-        description: "BTCD employs industry-standard 2-of-3 multi-signature P2WSH scripts with three independent parties: borrower, issuer, and BTCD Keeper. This architecture ensures no single entity can control user funds while maintaining Bitcoin-native security. Dual-collateral support with ELA tokens boosts capital efficiency up to 45% LTV.",
+        description: "BTCD employs industry-standard 2-of-3 multi-signature P2WSH scripts with three independent parties: borrower, issuer, and BTCD Keeper. This architecture ensures no single entity can control user funds while maintaining Bitcoin-native security. Dual-collateral support with ELA tokens boosts capital efficiency up to 65% LTV.",
         smartContractsTitle: "Multi-Sig P2WSH Architecture",
         codeComment: "// Decentralized 2-of-3 multi-signature security",
         codeDescription: "Triple-signature security where no single party controls your Bitcoin: you control one key, the issuer holds another, and independent BTCD Keepers provide dispute resolution that can't be manipulated. Multiple cryptographic timelocks ensure you can always recover your Bitcoin."
@@ -88,7 +88,7 @@ export const translations = {
         backingAsset: "Backing Asset",
         bitcoin100: "100% Bitcoin + Options Protection",
         collateralRatio: "Capital Efficiency", 
-        ratioRequired: "Up to 45% LTV",
+        ratioRequired: "Up to 65% LTV",
         liquidation: "Liquidation Risk",
         gracePeriod: "Minimized via Put Options",
         comparison: {
@@ -253,7 +253,7 @@ export const translations = {
         },
         {
           question: "What is GSM (Gold-Silver Bimetallic) dual-collateral?",
-          answer: "GSM allows you to use both Bitcoin (gold) and ELA tokens (silver) as collateral, boosting your capital efficiency up to 45% LTV. Your Bitcoin stays in Bitcoin-native scripts while ELA tokens are held in separate smart contracts, maximizing your borrowing power.",
+          answer: "GSM allows you to use both Bitcoin (gold) and ELA tokens (silver) as collateral, boosting your capital efficiency up to 65% LTV. Your Bitcoin stays in Bitcoin-native scripts while ELA tokens are held in separate smart contracts, maximizing your borrowing power.",
           category: "Technology"
         },
         {
@@ -273,7 +273,7 @@ export const translations = {
         },
         {
           question: "What's my maximum borrowing capacity?",
-          answer: "With Bitcoin-only collateral, you can borrow up to 40% LTV. With GSM dual-collateral (Bitcoin + ELA tokens), you can reach up to 45% LTV, significantly higher than traditional lending protocols while maintaining full protection.",
+          answer: "With Bitcoin-only collateral, you can borrow up to 40% LTV. With GSM dual-collateral (Bitcoin + ELA tokens), you can reach up to 65% LTV, significantly higher than traditional lending protocols while maintaining full protection.",
           category: "Risk Management"
         },
         {
@@ -954,7 +954,7 @@ export const translations = {
       
       bitcoinNative: {
         title: "2-3多重签名安全性",
-        description: "BTCD采用行业标准的2-3多重签名P2WSH脚本，涉及三个独立方：借款人、发行方和BTCD Keeper。这种架构确保任何单一实体都无法控制用户资金，同时保持比特币原生安全性。双重抵押支持ELA代币，将资本效率提升至45% LTV。",
+        description: "BTCD采用行业标准的2-3多重签名P2WSH脚本，涉及三个独立方：借款人、发行方和BTCD Keeper。这种架构确保任何单一实体都无法控制用户资金，同时保持比特币原生安全性。双重抵押支持ELA代币，将资本效率提升至65% LTV。",
         smartContractsTitle: "多重签名P2WSH架构",
         codeComment: "// 去中心化2-3多重签名安全",
         codeDescription: "三重签名安全确保任何单方无法控制您的比特币：您控制一个密钥，发行方持有另一个，独立的BTCD Keeper提供无法操控的争议解决。多重加密时间锁确保您始终可以恢复您的比特币。"
@@ -966,7 +966,7 @@ export const translations = {
         backingAsset: "支持资产",
         bitcoin100: "100% 比特币 + 期权保护",
         collateralRatio: "资本效率",
-        ratioRequired: "高达45% LTV",
+        ratioRequired: "高达65% LTV",
         liquidation: "清算风险",
         gracePeriod: "通过看跌期权消除",
         comparison: {
@@ -1116,7 +1116,7 @@ export const translations = {
         },
         {
           question: "什么是GSM（金银双重抵押）系统？",
-          answer: "GSM允许您同时使用比特币（金）和ELA代币（银）作为抵押品，将资本效率提升至45% LTV。您的比特币保留在比特币原生脚本中，而ELA代币存储在独立智能合约中，最大化您的借贷能力。",
+          answer: "GSM允许您同时使用比特币（金）和ELA代币（银）作为抵押品，将资本效率提升至65% LTV。您的比特币保留在比特币原生脚本中，而ELA代币存储在独立智能合约中，最大化您的借贷能力。",
           category: "技术"
         },
         {
@@ -1131,7 +1131,7 @@ export const translations = {
         },
         {
           question: "我的最大借贷能力是多少？",
-          answer: "仅使用比特币抵押，您可以借贷高达40% LTV。使用GSM双重抵押（比特币+ELA代币），您可以达到45% LTV，比传统借贷协议显著更高，同时保持全面保护。",
+          answer: "仅使用比特币抵押，您可以借贷高达40% LTV。使用GSM双重抵押（比特币+ELA代币），您可以达到65% LTV，比传统借贷协议显著更高，同时保持全面保护。",
           category: "风险管理"
         },
         {
